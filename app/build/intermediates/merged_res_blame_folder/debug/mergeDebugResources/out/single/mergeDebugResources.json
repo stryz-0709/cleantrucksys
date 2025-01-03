@@ -1,0 +1,182 @@
+[
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_circle_light_on.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/circle_light_on.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_process_a_img.png.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/process_a_img.png"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_logo.png.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/logo.png"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_process_b2.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_b2.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_process_a.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_a.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_activity_main.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_power_on.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/power_on.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_circle_light_off.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/circle_light_off.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_back.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/back.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_minus.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/minus.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_process_a2.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_a2.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_button_background.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/button_background.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_circle_light_selector.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/circle_light_selector.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_process_b_img.png.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/process_b_img.png"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_plus.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/plus.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_system.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_system.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_process_b1.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_b1.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_power_off.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/power_off.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/xml_network_security_config.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/xml_backup_rules.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_process.PNG.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/process.PNG"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_process_b.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_b.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_taplo.png.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/taplo.png"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_manual.png.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/manual.png"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_process.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_on_off_toggler.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/on_off_toggler.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_home.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/xml_data_extraction_rules.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_process_a1.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_a1.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/layout_fragment_manual.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_manual.xml"
+    },
+    {
+        "merged": "com.aasolution.cleantrucksys.app-debug-63:/drawable_home.xml.flat",
+        "source": "com.aasolution.cleantrucksys.app-main-65:/drawable/home.xml"
+    }
+]

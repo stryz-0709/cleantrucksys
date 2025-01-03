@@ -1,0 +1,5 @@
+<!-- res/drawable/circle_light_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:drawable="@drawable/circle_light_on" /> <!-- "on" state -->
+    <item android:drawable="@drawable/circle_light_off" /> <!-- "off" state -->
+</selector>

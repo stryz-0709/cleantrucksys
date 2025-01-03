@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafcf8"
+    android:theme="@style/ThemeOverlay.HMI.FullscreenContainer"
+    tools:context=".ProcessFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/manual_title"
+            android:paddingTop="@dimen/_10sdp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quy trình hoạt động hệ thống"
+                android:textStyle="bold"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_20sdp"
+                android:textAlignment="center"/>
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_centerInParent="true">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <!-- Buttons in the center -->
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <android.widget.Button
+                            android:id="@+id/processA"
+                            android:layout_width="@dimen/_140sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/button_background"
+                            android:padding="@dimen/_8ssp"
+                            android:text="A: Hút dầu cặn"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+
+
+                        <android.widget.Button
+                            android:id="@+id/processB"
+                            android:layout_width="@dimen/_140sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_below="@id/processA"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_30ssp"
+                            android:background="@drawable/button_background"
+                            android:padding="@dimen/_8ssp"
+                            android:text="B: Hút nước và cặn"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </HorizontalScrollView>
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/backButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="@dimen/_30ssp"
+            android:layout_height="@dimen/_30ssp"
+            android:background="@drawable/button_background"
+            android:layout_marginEnd="@dimen/_8ssp"
+            android:layout_marginBottom="@dimen/_8ssp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/_30ssp"
+                android:layout_height="@dimen/_30ssp"
+                android:background="@drawable/back"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/homeButton"
+            android:layout_above="@id/backButton"
+            android:layout_alignParentEnd="true"
+            android:layout_width="@dimen/_30ssp"
+            android:layout_height="@dimen/_30ssp"
+            android:background="@drawable/button_background"
+            android:layout_marginEnd="@dimen/_8ssp"
+            android:layout_marginBottom="@dimen/_8ssp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/_30ssp"
+                android:layout_height="@dimen/_30ssp"
+                android:background="@drawable/home"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

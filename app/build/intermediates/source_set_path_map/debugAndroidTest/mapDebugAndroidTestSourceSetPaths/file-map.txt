@@ -1,0 +1,6 @@
+com.aasolution.hmi.test.app-androidTest-0 C:\New Volume\AA\IMAE\CleanTruckSys\CleanTruckSys\app\build\generated\res\resValues\androidTest\debug
+com.aasolution.hmi.test.app-mergeDebugAndroidTestResources-1 C:\New Volume\AA\IMAE\CleanTruckSys\CleanTruckSys\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.aasolution.hmi.test.app-mergeDebugAndroidTestResources-2 C:\New Volume\AA\IMAE\CleanTruckSys\CleanTruckSys\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.aasolution.hmi.test.app-debugAndroidTest-3 C:\New Volume\AA\IMAE\CleanTruckSys\CleanTruckSys\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
+com.aasolution.hmi.test.app-annotation-experimental-1.4.0-4 C:\Users\khoik\.gradle\caches\transforms-3\c8bbfcb291343550a6ade00b0136dbde\transformed\annotation-experimental-1.4.0\res
+com.aasolution.hmi.test.app-core-1.5.0-5 C:\Users\khoik\.gradle\caches\transforms-3\caca388bb5e75f4f756dfb819f8c4d53\transformed\core-1.5.0\res
