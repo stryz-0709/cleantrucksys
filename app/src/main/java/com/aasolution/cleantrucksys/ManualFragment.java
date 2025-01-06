@@ -314,6 +314,9 @@ public class ManualFragment extends Fragment {
                         updateButtonLogic(null, new Button[]{armUpButton, armDownButton},
                                 new String[]{"arm_up", "arm_down"}, jsonObject);
 
+                        updateButtonLogic(null, new Button[]{pipeUpButton, pipeDownButton},
+                                new String[]{"pipe_up", "pipe_down"}, jsonObject);
+
                         // Update labeled switches
                         updateLabeledSwitch(vacuum_pumpButton, "vacuum_power", jsonObject);
                         updateLabeledSwitch(water_pumpButton, "water_power", jsonObject);

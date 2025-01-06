@@ -43,12 +43,6 @@ public final class FragmentProcessA1Binding implements ViewBinding {
   public final ImageView imageView;
 
   @NonNull
-  public final ImageView oilGradient;
-
-  @NonNull
-  public final ToggleButton oilLight;
-
-  @NonNull
   public final TextView startProcess;
 
   @NonNull
@@ -129,10 +123,10 @@ public final class FragmentProcessA1Binding implements ViewBinding {
   private FragmentProcessA1Binding(@NonNull FrameLayout rootView,
       @NonNull ConstraintLayout ConstraintLayout, @NonNull RelativeLayout backButton,
       @NonNull CardView bottomCard, @NonNull RelativeLayout buttonTab, @NonNull CardView endCard,
-      @NonNull ImageView imageView, @NonNull ImageView oilGradient, @NonNull ToggleButton oilLight,
-      @NonNull TextView startProcess, @NonNull ToggleButton startProcessButton,
-      @NonNull ImageView startProcessGradient, @NonNull RelativeLayout startProcessTab,
-      @NonNull TextView state, @NonNull TextView stateTitle, @NonNull TextView stopProcess,
+      @NonNull ImageView imageView, @NonNull TextView startProcess,
+      @NonNull ToggleButton startProcessButton, @NonNull ImageView startProcessGradient,
+      @NonNull RelativeLayout startProcessTab, @NonNull TextView state,
+      @NonNull TextView stateTitle, @NonNull TextView stopProcess,
       @NonNull ToggleButton stopProcessButton, @NonNull ImageView stopProcessGradient,
       @NonNull RelativeLayout stopProcessTab, @NonNull TextView title,
       @NonNull RelativeLayout titleLayout, @NonNull ImageView vacuumGradient,
@@ -150,8 +144,6 @@ public final class FragmentProcessA1Binding implements ViewBinding {
     this.buttonTab = buttonTab;
     this.endCard = endCard;
     this.imageView = imageView;
-    this.oilGradient = oilGradient;
-    this.oilLight = oilLight;
     this.startProcess = startProcess;
     this.startProcessButton = startProcessButton;
     this.startProcessGradient = startProcessGradient;
@@ -240,18 +232,6 @@ public final class FragmentProcessA1Binding implements ViewBinding {
       id = R.id.imageView;
       ImageView imageView = ViewBindings.findChildViewById(rootView, id);
       if (imageView == null) {
-        break missingId;
-      }
-
-      id = R.id.oil_gradient;
-      ImageView oilGradient = ViewBindings.findChildViewById(rootView, id);
-      if (oilGradient == null) {
-        break missingId;
-      }
-
-      id = R.id.oil_light;
-      ToggleButton oilLight = ViewBindings.findChildViewById(rootView, id);
-      if (oilLight == null) {
         break missingId;
       }
 
@@ -412,12 +392,11 @@ public final class FragmentProcessA1Binding implements ViewBinding {
       }
 
       return new FragmentProcessA1Binding((FrameLayout) rootView, ConstraintLayout, backButton,
-          bottomCard, buttonTab, endCard, imageView, oilGradient, oilLight, startProcess,
-          startProcessButton, startProcessGradient, startProcessTab, state, stateTitle, stopProcess,
-          stopProcessButton, stopProcessGradient, stopProcessTab, title, titleLayout,
-          vacuumGradient, vacuumLight, valve2Gradient, valve2Light, valve3Gradient, valve3Light,
-          valve4Gradient, valve4Light, valve6Gradient, valve6Light, valve9Gradient, valve9Light,
-          zoomInButton, zoomOutButton);
+          bottomCard, buttonTab, endCard, imageView, startProcess, startProcessButton,
+          startProcessGradient, startProcessTab, state, stateTitle, stopProcess, stopProcessButton,
+          stopProcessGradient, stopProcessTab, title, titleLayout, vacuumGradient, vacuumLight,
+          valve2Gradient, valve2Light, valve3Gradient, valve3Light, valve4Gradient, valve4Light,
+          valve6Gradient, valve6Light, valve9Gradient, valve9Light, zoomInButton, zoomOutButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

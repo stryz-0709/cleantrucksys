@@ -5183,8 +5183,6 @@ int id notification_main_column 0x7f0901a7
 int id notification_main_column_container 0x7f0901a8
 int id off 0x7f0901a9
 int id oil_button 0x7f0901aa
-int id oil_gradient 0x7f0902dc
-int id oil_light 0x7f0901ab
 int id on 0x7f0901ac
 int id onInterceptTouchReturnSwipe 0x7f0901ad
 int id one_hundred_eighty_degrees 0x7f0901ae

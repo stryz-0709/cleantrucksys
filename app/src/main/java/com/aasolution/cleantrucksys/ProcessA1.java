@@ -44,13 +44,13 @@ public class ProcessA1 extends Fragment {
     ImageView startProcessGradient, stopProcessGradient,
             valve2Gradient, valve3Gradient, valve4Gradient,
             valve6Gradient, valve9Gradient,
-            vacuumGradient, oilGradient;
+            vacuumGradient;
 
     TextView state;
 
 
     ToggleButton valve2Light, valve3Light, valve4Light, valve6Light, valve9Light,
-            vacuumLight, oilLight;
+            vacuumLight;
     private float currentScale = 1.0f;
     private final float scaleStep = 0.1f;
     private final float maxScale = 3.0f;
@@ -79,8 +79,6 @@ public class ProcessA1 extends Fragment {
         valve6Gradient  = mView.findViewById(R.id.valve6_gradient);
         valve9Gradient  = mView.findViewById(R.id.valve9_gradient);
         vacuumGradient  = mView.findViewById(R.id.vacuum_gradient);
-        oilGradient  = mView.findViewById(R.id.oil_gradient);
-        oilGradient.setVisibility(GONE);
 
         startProcessGradient.setVisibility(GONE);
         stopProcessGradient.setVisibility(GONE);
@@ -106,7 +104,6 @@ public class ProcessA1 extends Fragment {
         valve6Light = mView.findViewById(R.id.valve6_light);
         valve9Light = mView.findViewById(R.id.valve9_light);
         vacuumLight = mView.findViewById(R.id.vacuum_light);
-        oilLight = mView.findViewById(R.id.oil_light);
 
         valve2Light.setEnabled(false);
         valve3Light.setEnabled(false);
@@ -114,7 +111,6 @@ public class ProcessA1 extends Fragment {
         valve6Light.setEnabled(false);
         valve9Light.setEnabled(false);
         vacuumLight.setEnabled(false);
-        oilLight.setEnabled(false);
 
         zoomIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,8 +216,6 @@ public class ProcessA1 extends Fragment {
             valve6Gradient.setVisibility(jsonObject.getInt("v6") == 1? VISIBLE: GONE);
             valve9Light.setChecked(jsonObject.getInt("v9") == 1);
             valve9Gradient.setVisibility(jsonObject.getInt("v9") == 1? VISIBLE: GONE);
-//            oilLight.setChecked(jsonObject.getInt("oil_power") == 1);
-//            oilGradient.setVisibility(jsonObject.getInt("oil_power") == 1? VISIBLE: GONE);
             vacuumLight.setChecked(jsonObject.getInt("vacuum_power") == 1);
             vacuumGradient.setVisibility(jsonObject.getInt("vacuum_power") == 1? VISIBLE: GONE);
 

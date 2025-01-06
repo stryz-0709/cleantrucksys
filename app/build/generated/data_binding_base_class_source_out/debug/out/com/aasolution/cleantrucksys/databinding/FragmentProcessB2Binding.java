@@ -43,9 +43,6 @@ public final class FragmentProcessB2Binding implements ViewBinding {
   public final ImageView imageView;
 
   @NonNull
-  public final ToggleButton oilLight;
-
-  @NonNull
   public final TextView startProcess;
 
   @NonNull
@@ -117,7 +114,7 @@ public final class FragmentProcessB2Binding implements ViewBinding {
   private FragmentProcessB2Binding(@NonNull FrameLayout rootView,
       @NonNull ConstraintLayout ConstraintLayout, @NonNull RelativeLayout backButton,
       @NonNull CardView bottomCard, @NonNull RelativeLayout buttonTab, @NonNull CardView endCard,
-      @NonNull ImageView imageView, @NonNull ToggleButton oilLight, @NonNull TextView startProcess,
+      @NonNull ImageView imageView, @NonNull TextView startProcess,
       @NonNull ToggleButton startProcessButton, @NonNull RelativeLayout startProcessTab,
       @NonNull TextView state, @NonNull TextView stateTitle, @NonNull TextView stopProcess,
       @NonNull ToggleButton stopProcessButton, @NonNull RelativeLayout stopProcessTab,
@@ -136,7 +133,6 @@ public final class FragmentProcessB2Binding implements ViewBinding {
     this.buttonTab = buttonTab;
     this.endCard = endCard;
     this.imageView = imageView;
-    this.oilLight = oilLight;
     this.startProcess = startProcess;
     this.startProcessButton = startProcessButton;
     this.startProcessTab = startProcessTab;
@@ -222,12 +218,6 @@ public final class FragmentProcessB2Binding implements ViewBinding {
       id = R.id.imageView;
       ImageView imageView = ViewBindings.findChildViewById(rootView, id);
       if (imageView == null) {
-        break missingId;
-      }
-
-      id = R.id.oil_light;
-      ToggleButton oilLight = ViewBindings.findChildViewById(rootView, id);
-      if (oilLight == null) {
         break missingId;
       }
 
@@ -370,7 +360,7 @@ public final class FragmentProcessB2Binding implements ViewBinding {
       }
 
       return new FragmentProcessB2Binding((FrameLayout) rootView, ConstraintLayout, backButton,
-          bottomCard, buttonTab, endCard, imageView, oilLight, startProcess, startProcessButton,
+          bottomCard, buttonTab, endCard, imageView, startProcess, startProcessButton,
           startProcessTab, state, stateTitle, stopProcess, stopProcessButton, stopProcessTab,
           stopWater, stopWaterButton, stopWaterTab, title, titleLayout, vacuumLight, valve2Light,
           valve3Light, valve4Light, valve6Light, valve8Light, valve9Light, waterLight, zoomInButton,

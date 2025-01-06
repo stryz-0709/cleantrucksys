@@ -81,7 +81,6 @@ public class ProcessB2 extends Fragment {
         valve9Light = mView.findViewById(R.id.valve9_light);
         vacuumLight = mView.findViewById(R.id.vacuum_light);
         waterLight = mView.findViewById(R.id.water_light);
-        oilLight = mView.findViewById(R.id.oil_light);
 
         valve2Light.setEnabled(false);
         valve3Light.setEnabled(false);
@@ -90,7 +89,6 @@ public class ProcessB2 extends Fragment {
         valve8Light.setEnabled(false);
         valve9Light.setEnabled(false);
         vacuumLight.setEnabled(false);
-        oilLight.setEnabled(false);
         waterLight.setEnabled(false);
 
         zoomIn.setOnClickListener(new View.OnClickListener() {

@@ -5184,8 +5184,6 @@ id notification_main_column
 id notification_main_column_container
 id off
 id oil_button
-id oil_gradient
-id oil_light
 id on
 id onInterceptTouchReturnSwipe
 id one_hundred_eighty_degrees

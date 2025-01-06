@@ -50,7 +50,6 @@ public class SystemFragment extends Fragment {
         valve9Light = mView.findViewById(R.id.valve9_light);
         vacuumLight = mView.findViewById(R.id.vacuum_light);
         waterLight = mView.findViewById(R.id.water_light);
-        oilLight = mView.findViewById(R.id.oil_light);
 
         valve2Light.setEnabled(false);
         valve3Light.setEnabled(false);
@@ -61,7 +60,6 @@ public class SystemFragment extends Fragment {
         valve9Light.setEnabled(false);
         vacuumLight.setEnabled(false);
         waterLight.setEnabled(false);
-        oilLight.setEnabled(false);
 
         homeButton = mView.findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {

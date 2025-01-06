@@ -391,8 +391,6 @@ id manualButton
 id manual_body
 id manual_title
 id oil_button
-id oil_gradient
-id oil_light
 id pipe_down_button
 id pipe_up_button
 id processA
