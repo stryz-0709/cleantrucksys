@@ -60,7 +60,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -88,7 +88,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -101,7 +101,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -129,7 +129,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -157,7 +157,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -185,7 +185,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -213,7 +213,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -241,7 +241,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -271,7 +271,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -301,7 +301,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -331,7 +331,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -361,7 +361,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
 
@@ -391,7 +391,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/circle_light_selector"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:layout_gravity="center" />
         </RelativeLayout>

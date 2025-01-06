@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.aasolution.cleantrucksys.R;
+import com.github.anastr.speedviewlib.SpeedView;
+import com.github.angads25.toggle.widget.LabeledSwitch;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -21,61 +23,110 @@ public final class FragmentManualBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final ToggleButton armDownButton;
+
+  @NonNull
+  public final ToggleButton armUpButton;
+
+  @NonNull
   public final RelativeLayout homeButton;
+
+  @NonNull
+  public final RelativeLayout manualBody;
 
   @NonNull
   public final RelativeLayout manualTitle;
 
   @NonNull
-  public final ToggleButton oilButton;
+  public final ToggleButton pipeDownButton;
 
   @NonNull
-  public final ToggleButton vacuumButton;
+  public final ToggleButton pipeUpButton;
 
   @NonNull
-  public final ToggleButton valve11Button;
+  public final ToggleButton robotBackwardButton;
 
   @NonNull
-  public final ToggleButton valve1Button;
+  public final ToggleButton robotForwardButton;
 
   @NonNull
-  public final ToggleButton valve3Button;
+  public final ToggleButton robotStopButton;
 
   @NonNull
-  public final ToggleButton valve4Button;
+  public final ToggleButton tankInButton;
 
   @NonNull
-  public final ToggleButton valve6Button;
+  public final ToggleButton tankOutButton;
 
   @NonNull
-  public final ToggleButton valve8Button;
+  public final ToggleButton tankStopButton;
 
   @NonNull
-  public final ToggleButton valve9Button;
+  public final LabeledSwitch vacuumButton;
 
   @NonNull
-  public final ToggleButton waterButton;
+  public final ToggleButton vacuumInButton;
 
-  private FragmentManualBinding(@NonNull FrameLayout rootView, @NonNull RelativeLayout homeButton,
-      @NonNull RelativeLayout manualTitle, @NonNull ToggleButton oilButton,
-      @NonNull ToggleButton vacuumButton, @NonNull ToggleButton valve11Button,
-      @NonNull ToggleButton valve1Button, @NonNull ToggleButton valve3Button,
-      @NonNull ToggleButton valve4Button, @NonNull ToggleButton valve6Button,
-      @NonNull ToggleButton valve8Button, @NonNull ToggleButton valve9Button,
-      @NonNull ToggleButton waterButton) {
+  @NonNull
+  public final ToggleButton vacuumOutButton;
+
+  @NonNull
+  public final SpeedView vacuumPressureGauge;
+
+  @NonNull
+  public final ToggleButton vacuumStopButton;
+
+  @NonNull
+  public final LabeledSwitch waterButton;
+
+  @NonNull
+  public final ToggleButton waterInButton;
+
+  @NonNull
+  public final ToggleButton waterOutButton;
+
+  @NonNull
+  public final SpeedView waterPressureGauge;
+
+  @NonNull
+  public final ToggleButton waterStopButton;
+
+  private FragmentManualBinding(@NonNull FrameLayout rootView, @NonNull ToggleButton armDownButton,
+      @NonNull ToggleButton armUpButton, @NonNull RelativeLayout homeButton,
+      @NonNull RelativeLayout manualBody, @NonNull RelativeLayout manualTitle,
+      @NonNull ToggleButton pipeDownButton, @NonNull ToggleButton pipeUpButton,
+      @NonNull ToggleButton robotBackwardButton, @NonNull ToggleButton robotForwardButton,
+      @NonNull ToggleButton robotStopButton, @NonNull ToggleButton tankInButton,
+      @NonNull ToggleButton tankOutButton, @NonNull ToggleButton tankStopButton,
+      @NonNull LabeledSwitch vacuumButton, @NonNull ToggleButton vacuumInButton,
+      @NonNull ToggleButton vacuumOutButton, @NonNull SpeedView vacuumPressureGauge,
+      @NonNull ToggleButton vacuumStopButton, @NonNull LabeledSwitch waterButton,
+      @NonNull ToggleButton waterInButton, @NonNull ToggleButton waterOutButton,
+      @NonNull SpeedView waterPressureGauge, @NonNull ToggleButton waterStopButton) {
     this.rootView = rootView;
+    this.armDownButton = armDownButton;
+    this.armUpButton = armUpButton;
     this.homeButton = homeButton;
+    this.manualBody = manualBody;
     this.manualTitle = manualTitle;
-    this.oilButton = oilButton;
+    this.pipeDownButton = pipeDownButton;
+    this.pipeUpButton = pipeUpButton;
+    this.robotBackwardButton = robotBackwardButton;
+    this.robotForwardButton = robotForwardButton;
+    this.robotStopButton = robotStopButton;
+    this.tankInButton = tankInButton;
+    this.tankOutButton = tankOutButton;
+    this.tankStopButton = tankStopButton;
     this.vacuumButton = vacuumButton;
-    this.valve11Button = valve11Button;
-    this.valve1Button = valve1Button;
-    this.valve3Button = valve3Button;
-    this.valve4Button = valve4Button;
-    this.valve6Button = valve6Button;
-    this.valve8Button = valve8Button;
-    this.valve9Button = valve9Button;
+    this.vacuumInButton = vacuumInButton;
+    this.vacuumOutButton = vacuumOutButton;
+    this.vacuumPressureGauge = vacuumPressureGauge;
+    this.vacuumStopButton = vacuumStopButton;
     this.waterButton = waterButton;
+    this.waterInButton = waterInButton;
+    this.waterOutButton = waterOutButton;
+    this.waterPressureGauge = waterPressureGauge;
+    this.waterStopButton = waterStopButton;
   }
 
   @Override
@@ -105,9 +156,27 @@ public final class FragmentManualBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.arm_down_button;
+      ToggleButton armDownButton = ViewBindings.findChildViewById(rootView, id);
+      if (armDownButton == null) {
+        break missingId;
+      }
+
+      id = R.id.arm_up_button;
+      ToggleButton armUpButton = ViewBindings.findChildViewById(rootView, id);
+      if (armUpButton == null) {
+        break missingId;
+      }
+
       id = R.id.homeButton;
       RelativeLayout homeButton = ViewBindings.findChildViewById(rootView, id);
       if (homeButton == null) {
+        break missingId;
+      }
+
+      id = R.id.manual_body;
+      RelativeLayout manualBody = ViewBindings.findChildViewById(rootView, id);
+      if (manualBody == null) {
         break missingId;
       }
 
@@ -117,69 +186,119 @@ public final class FragmentManualBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.oil_button;
-      ToggleButton oilButton = ViewBindings.findChildViewById(rootView, id);
-      if (oilButton == null) {
+      id = R.id.pipe_down_button;
+      ToggleButton pipeDownButton = ViewBindings.findChildViewById(rootView, id);
+      if (pipeDownButton == null) {
+        break missingId;
+      }
+
+      id = R.id.pipe_up_button;
+      ToggleButton pipeUpButton = ViewBindings.findChildViewById(rootView, id);
+      if (pipeUpButton == null) {
+        break missingId;
+      }
+
+      id = R.id.robot_backward_button;
+      ToggleButton robotBackwardButton = ViewBindings.findChildViewById(rootView, id);
+      if (robotBackwardButton == null) {
+        break missingId;
+      }
+
+      id = R.id.robot_forward_button;
+      ToggleButton robotForwardButton = ViewBindings.findChildViewById(rootView, id);
+      if (robotForwardButton == null) {
+        break missingId;
+      }
+
+      id = R.id.robot_stop_button;
+      ToggleButton robotStopButton = ViewBindings.findChildViewById(rootView, id);
+      if (robotStopButton == null) {
+        break missingId;
+      }
+
+      id = R.id.tank_in_button;
+      ToggleButton tankInButton = ViewBindings.findChildViewById(rootView, id);
+      if (tankInButton == null) {
+        break missingId;
+      }
+
+      id = R.id.tank_out_button;
+      ToggleButton tankOutButton = ViewBindings.findChildViewById(rootView, id);
+      if (tankOutButton == null) {
+        break missingId;
+      }
+
+      id = R.id.tank_stop_button;
+      ToggleButton tankStopButton = ViewBindings.findChildViewById(rootView, id);
+      if (tankStopButton == null) {
         break missingId;
       }
 
       id = R.id.vacuum_button;
-      ToggleButton vacuumButton = ViewBindings.findChildViewById(rootView, id);
+      LabeledSwitch vacuumButton = ViewBindings.findChildViewById(rootView, id);
       if (vacuumButton == null) {
         break missingId;
       }
 
-      id = R.id.valve11_button;
-      ToggleButton valve11Button = ViewBindings.findChildViewById(rootView, id);
-      if (valve11Button == null) {
+      id = R.id.vacuum_in_button;
+      ToggleButton vacuumInButton = ViewBindings.findChildViewById(rootView, id);
+      if (vacuumInButton == null) {
         break missingId;
       }
 
-      id = R.id.valve1_button;
-      ToggleButton valve1Button = ViewBindings.findChildViewById(rootView, id);
-      if (valve1Button == null) {
+      id = R.id.vacuum_out_button;
+      ToggleButton vacuumOutButton = ViewBindings.findChildViewById(rootView, id);
+      if (vacuumOutButton == null) {
         break missingId;
       }
 
-      id = R.id.valve3_button;
-      ToggleButton valve3Button = ViewBindings.findChildViewById(rootView, id);
-      if (valve3Button == null) {
+      id = R.id.vacuum_pressure_gauge;
+      SpeedView vacuumPressureGauge = ViewBindings.findChildViewById(rootView, id);
+      if (vacuumPressureGauge == null) {
         break missingId;
       }
 
-      id = R.id.valve4_button;
-      ToggleButton valve4Button = ViewBindings.findChildViewById(rootView, id);
-      if (valve4Button == null) {
-        break missingId;
-      }
-
-      id = R.id.valve6_button;
-      ToggleButton valve6Button = ViewBindings.findChildViewById(rootView, id);
-      if (valve6Button == null) {
-        break missingId;
-      }
-
-      id = R.id.valve8_button;
-      ToggleButton valve8Button = ViewBindings.findChildViewById(rootView, id);
-      if (valve8Button == null) {
-        break missingId;
-      }
-
-      id = R.id.valve9_button;
-      ToggleButton valve9Button = ViewBindings.findChildViewById(rootView, id);
-      if (valve9Button == null) {
+      id = R.id.vacuum_stop_button;
+      ToggleButton vacuumStopButton = ViewBindings.findChildViewById(rootView, id);
+      if (vacuumStopButton == null) {
         break missingId;
       }
 
       id = R.id.water_button;
-      ToggleButton waterButton = ViewBindings.findChildViewById(rootView, id);
+      LabeledSwitch waterButton = ViewBindings.findChildViewById(rootView, id);
       if (waterButton == null) {
         break missingId;
       }
 
-      return new FragmentManualBinding((FrameLayout) rootView, homeButton, manualTitle, oilButton,
-          vacuumButton, valve11Button, valve1Button, valve3Button, valve4Button, valve6Button,
-          valve8Button, valve9Button, waterButton);
+      id = R.id.water_in_button;
+      ToggleButton waterInButton = ViewBindings.findChildViewById(rootView, id);
+      if (waterInButton == null) {
+        break missingId;
+      }
+
+      id = R.id.water_out_button;
+      ToggleButton waterOutButton = ViewBindings.findChildViewById(rootView, id);
+      if (waterOutButton == null) {
+        break missingId;
+      }
+
+      id = R.id.water_pressure_gauge;
+      SpeedView waterPressureGauge = ViewBindings.findChildViewById(rootView, id);
+      if (waterPressureGauge == null) {
+        break missingId;
+      }
+
+      id = R.id.water_stop_button;
+      ToggleButton waterStopButton = ViewBindings.findChildViewById(rootView, id);
+      if (waterStopButton == null) {
+        break missingId;
+      }
+
+      return new FragmentManualBinding((FrameLayout) rootView, armDownButton, armUpButton,
+          homeButton, manualBody, manualTitle, pipeDownButton, pipeUpButton, robotBackwardButton,
+          robotForwardButton, robotStopButton, tankInButton, tankOutButton, tankStopButton,
+          vacuumButton, vacuumInButton, vacuumOutButton, vacuumPressureGauge, vacuumStopButton,
+          waterButton, waterInButton, waterOutButton, waterPressureGauge, waterStopButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

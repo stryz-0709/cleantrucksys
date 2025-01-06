@@ -4,7 +4,7 @@
     "type": "PACKAGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.aasolution.hmi.test",
+  "applicationId": "com.aasolution.cleantrucksys.test",
   "variantName": "debugAndroidTest",
   "elements": [
     {

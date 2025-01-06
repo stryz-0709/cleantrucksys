@@ -1,9 +1,13 @@
 package com.aasolution.cleantrucksys;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -11,8 +15,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.github.angads25.toggle.interfaces.OnToggledListener;
+import com.github.angads25.toggle.model.ToggleableView;
+import com.github.angads25.toggle.widget.LabeledSwitch;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,10 +36,19 @@ public class ProcessA1 extends Fragment {
     View mView;
     MainActivity mainActivity;
 
-    Button StartProcessA, StopProcessA;
+    ToggleButton startProcessA1, stopProcessA1;
     RelativeLayout backButton;
     RelativeLayout zoomIn, zoomOut;
     ConstraintLayout constraintLayout;
+
+    ImageView startProcessGradient, stopProcessGradient,
+            valve2Gradient, valve3Gradient, valve4Gradient,
+            valve6Gradient, valve9Gradient,
+            vacuumGradient, oilGradient;
+
+    TextView state;
+
+
     ToggleButton valve2Light, valve3Light, valve4Light, valve6Light, valve9Light,
             vacuumLight, oilLight;
     private float currentScale = 1.0f;
@@ -37,7 +57,7 @@ public class ProcessA1 extends Fragment {
     private final float minScale = 1.0f;
 
     private Handler handler = new Handler();
-    private Runnable updateRunnable;
+    private Runnable dataFetchRunnable;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,19 +67,23 @@ public class ProcessA1 extends Fragment {
         mView = inflater.inflate(R.layout.fragment_process_a1, container, false);
         mainActivity = (MainActivity) getActivity();
 
-        buttons();
-        initializeLights();
-        startUpdatingLights();
-        updateLights();
+        startProcessA1 = mView.findViewById(R.id.start_process_button);
+        stopProcessA1 = mView.findViewById(R.id.stop_process_button);
+        state = mView.findViewById(R.id.state);
 
-        return mView;
+        startProcessGradient = mView.findViewById(R.id.start_process_gradient);
+        stopProcessGradient = mView.findViewById(R.id.stop_process_gradient);
+        valve2Gradient  = mView.findViewById(R.id.valve2_gradient);
+        valve3Gradient  = mView.findViewById(R.id.valve3_gradient);
+        valve4Gradient  = mView.findViewById(R.id.valve4_gradient);
+        valve6Gradient  = mView.findViewById(R.id.valve6_gradient);
+        valve9Gradient  = mView.findViewById(R.id.valve9_gradient);
+        vacuumGradient  = mView.findViewById(R.id.vacuum_gradient);
+        oilGradient  = mView.findViewById(R.id.oil_gradient);
+        oilGradient.setVisibility(GONE);
 
-    }
-
-    private void buttons(){
-        StartProcessA = mView.findViewById(R.id.start_process);
-
-        StopProcessA = mView.findViewById(R.id.stop_process);
+        startProcessGradient.setVisibility(GONE);
+        stopProcessGradient.setVisibility(GONE);
 
         backButton = mView.findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -69,39 +93,8 @@ public class ProcessA1 extends Fragment {
             }
         });
 
-        StartProcessA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("StartProcessA", "Button startA tapped");
-                try {
-                    // Create JSON object with processA data
-                    JSONObject jsonData = new JSONObject();
-                    jsonData.put("processA", 1);
-
-                    // Send JSON data
-                    mainActivity.postOKHTTP(jsonData.toString());
-                } catch (JSONException e) {
-                    Log.e("StartProcessA", "Failed to create JSON for StartProcessA", e);
-                }
-            }
-        });
-
-        StopProcessA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("StopProcessA", "Button stopA tapped");
-                try {
-                    // Create JSON object with processA data
-                    JSONObject jsonData = new JSONObject();
-                    jsonData.put("processA", 0);
-
-                    // Send JSON data
-                    mainActivity.postOKHTTP(jsonData.toString());
-                } catch (JSONException e) {
-                    Log.e("StopProcessA", "Failed to create JSON for StopProcessA", e);
-                }
-            }
-        });
+        startProcessA1.setOnClickListener(v -> updateProcess(startProcessA1, stopProcessA1, "process", null));
+        stopProcessA1.setOnClickListener(v -> updateProcess(startProcessA1, stopProcessA1, "process", null));
 
         zoomIn = mView.findViewById(R.id.zoom_in_button);
         zoomOut = mView.findViewById(R.id.zoom_out_button);
@@ -142,56 +135,129 @@ public class ProcessA1 extends Fragment {
                 }
             }
         });
+
+        dataFetch();
+        startPeriodicDataFetch();
+
+        return mView;
     }
 
-    private void initializeLights() {
-        valve2Light = mView.findViewById(R.id.valve2_light);
-        valve3Light = mView.findViewById(R.id.valve3_light);
-        valve4Light = mView.findViewById(R.id.valve4_light);
-        valve6Light = mView.findViewById(R.id.valve6_light);
-        valve9Light = mView.findViewById(R.id.valve9_light);
-        vacuumLight = mView.findViewById(R.id.vacuum_light);
-        oilLight = mView.findViewById(R.id.oil_light);
+    private void updateProcess(ToggleButton startButton, ToggleButton stopButton, String key, JSONObject jsonObject) {
+        try {
+            boolean isProcessActive;
 
-        // Disable interaction with the lights (they're indicators, not controls)
-        valve2Light.setEnabled(false);
-        valve3Light.setEnabled(false);
-        valve4Light.setEnabled(false);
-        valve6Light.setEnabled(false);
-        valve9Light.setEnabled(false);
-        vacuumLight.setEnabled(false);
-        oilLight.setEnabled(false);
+            if (jsonObject != null) {
+                // Update state based on JSON response
+                isProcessActive = jsonObject.has(key) && jsonObject.getInt(key) == 1; // 1 indicates "active"
+            } else {
+                // Check which button was clicked
+                if (startButton.isPressed()) {
+                    isProcessActive = true;
+                } else if (stopButton.isPressed()) {
+                    isProcessActive = false;
+                } else {
+                    return; // If neither button was pressed, exit
+                }
+
+                // Prepare and send JSON to the server
+                JSONObject jsonData = new JSONObject();
+                jsonData.put(key, isProcessActive ? 1 : 0); // 1 for start, 0 for stop
+                mainActivity.postOKHTTP(jsonData.toString());
+            }
+
+            // Update the UI state
+            startButton.setChecked(isProcessActive);
+            stopButton.setChecked(!isProcessActive);
+            state.setText(isProcessActive ? "Đang hoạt động" : "Không hoạt động");
+            state.setTextColor(isProcessActive ? Color.parseColor("#00CC66") : Color.parseColor("#FF0000"));
+            if (isProcessActive){
+                startProcessGradient.setVisibility(VISIBLE);
+                stopProcessGradient.setVisibility(GONE);
+            }
+            else{
+                startProcessGradient.setVisibility(GONE);
+                stopProcessGradient.setVisibility(VISIBLE);
+            }
+
+        } catch (JSONException e) {
+            Log.e("ProcessA1", "Error handling process state for key: " + key, e);
+        }
     }
 
-    private void startUpdatingLights() {
-        updateRunnable = new Runnable() {
+
+    private void startPeriodicDataFetch() {
+        dataFetchRunnable = new Runnable() {
             @Override
             public void run() {
-                updateLights();
+                dataFetch();
                 handler.postDelayed(this, 1000); // Update every second
             }
         };
-        handler.post(updateRunnable);
+        handler.post(dataFetchRunnable);
+    }
+
+    public void stopPeriodicDataFetch() {
+        if (dataFetchRunnable != null) {
+            handler.removeCallbacks(dataFetchRunnable);
+        }
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        handler.removeCallbacks(updateRunnable); // Stop updates when fragment is destroyed
+        stopPeriodicDataFetch();
     }
 
-    public void updateLights(){
-        if (mainActivity != null) {
-            valve2Light.setChecked(mainActivity.valve2 == 1);
-            valve3Light.setChecked(mainActivity.valve3 == 1);
-            valve4Light.setChecked(mainActivity.valve4 == 1);
-            valve6Light.setChecked(mainActivity.valve6 == 1);
-            valve9Light.setChecked(mainActivity.valve9 == 1);
-            vacuumLight.setChecked(mainActivity.vacuum_pump == 1);
-            oilLight.setChecked(mainActivity.oil_pump == 1);
+    private void updateLights(JSONObject jsonObject) {
+        try {
+            valve2Light.setChecked(jsonObject.getInt("v2") == 1);
+            valve2Gradient.setVisibility(jsonObject.getInt("v2") == 1? VISIBLE: GONE);
+            valve3Light.setChecked(jsonObject.getInt("v3") == 1);
+            valve3Gradient.setVisibility(jsonObject.getInt("v3") == 1? VISIBLE: GONE);
+            valve4Light.setChecked(jsonObject.getInt("v4") == 1);
+            valve4Gradient.setVisibility(jsonObject.getInt("v4") == 1? VISIBLE: GONE);
+            valve6Light.setChecked(jsonObject.getInt("v6") == 1);
+            valve6Gradient.setVisibility(jsonObject.getInt("v6") == 1? VISIBLE: GONE);
+            valve9Light.setChecked(jsonObject.getInt("v9") == 1);
+            valve9Gradient.setVisibility(jsonObject.getInt("v9") == 1? VISIBLE: GONE);
+//            oilLight.setChecked(jsonObject.getInt("oil_power") == 1);
+//            oilGradient.setVisibility(jsonObject.getInt("oil_power") == 1? VISIBLE: GONE);
+            vacuumLight.setChecked(jsonObject.getInt("vacuum_power") == 1);
+            vacuumGradient.setVisibility(jsonObject.getInt("vacuum_power") == 1? VISIBLE: GONE);
+
+        } catch (JSONException e) {
+            Log.e("ProcessA1", "Error updating lights", e);
         }
     }
 
+    private void dataFetch() {
+        mainActivity.getOKHTTP(new MainActivity.ResponseCallback() {
+            @Override
+            public void onResponse(String response) {
+                if (!isAdded()) return;
+                requireActivity().runOnUiThread(() -> {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        Log.d("ProcessA1", "Received JSON: " + jsonObject.toString());
+
+                        updateLights(jsonObject);
+                        updateProcess(startProcessA1, stopProcessA1, "process", jsonObject);
+
+                    } catch (JSONException e) {
+                        Log.e("ProcessA1", "Error parsing JSON response", e);
+                    }
+                });
+            }
+
+            @Override
+            public void onError(String error) {
+                if (!isAdded()) return;
+                requireActivity().runOnUiThread(() ->
+                        Toast.makeText(requireContext(), "Failed to fetch data. Check connection.", Toast.LENGTH_LONG).show()
+                );
+            }
+        });
+    }
 
     private void updateZoom() {
         constraintLayout.setPivotX(0);

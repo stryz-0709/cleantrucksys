@@ -1,0 +1,23 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- "On" State -->
+    <item android:state_checked="true">
+        <shape android:shape="oval">
+            <solid android:color="#4CAF50" /> <!-- Green color for "on" state -->
+            <size android:width="100dp" android:height="100dp" /> <!-- Circle size -->
+            <stroke
+                android:width="5dp"
+                android:color="#006600" /> <!-- Optional border color -->
+        </shape>
+    </item>
+
+    <!-- "Off" State -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#378176" /> <!-- Gray color for "off" state -->
+            <size android:width="100dp" android:height="100dp" /> <!-- Circle size -->
+            <stroke
+                android:width="5dp"
+                android:color="#000000" /> <!-- Optional border color -->
+        </shape>
+    </item>
+</selector>

@@ -4,7 +4,6 @@ package com.aasolution.cleantrucksys.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -35,16 +34,31 @@ public final class FragmentProcessA1Binding implements ViewBinding {
   public final CardView bottomCard;
 
   @NonNull
+  public final RelativeLayout buttonTab;
+
+  @NonNull
   public final CardView endCard;
 
   @NonNull
   public final ImageView imageView;
 
   @NonNull
+  public final ImageView oilGradient;
+
+  @NonNull
   public final ToggleButton oilLight;
 
   @NonNull
-  public final Button startProcess;
+  public final TextView startProcess;
+
+  @NonNull
+  public final ToggleButton startProcessButton;
+
+  @NonNull
+  public final ImageView startProcessGradient;
+
+  @NonNull
+  public final RelativeLayout startProcessTab;
 
   @NonNull
   public final TextView state;
@@ -53,7 +67,16 @@ public final class FragmentProcessA1Binding implements ViewBinding {
   public final TextView stateTitle;
 
   @NonNull
-  public final Button stopProcess;
+  public final TextView stopProcess;
+
+  @NonNull
+  public final ToggleButton stopProcessButton;
+
+  @NonNull
+  public final ImageView stopProcessGradient;
+
+  @NonNull
+  public final RelativeLayout stopProcessTab;
 
   @NonNull
   public final TextView title;
@@ -62,19 +85,37 @@ public final class FragmentProcessA1Binding implements ViewBinding {
   public final RelativeLayout titleLayout;
 
   @NonNull
+  public final ImageView vacuumGradient;
+
+  @NonNull
   public final ToggleButton vacuumLight;
+
+  @NonNull
+  public final ImageView valve2Gradient;
 
   @NonNull
   public final ToggleButton valve2Light;
 
   @NonNull
+  public final ImageView valve3Gradient;
+
+  @NonNull
   public final ToggleButton valve3Light;
+
+  @NonNull
+  public final ImageView valve4Gradient;
 
   @NonNull
   public final ToggleButton valve4Light;
 
   @NonNull
+  public final ImageView valve6Gradient;
+
+  @NonNull
   public final ToggleButton valve6Light;
+
+  @NonNull
+  public final ImageView valve9Gradient;
 
   @NonNull
   public final ToggleButton valve9Light;
@@ -87,32 +128,53 @@ public final class FragmentProcessA1Binding implements ViewBinding {
 
   private FragmentProcessA1Binding(@NonNull FrameLayout rootView,
       @NonNull ConstraintLayout ConstraintLayout, @NonNull RelativeLayout backButton,
-      @NonNull CardView bottomCard, @NonNull CardView endCard, @NonNull ImageView imageView,
-      @NonNull ToggleButton oilLight, @NonNull Button startProcess, @NonNull TextView state,
-      @NonNull TextView stateTitle, @NonNull Button stopProcess, @NonNull TextView title,
-      @NonNull RelativeLayout titleLayout, @NonNull ToggleButton vacuumLight,
-      @NonNull ToggleButton valve2Light, @NonNull ToggleButton valve3Light,
-      @NonNull ToggleButton valve4Light, @NonNull ToggleButton valve6Light,
+      @NonNull CardView bottomCard, @NonNull RelativeLayout buttonTab, @NonNull CardView endCard,
+      @NonNull ImageView imageView, @NonNull ImageView oilGradient, @NonNull ToggleButton oilLight,
+      @NonNull TextView startProcess, @NonNull ToggleButton startProcessButton,
+      @NonNull ImageView startProcessGradient, @NonNull RelativeLayout startProcessTab,
+      @NonNull TextView state, @NonNull TextView stateTitle, @NonNull TextView stopProcess,
+      @NonNull ToggleButton stopProcessButton, @NonNull ImageView stopProcessGradient,
+      @NonNull RelativeLayout stopProcessTab, @NonNull TextView title,
+      @NonNull RelativeLayout titleLayout, @NonNull ImageView vacuumGradient,
+      @NonNull ToggleButton vacuumLight, @NonNull ImageView valve2Gradient,
+      @NonNull ToggleButton valve2Light, @NonNull ImageView valve3Gradient,
+      @NonNull ToggleButton valve3Light, @NonNull ImageView valve4Gradient,
+      @NonNull ToggleButton valve4Light, @NonNull ImageView valve6Gradient,
+      @NonNull ToggleButton valve6Light, @NonNull ImageView valve9Gradient,
       @NonNull ToggleButton valve9Light, @NonNull RelativeLayout zoomInButton,
       @NonNull RelativeLayout zoomOutButton) {
     this.rootView = rootView;
     this.ConstraintLayout = ConstraintLayout;
     this.backButton = backButton;
     this.bottomCard = bottomCard;
+    this.buttonTab = buttonTab;
     this.endCard = endCard;
     this.imageView = imageView;
+    this.oilGradient = oilGradient;
     this.oilLight = oilLight;
     this.startProcess = startProcess;
+    this.startProcessButton = startProcessButton;
+    this.startProcessGradient = startProcessGradient;
+    this.startProcessTab = startProcessTab;
     this.state = state;
     this.stateTitle = stateTitle;
     this.stopProcess = stopProcess;
+    this.stopProcessButton = stopProcessButton;
+    this.stopProcessGradient = stopProcessGradient;
+    this.stopProcessTab = stopProcessTab;
     this.title = title;
     this.titleLayout = titleLayout;
+    this.vacuumGradient = vacuumGradient;
     this.vacuumLight = vacuumLight;
+    this.valve2Gradient = valve2Gradient;
     this.valve2Light = valve2Light;
+    this.valve3Gradient = valve3Gradient;
     this.valve3Light = valve3Light;
+    this.valve4Gradient = valve4Gradient;
     this.valve4Light = valve4Light;
+    this.valve6Gradient = valve6Gradient;
     this.valve6Light = valve6Light;
+    this.valve9Gradient = valve9Gradient;
     this.valve9Light = valve9Light;
     this.zoomInButton = zoomInButton;
     this.zoomOutButton = zoomOutButton;
@@ -163,6 +225,12 @@ public final class FragmentProcessA1Binding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.buttonTab;
+      RelativeLayout buttonTab = ViewBindings.findChildViewById(rootView, id);
+      if (buttonTab == null) {
+        break missingId;
+      }
+
       id = R.id.endCard;
       CardView endCard = ViewBindings.findChildViewById(rootView, id);
       if (endCard == null) {
@@ -175,6 +243,12 @@ public final class FragmentProcessA1Binding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.oil_gradient;
+      ImageView oilGradient = ViewBindings.findChildViewById(rootView, id);
+      if (oilGradient == null) {
+        break missingId;
+      }
+
       id = R.id.oil_light;
       ToggleButton oilLight = ViewBindings.findChildViewById(rootView, id);
       if (oilLight == null) {
@@ -182,8 +256,26 @@ public final class FragmentProcessA1Binding implements ViewBinding {
       }
 
       id = R.id.start_process;
-      Button startProcess = ViewBindings.findChildViewById(rootView, id);
+      TextView startProcess = ViewBindings.findChildViewById(rootView, id);
       if (startProcess == null) {
+        break missingId;
+      }
+
+      id = R.id.start_process_button;
+      ToggleButton startProcessButton = ViewBindings.findChildViewById(rootView, id);
+      if (startProcessButton == null) {
+        break missingId;
+      }
+
+      id = R.id.start_process_gradient;
+      ImageView startProcessGradient = ViewBindings.findChildViewById(rootView, id);
+      if (startProcessGradient == null) {
+        break missingId;
+      }
+
+      id = R.id.start_process_tab;
+      RelativeLayout startProcessTab = ViewBindings.findChildViewById(rootView, id);
+      if (startProcessTab == null) {
         break missingId;
       }
 
@@ -200,8 +292,26 @@ public final class FragmentProcessA1Binding implements ViewBinding {
       }
 
       id = R.id.stop_process;
-      Button stopProcess = ViewBindings.findChildViewById(rootView, id);
+      TextView stopProcess = ViewBindings.findChildViewById(rootView, id);
       if (stopProcess == null) {
+        break missingId;
+      }
+
+      id = R.id.stop_process_button;
+      ToggleButton stopProcessButton = ViewBindings.findChildViewById(rootView, id);
+      if (stopProcessButton == null) {
+        break missingId;
+      }
+
+      id = R.id.stop_process_gradient;
+      ImageView stopProcessGradient = ViewBindings.findChildViewById(rootView, id);
+      if (stopProcessGradient == null) {
+        break missingId;
+      }
+
+      id = R.id.stop_process_tab;
+      RelativeLayout stopProcessTab = ViewBindings.findChildViewById(rootView, id);
+      if (stopProcessTab == null) {
         break missingId;
       }
 
@@ -217,9 +327,21 @@ public final class FragmentProcessA1Binding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.vacuum_gradient;
+      ImageView vacuumGradient = ViewBindings.findChildViewById(rootView, id);
+      if (vacuumGradient == null) {
+        break missingId;
+      }
+
       id = R.id.vacuum_light;
       ToggleButton vacuumLight = ViewBindings.findChildViewById(rootView, id);
       if (vacuumLight == null) {
+        break missingId;
+      }
+
+      id = R.id.valve2_gradient;
+      ImageView valve2Gradient = ViewBindings.findChildViewById(rootView, id);
+      if (valve2Gradient == null) {
         break missingId;
       }
 
@@ -229,9 +351,21 @@ public final class FragmentProcessA1Binding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.valve3_gradient;
+      ImageView valve3Gradient = ViewBindings.findChildViewById(rootView, id);
+      if (valve3Gradient == null) {
+        break missingId;
+      }
+
       id = R.id.valve3_light;
       ToggleButton valve3Light = ViewBindings.findChildViewById(rootView, id);
       if (valve3Light == null) {
+        break missingId;
+      }
+
+      id = R.id.valve4_gradient;
+      ImageView valve4Gradient = ViewBindings.findChildViewById(rootView, id);
+      if (valve4Gradient == null) {
         break missingId;
       }
 
@@ -241,9 +375,21 @@ public final class FragmentProcessA1Binding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.valve6_gradient;
+      ImageView valve6Gradient = ViewBindings.findChildViewById(rootView, id);
+      if (valve6Gradient == null) {
+        break missingId;
+      }
+
       id = R.id.valve6_light;
       ToggleButton valve6Light = ViewBindings.findChildViewById(rootView, id);
       if (valve6Light == null) {
+        break missingId;
+      }
+
+      id = R.id.valve9_gradient;
+      ImageView valve9Gradient = ViewBindings.findChildViewById(rootView, id);
+      if (valve9Gradient == null) {
         break missingId;
       }
 
@@ -266,9 +412,12 @@ public final class FragmentProcessA1Binding implements ViewBinding {
       }
 
       return new FragmentProcessA1Binding((FrameLayout) rootView, ConstraintLayout, backButton,
-          bottomCard, endCard, imageView, oilLight, startProcess, state, stateTitle, stopProcess,
-          title, titleLayout, vacuumLight, valve2Light, valve3Light, valve4Light, valve6Light,
-          valve9Light, zoomInButton, zoomOutButton);
+          bottomCard, buttonTab, endCard, imageView, oilGradient, oilLight, startProcess,
+          startProcessButton, startProcessGradient, startProcessTab, state, stateTitle, stopProcess,
+          stopProcessButton, stopProcessGradient, stopProcessTab, title, titleLayout,
+          vacuumGradient, vacuumLight, valve2Gradient, valve2Light, valve3Gradient, valve3Light,
+          valve4Gradient, valve4Light, valve6Gradient, valve6Light, valve9Gradient, valve9Light,
+          zoomInButton, zoomOutButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

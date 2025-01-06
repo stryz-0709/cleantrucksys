@@ -76,15 +76,14 @@ public class SystemFragment extends Fragment {
     }
 
     public void updateLights() {
-        valve2Light.setChecked(mainActivity.valve2 == 1);
-        valve3Light.setChecked(mainActivity.valve3 == 1);
-        valve4Light.setChecked(mainActivity.valve4 == 1);
-        valve6Light.setChecked(mainActivity.valve6 == 1);
-        valve8Light.setChecked(mainActivity.valve8 == 1);
-        valve9Light.setChecked(mainActivity.valve9 == 1);
-        valve11Light.setChecked(mainActivity.valve11 == 1);
-        vacuumLight.setChecked(mainActivity.vacuum_pump == 1);
-        oilLight.setChecked(mainActivity.oil_pump == 1);
-        waterLight.setChecked(mainActivity.water_pump == 1);
+//        valve2Light.setChecked(mainActivity.valve2 == 1);
+//        valve3Light.setChecked(mainActivity.valve3 == 1);
+//        valve4Light.setChecked(mainActivity.valve4 == 1);
+//        valve6Light.setChecked(mainActivity.valve6 == 1);
+//        valve8Light.setChecked(mainActivity.valve8 == 1);
+//        valve9Light.setChecked(mainActivity.valve9 == 1);
+//        vacuumLight.setChecked(mainActivity.vacuum_pump == 1);
+//        oilLight.setChecked(mainActivity.oil_pump == 1);
+//        waterLight.setChecked(mainActivity.water_pump == 1);
     }
 }

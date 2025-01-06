@@ -1,2 +1,2 @@
-com.aasolution.hmi.test:style/WhiteBackgroundTheme = 0x7f010001
-com.aasolution.hmi.test:style/WhiteBackgroundDialogTheme = 0x7f010000
+com.aasolution.cleantrucksys.test:style/WhiteBackgroundTheme = 0x7f010001
+com.aasolution.cleantrucksys.test:style/WhiteBackgroundDialogTheme = 0x7f010000

@@ -1,46 +1,54 @@
 [
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_process_b2.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_b2.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_process.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_process.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_home.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_home.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_process_a.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_process_a.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_manual.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_manual.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_system.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_system.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_process_a2.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_a2.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_process_a2.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_process_a2.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_system.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_system.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_manual.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_manual.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/activity_main.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/activity_main.xml"
+        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_process_b1.xml",
+        "source": "com.aasolution.cleantrucksys.app-main-66:/layout/fragment_process_b1.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_process_b1.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_b1.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_process_b2.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_process_b2.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_process_a1.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_a1.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_process_b.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_process_b.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_process_a.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_a.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_home.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_home.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_process.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_process_a1.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_process_a1.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/layout/fragment_process_b.xml",
-        "source": "com.aasolution.cleantrucksys.app-main-65:/layout/fragment_process_b.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/fragment_process_b1.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/fragment_process_b1.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/activity_main.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-mergeDebugResources-63:/layout/test.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksys.app-main-66:/layout/test.xml"
     }
 ]

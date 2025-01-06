@@ -1,34 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.aasolution.hmi.test.app-debugAndroidTest-3:/values_values.arsc.flat",
+            "outputFile": "com.aasolution.cleantrucksys.test.app-debugAndroidTest-5:/values-v21_values-v21.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\khoik\\.gradle\\caches\\transforms-3\\caca388bb5e75f4f756dfb819f8c4d53\\transformed\\core-1.5.0\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "4,11",
-                        "startColumns": "0,0",
-                        "startOffsets": "176,544",
-                        "endLines": "10,17",
-                        "endColumns": "8,8",
-                        "endOffsets": "543,909"
-                    },
-                    "to": {
-                        "startLines": "2,9",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,427",
-                        "endLines": "8,15",
-                        "endColumns": "8,8",
-                        "endOffsets": "422,792"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.aasolution.hmi.test.app-debugAndroidTest-3:/values-v21_values-v21.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\khoik\\.gradle\\caches\\transforms-3\\caca388bb5e75f4f756dfb819f8c4d53\\transformed\\core-1.5.0\\res\\values-v21\\values.xml",
+                    "source": "/Users/macbook/.gradle/caches/transforms-3/caca388bb5e75f4f756dfb819f8c4d53/transformed/core-1.5.0/res/values-v21/values.xml",
                     "from": {
                         "startLines": "4,13",
                         "startColumns": "0,0",
@@ -49,10 +25,34 @@
             ]
         },
         {
-            "outputFile": "com.aasolution.hmi.test.app-debugAndroidTest-3:/values-v18_values-v18.arsc.flat",
+            "outputFile": "com.aasolution.cleantrucksys.test.app-debugAndroidTest-5:/values-v28_values-v28.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\khoik\\.gradle\\caches\\transforms-3\\caca388bb5e75f4f756dfb819f8c4d53\\transformed\\core-1.5.0\\res\\values-v18\\values.xml",
+                    "source": "/Users/macbook/.gradle/caches/transforms-3/caca388bb5e75f4f756dfb819f8c4d53/transformed/core-1.5.0/res/values-v28/values.xml",
+                    "from": {
+                        "startLines": "4,13",
+                        "startColumns": "0,0",
+                        "startOffsets": "180,659",
+                        "endLines": "12,21",
+                        "endColumns": "8,8",
+                        "endOffsets": "658,1135"
+                    },
+                    "to": {
+                        "startLines": "2,11",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,538",
+                        "endLines": "10,19",
+                        "endColumns": "8,8",
+                        "endOffsets": "533,1014"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.aasolution.cleantrucksys.test.app-debugAndroidTest-5:/values-v18_values-v18.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/macbook/.gradle/caches/transforms-3/caca388bb5e75f4f756dfb819f8c4d53/transformed/core-1.5.0/res/values-v18/values.xml",
                     "from": {
                         "startLines": "4,12",
                         "startColumns": "0,0",
@@ -73,25 +73,25 @@
             ]
         },
         {
-            "outputFile": "com.aasolution.hmi.test.app-debugAndroidTest-3:/values-v28_values-v28.arsc.flat",
+            "outputFile": "com.aasolution.cleantrucksys.test.app-debugAndroidTest-5:/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\khoik\\.gradle\\caches\\transforms-3\\caca388bb5e75f4f756dfb819f8c4d53\\transformed\\core-1.5.0\\res\\values-v28\\values.xml",
+                    "source": "/Users/macbook/.gradle/caches/transforms-3/caca388bb5e75f4f756dfb819f8c4d53/transformed/core-1.5.0/res/values/values.xml",
                     "from": {
-                        "startLines": "4,13",
+                        "startLines": "4,11",
                         "startColumns": "0,0",
-                        "startOffsets": "180,659",
-                        "endLines": "12,21",
+                        "startOffsets": "176,544",
+                        "endLines": "10,17",
                         "endColumns": "8,8",
-                        "endOffsets": "658,1135"
+                        "endOffsets": "543,909"
                     },
                     "to": {
-                        "startLines": "2,11",
+                        "startLines": "2,9",
                         "startColumns": "4,4",
-                        "startOffsets": "55,538",
-                        "endLines": "10,19",
+                        "startOffsets": "55,427",
+                        "endLines": "8,15",
                         "endColumns": "8,8",
-                        "endOffsets": "533,1014"
+                        "endOffsets": "422,792"
                     }
                 }
             ]

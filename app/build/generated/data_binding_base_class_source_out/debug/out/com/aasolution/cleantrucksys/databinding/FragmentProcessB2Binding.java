@@ -4,7 +4,6 @@ package com.aasolution.cleantrucksys.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -35,6 +34,9 @@ public final class FragmentProcessB2Binding implements ViewBinding {
   public final CardView bottomCard;
 
   @NonNull
+  public final RelativeLayout buttonTab;
+
+  @NonNull
   public final CardView endCard;
 
   @NonNull
@@ -44,7 +46,13 @@ public final class FragmentProcessB2Binding implements ViewBinding {
   public final ToggleButton oilLight;
 
   @NonNull
-  public final Button startProcess;
+  public final TextView startProcess;
+
+  @NonNull
+  public final ToggleButton startProcessButton;
+
+  @NonNull
+  public final RelativeLayout startProcessTab;
 
   @NonNull
   public final TextView state;
@@ -53,10 +61,22 @@ public final class FragmentProcessB2Binding implements ViewBinding {
   public final TextView stateTitle;
 
   @NonNull
-  public final Button stopCaoap;
+  public final TextView stopProcess;
 
   @NonNull
-  public final Button stopProcess;
+  public final ToggleButton stopProcessButton;
+
+  @NonNull
+  public final RelativeLayout stopProcessTab;
+
+  @NonNull
+  public final TextView stopWater;
+
+  @NonNull
+  public final ToggleButton stopWaterButton;
+
+  @NonNull
+  public final RelativeLayout stopWaterTab;
 
   @NonNull
   public final TextView title;
@@ -96,27 +116,38 @@ public final class FragmentProcessB2Binding implements ViewBinding {
 
   private FragmentProcessB2Binding(@NonNull FrameLayout rootView,
       @NonNull ConstraintLayout ConstraintLayout, @NonNull RelativeLayout backButton,
-      @NonNull CardView bottomCard, @NonNull CardView endCard, @NonNull ImageView imageView,
-      @NonNull ToggleButton oilLight, @NonNull Button startProcess, @NonNull TextView state,
-      @NonNull TextView stateTitle, @NonNull Button stopCaoap, @NonNull Button stopProcess,
-      @NonNull TextView title, @NonNull RelativeLayout titleLayout,
-      @NonNull ToggleButton vacuumLight, @NonNull ToggleButton valve2Light,
-      @NonNull ToggleButton valve3Light, @NonNull ToggleButton valve4Light,
-      @NonNull ToggleButton valve6Light, @NonNull ToggleButton valve8Light,
-      @NonNull ToggleButton valve9Light, @NonNull ToggleButton waterLight,
-      @NonNull RelativeLayout zoomInButton, @NonNull RelativeLayout zoomOutButton) {
+      @NonNull CardView bottomCard, @NonNull RelativeLayout buttonTab, @NonNull CardView endCard,
+      @NonNull ImageView imageView, @NonNull ToggleButton oilLight, @NonNull TextView startProcess,
+      @NonNull ToggleButton startProcessButton, @NonNull RelativeLayout startProcessTab,
+      @NonNull TextView state, @NonNull TextView stateTitle, @NonNull TextView stopProcess,
+      @NonNull ToggleButton stopProcessButton, @NonNull RelativeLayout stopProcessTab,
+      @NonNull TextView stopWater, @NonNull ToggleButton stopWaterButton,
+      @NonNull RelativeLayout stopWaterTab, @NonNull TextView title,
+      @NonNull RelativeLayout titleLayout, @NonNull ToggleButton vacuumLight,
+      @NonNull ToggleButton valve2Light, @NonNull ToggleButton valve3Light,
+      @NonNull ToggleButton valve4Light, @NonNull ToggleButton valve6Light,
+      @NonNull ToggleButton valve8Light, @NonNull ToggleButton valve9Light,
+      @NonNull ToggleButton waterLight, @NonNull RelativeLayout zoomInButton,
+      @NonNull RelativeLayout zoomOutButton) {
     this.rootView = rootView;
     this.ConstraintLayout = ConstraintLayout;
     this.backButton = backButton;
     this.bottomCard = bottomCard;
+    this.buttonTab = buttonTab;
     this.endCard = endCard;
     this.imageView = imageView;
     this.oilLight = oilLight;
     this.startProcess = startProcess;
+    this.startProcessButton = startProcessButton;
+    this.startProcessTab = startProcessTab;
     this.state = state;
     this.stateTitle = stateTitle;
-    this.stopCaoap = stopCaoap;
     this.stopProcess = stopProcess;
+    this.stopProcessButton = stopProcessButton;
+    this.stopProcessTab = stopProcessTab;
+    this.stopWater = stopWater;
+    this.stopWaterButton = stopWaterButton;
+    this.stopWaterTab = stopWaterTab;
     this.title = title;
     this.titleLayout = titleLayout;
     this.vacuumLight = vacuumLight;
@@ -176,6 +207,12 @@ public final class FragmentProcessB2Binding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.buttonTab;
+      RelativeLayout buttonTab = ViewBindings.findChildViewById(rootView, id);
+      if (buttonTab == null) {
+        break missingId;
+      }
+
       id = R.id.endCard;
       CardView endCard = ViewBindings.findChildViewById(rootView, id);
       if (endCard == null) {
@@ -195,8 +232,20 @@ public final class FragmentProcessB2Binding implements ViewBinding {
       }
 
       id = R.id.start_process;
-      Button startProcess = ViewBindings.findChildViewById(rootView, id);
+      TextView startProcess = ViewBindings.findChildViewById(rootView, id);
       if (startProcess == null) {
+        break missingId;
+      }
+
+      id = R.id.start_process_button;
+      ToggleButton startProcessButton = ViewBindings.findChildViewById(rootView, id);
+      if (startProcessButton == null) {
+        break missingId;
+      }
+
+      id = R.id.start_process_tab;
+      RelativeLayout startProcessTab = ViewBindings.findChildViewById(rootView, id);
+      if (startProcessTab == null) {
         break missingId;
       }
 
@@ -212,15 +261,39 @@ public final class FragmentProcessB2Binding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.stop_caoap;
-      Button stopCaoap = ViewBindings.findChildViewById(rootView, id);
-      if (stopCaoap == null) {
+      id = R.id.stop_process;
+      TextView stopProcess = ViewBindings.findChildViewById(rootView, id);
+      if (stopProcess == null) {
         break missingId;
       }
 
-      id = R.id.stop_process;
-      Button stopProcess = ViewBindings.findChildViewById(rootView, id);
-      if (stopProcess == null) {
+      id = R.id.stop_process_button;
+      ToggleButton stopProcessButton = ViewBindings.findChildViewById(rootView, id);
+      if (stopProcessButton == null) {
+        break missingId;
+      }
+
+      id = R.id.stop_process_tab;
+      RelativeLayout stopProcessTab = ViewBindings.findChildViewById(rootView, id);
+      if (stopProcessTab == null) {
+        break missingId;
+      }
+
+      id = R.id.stop_water;
+      TextView stopWater = ViewBindings.findChildViewById(rootView, id);
+      if (stopWater == null) {
+        break missingId;
+      }
+
+      id = R.id.stop_water_button;
+      ToggleButton stopWaterButton = ViewBindings.findChildViewById(rootView, id);
+      if (stopWaterButton == null) {
+        break missingId;
+      }
+
+      id = R.id.stop_water_tab;
+      RelativeLayout stopWaterTab = ViewBindings.findChildViewById(rootView, id);
+      if (stopWaterTab == null) {
         break missingId;
       }
 
@@ -297,9 +370,11 @@ public final class FragmentProcessB2Binding implements ViewBinding {
       }
 
       return new FragmentProcessB2Binding((FrameLayout) rootView, ConstraintLayout, backButton,
-          bottomCard, endCard, imageView, oilLight, startProcess, state, stateTitle, stopCaoap,
-          stopProcess, title, titleLayout, vacuumLight, valve2Light, valve3Light, valve4Light,
-          valve6Light, valve8Light, valve9Light, waterLight, zoomInButton, zoomOutButton);
+          bottomCard, buttonTab, endCard, imageView, oilLight, startProcess, startProcessButton,
+          startProcessTab, state, stateTitle, stopProcess, stopProcessButton, stopProcessTab,
+          stopWater, stopWaterButton, stopWaterTab, title, titleLayout, vacuumLight, valve2Light,
+          valve3Light, valve4Light, valve6Light, valve8Light, valve9Light, waterLight, zoomInButton,
+          zoomOutButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

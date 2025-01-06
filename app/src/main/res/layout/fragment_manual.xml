@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0080c0"
+    android:background="#fafcf8"
     android:theme="@style/ThemeOverlay.HMI.FullscreenContainer"
     tools:context=".ManualFragment">
 
@@ -16,180 +16,317 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/manual_title"
-        android:paddingTop="@dimen/_10sdp">
+        android:paddingTop="@dimen/_4sdp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Điều chỉnh bằng tay"
             android:textStyle="bold"
-            android:textColor="@color/White"
+            android:textColor="@color/Black"
             android:textSize="@dimen/_20sdp"
             android:textAlignment="center"/>
     </RelativeLayout>
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/manual_title">
+        android:layout_height="match_parent"
+        android:layout_below="@id/manual_title"
+        android:layout_above="@id/homeButton">
 
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_gravity="center">
+            android:layout_height="match_parent"
+            android:id="@+id/manual_body"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="@dimen/_415sdp"
-                android:layout_height="@dimen/_230sdp"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="0dp"
+                android:layout_width="@dimen/_400sdp"
+                android:layout_height="@dimen/_206sdp"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/manual"
-                android:contentDescription="@string/manual" />
+                android:scaleType="fitXY" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/_460sdp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
 
             <ToggleButton
-                android:id="@+id/oil_button"
-                android:layout_width="@dimen/_22ssp"
-                android:layout_height="@dimen/_22ssp"
+                android:id="@+id/robot_forward_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_86sdp"
-                android:layout_marginTop="@dimen/_73sdp"
-                android:background="@drawable/circle_light_selector"
+                android:layout_marginStart="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_55sdp"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textOn="" />
 
             <ToggleButton
+                android:id="@+id/robot_stop_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_75sdp"
+                android:layout_marginTop="@dimen/_55sdp"
+                android:background="@drawable/radio_button"
+                android:checked="true"
+                android:textOff=""
+                android:textOn="" />
+
+            <ToggleButton
+                android:id="@+id/robot_backward_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_105sdp"
+                android:layout_marginTop="@dimen/_55sdp"
+                android:background="@drawable/radio_button"
+                android:checked="false"
+                android:textOff=""
+                android:textOn="" />
+
+            <ToggleButton
+                android:id="@+id/pipe_up_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_55sdp"
+                android:layout_marginTop="@dimen/_110sdp"
+                android:background="@drawable/radio_button"
+                android:checked="false"
+                android:textOff=""
+                android:textOn="" />
+
+            <ToggleButton
+                android:id="@+id/pipe_down_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_95sdp"
+                android:layout_marginTop="@dimen/_110sdp"
+                android:background="@drawable/radio_button"
+                android:checked="false"
+                android:textOff=""
+                android:textOn="" />
+
+            <ToggleButton
+                android:id="@+id/arm_up_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_55sdp"
+                android:layout_marginTop="@dimen/_170sdp"
+                android:background="@drawable/radio_button"
+                android:checked="false"
+                android:textOff=""
+                android:textOn="" />
+
+            <ToggleButton
+                android:id="@+id/arm_down_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_95sdp"
+                android:layout_marginTop="@dimen/_170sdp"
+                android:background="@drawable/radio_button"
+                android:checked="false"
+                android:textOff=""
+                android:textOn="" />
+
+            <com.github.angads25.toggle.widget.LabeledSwitch
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_25sdp"
                 android:id="@+id/vacuum_button"
-                android:layout_width="@dimen/_22ssp"
-                android:layout_height="@dimen/_22ssp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_214sdp"
-                android:layout_marginTop="@dimen/_73sdp"
-                android:background="@drawable/circle_light_selector"
-                android:checked="false"
-                android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginStart="@dimen/_155sdp"
+                android:layout_marginTop="@dimen/_45sdp"
+                app:on="false"
+                app:colorBorder="#F00000"
+                app:colorOn="#F00000"
+                app:colorOff="#FFFFFF"
+                app:textOff="TẮT"
+                android:textStyle="bold"
+                android:textSize="@dimen/_8sdp"
+                app:textOn="BẬT"/>
 
-            <ToggleButton
-                android:id="@+id/valve3_button"
-                android:layout_width="@dimen/_25ssp"
-                android:layout_height="@dimen/_25ssp"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_195sdp"
-                android:layout_marginTop="@dimen/_178sdp"
-                android:background="@drawable/circle_light_selector"
-                android:checked="false"
-                android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ToggleButton
-                android:id="@+id/valve6_button"
-                android:layout_width="@dimen/_25ssp"
-                android:layout_height="@dimen/_25ssp"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_232sdp"
-                android:layout_marginTop="@dimen/_178sdp"
-                android:background="@drawable/circle_light_selector"
-                android:checked="false"
-                android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ToggleButton
+            <com.github.angads25.toggle.widget.LabeledSwitch
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_25sdp"
                 android:id="@+id/water_button"
-                android:layout_width="@dimen/_22ssp"
-                android:layout_height="@dimen/_22ssp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_292sdp"
-                android:layout_marginTop="@dimen/_73sdp"
-                android:background="@drawable/circle_light_selector"
-                android:checked="false"
-                android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginStart="@dimen/_255sdp"
+                android:layout_marginTop="@dimen/_45sdp"
+                app:on="false"
+                app:colorBorder="#F00000"
+                app:colorOn="#F00000"
+                app:colorOff="#FFFFFF"
+                app:textOff="TẮT"
+                android:textStyle="bold"
+                android:textSize="@dimen/_8sdp"
+                app:textOn="BẬT"/>
 
             <ToggleButton
-                android:id="@+id/valve11_button"
-                android:layout_width="@dimen/_25ssp"
-                android:layout_height="@dimen/_25ssp"
+                android:id="@+id/vacuum_stop_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_272sdp"
-                android:layout_marginTop="@dimen/_178sdp"
-                android:background="@drawable/circle_light_selector"
-                android:checked="false"
+                android:layout_marginStart="@dimen/_172sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:background="@drawable/radio_button"
+                android:checked="true"
                 android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textOn="" />
 
             <ToggleButton
-                android:id="@+id/valve8_button"
-                android:layout_width="@dimen/_25ssp"
-                android:layout_height="@dimen/_25ssp"
+                android:id="@+id/vacuum_out_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_311sdp"
-                android:layout_marginTop="@dimen/_178sdp"
-                android:background="@drawable/circle_light_selector"
+                android:layout_marginStart="@dimen/_200sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textOn="" />
 
             <ToggleButton
-                android:id="@+id/valve1_button"
-                android:layout_width="@dimen/_22ssp"
-                android:layout_height="@dimen/_22ssp"
+                android:id="@+id/vacuum_in_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_370sdp"
-                android:layout_marginTop="@dimen/_73sdp"
-                android:background="@drawable/circle_light_selector"
+                android:layout_marginStart="@dimen/_144sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textOn="" />
 
             <ToggleButton
-                android:id="@+id/valve4_button"
-                android:layout_width="@dimen/_25ssp"
-                android:layout_height="@dimen/_25ssp"
+                android:id="@+id/water_stop_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_349sdp"
-                android:layout_marginTop="@dimen/_178sdp"
-                android:background="@drawable/circle_light_selector"
-                android:checked="false"
+                android:layout_marginStart="@dimen/_270sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:background="@drawable/radio_button"
+                android:checked="true"
                 android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textOn="" />
 
             <ToggleButton
-                android:id="@+id/valve9_button"
-                android:layout_width="@dimen/_25ssp"
-                android:layout_height="@dimen/_25ssp"
+                android:id="@+id/water_in_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_385sdp"
-                android:layout_marginTop="@dimen/_178sdp"
-                android:background="@drawable/circle_light_selector"
+                android:layout_marginStart="@dimen/_242sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:background="@drawable/radio_button"
                 android:checked="false"
                 android:textOff=""
-                android:textOn=""
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textOn="" />
+
+            <ToggleButton
+                android:id="@+id/water_out_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_298sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:background="@drawable/radio_button"
+                android:checked="false"
+                android:textOff=""
+                android:textOn="" />
+
+            <ToggleButton
+                android:id="@+id/tank_stop_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_366sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:background="@drawable/radio_button"
+                android:checked="true"
+                android:textOff=""
+                android:textOn="" />
+
+            <ToggleButton
+                android:id="@+id/tank_in_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_338sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:background="@drawable/radio_button"
+                android:checked="false"
+                android:textOff=""
+                android:textOn="" />
+
+            <ToggleButton
+                android:id="@+id/tank_out_button"
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_394sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:background="@drawable/radio_button"
+                android:checked="false"
+                android:textOff=""
+                android:textOn="" />
+
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/vacuum_pressure_gauge"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                app:sv_unit="bar"
+                app:sv_minSpeed="-1"
+                app:sv_maxSpeed="10"
+                app:sv_withTremble="false"
+                app:sv_tickNumber="12"
+                app:sv_indicatorColor="#F00000"
+                app:sv_marksNumber="10"
+                app:sv_markWidth="@dimen/_2sdp"
+                app:sv_speedTextSize="@dimen/_10sdp"
+                app:sv_centerCircleRadius="@dimen/_4sdp"
+                app:sv_markColor="@color/Black"
+                app:sv_indicatorWidth="@dimen/_4sdp"
+                app:sv_speedometerWidth="@dimen/_8sdp"
+                app:sv_indicator="NormalSmallIndicator"
+                android:layout_marginStart="@dimen/_147sdp"
+                android:layout_marginTop="@dimen/_88sdp" />
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/water_pressure_gauge"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_marginStart="@dimen/_242sdp"
+                app:sv_unit="bar"
+                app:sv_tickNumber="7"
+                app:sv_minSpeed="0"
+                app:sv_maxSpeed="30"
+                app:sv_withTremble="false"
+                app:sv_indicatorColor="#F00000"
+                app:sv_marksNumber="5"
+                app:sv_markWidth="@dimen/_2sdp"
+                app:sv_speedTextSize="@dimen/_10sdp"
+                app:sv_centerCircleRadius="@dimen/_4sdp"
+                app:sv_markColor="@color/Black"
+                app:sv_indicatorWidth="@dimen/_4sdp"
+                app:sv_speedometerWidth="@dimen/_8sdp"
+                app:sv_indicator="NormalSmallIndicator"
+                android:layout_marginTop="@dimen/_88sdp" />
+
+
 
         </RelativeLayout>
-    </ScrollView>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/homeButton"
