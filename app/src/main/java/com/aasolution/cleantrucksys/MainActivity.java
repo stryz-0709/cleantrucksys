@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void postOKHTTP(String status) {
-        String url = "http://192.168.8.149/post"; // Ensure the IP matches the ESP32
+        String url = "http://192.168.1.149/post"; // Ensure the IP matches the ESP32
 
         Log.d("HTTP Request", "Payload: " + status);
 
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getOKHTTP(ResponseCallback callback) {
-        String url = "http://192.168.8.149/hmi"; // Ensure the IP matches the ESP32
+        String url = "http://192.168.1.149/hmi"; // Ensure the IP matches the ESP32
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
