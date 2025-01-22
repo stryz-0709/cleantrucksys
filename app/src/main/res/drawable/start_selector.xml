@@ -2,11 +2,17 @@
     <!-- "On" State -->
     <item android:state_checked="true">
         <shape android:shape="oval">
-            <solid android:color="#4CAF50" /> <!-- Green color for "on" state -->
-            <size android:width="100dp" android:height="100dp" /> <!-- Circle size -->
+            <gradient
+                android:type="radial"
+                android:gradientRadius="50%p"
+                android:startColor="#FFFFFF"
+            android:endColor="#00FF7F"
+            android:centerColor="#00FF7F"
+            android:useLevel="false" />
+            <size android:width="100dp" android:height="100dp" />
             <stroke
                 android:width="5dp"
-                android:color="#006600" /> <!-- Optional border color -->
+                android:color="#006600" />
         </shape>
     </item>
 

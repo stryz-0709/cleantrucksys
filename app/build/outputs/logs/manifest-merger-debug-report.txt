@@ -14,6 +14,7 @@ MERGED from [com.github.STRAIBERRY-AI-INC.Straiberry-charts:common:1.1.0] /Users
 MERGED from [com.google.android.material:material:1.11.0] /Users/macbook/.gradle/caches/transforms-3/1f3bfc63a883d8785cc7aedbe71e7dca/transformed/material-1.11.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/macbook/.gradle/caches/transforms-3/cfcb83684a7951905dc848dafaa37200/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.abdularis:TapHoldUpButton:0.1.2] /Users/macbook/.gradle/caches/transforms-3/7bd661cea2a95340b8259b90b32abea5/transformed/TapHoldUpButton-0.1.2/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.SanojPunchihewa:GlowButton:1.0.1] /Users/macbook/.gradle/caches/transforms-3/153d61e13e268a2e9ded1cc7ec28b2ec/transformed/GlowButton-1.0.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/macbook/.gradle/caches/transforms-3/08790628c8f0bd97dc7c1f704bb96ff9/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.preference:preference-ktx:1.2.0] /Users/macbook/.gradle/caches/transforms-3/e7475136fce1c795e253594601f81e14/transformed/preference-ktx-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.preference:preference:1.2.0] /Users/macbook/.gradle/caches/transforms-3/e744119ef7df4b70fda4265def89e100/transformed/preference-1.2.0/AndroidManifest.xml:17:1-24:12
@@ -238,6 +239,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/macbook/.g
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/macbook/.gradle/caches/transforms-3/cfcb83684a7951905dc848dafaa37200/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.abdularis:TapHoldUpButton:0.1.2] /Users/macbook/.gradle/caches/transforms-3/7bd661cea2a95340b8259b90b32abea5/transformed/TapHoldUpButton-0.1.2/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.abdularis:TapHoldUpButton:0.1.2] /Users/macbook/.gradle/caches/transforms-3/7bd661cea2a95340b8259b90b32abea5/transformed/TapHoldUpButton-0.1.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.SanojPunchihewa:GlowButton:1.0.1] /Users/macbook/.gradle/caches/transforms-3/153d61e13e268a2e9ded1cc7ec28b2ec/transformed/GlowButton-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.SanojPunchihewa:GlowButton:1.0.1] /Users/macbook/.gradle/caches/transforms-3/153d61e13e268a2e9ded1cc7ec28b2ec/transformed/GlowButton-1.0.1/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/macbook/.gradle/caches/transforms-3/08790628c8f0bd97dc7c1f704bb96ff9/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/macbook/.gradle/caches/transforms-3/08790628c8f0bd97dc7c1f704bb96ff9/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.preference:preference-ktx:1.2.0] /Users/macbook/.gradle/caches/transforms-3/e7475136fce1c795e253594601f81e14/transformed/preference-ktx-1.2.0/AndroidManifest.xml:20:5-22:41

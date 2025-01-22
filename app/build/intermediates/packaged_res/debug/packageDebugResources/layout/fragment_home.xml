@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fafcf8"
+    android:background="#FFFFFF"
     android:theme="@style/ThemeOverlay.HMI.FullscreenContainer"
     tools:context=".HomeFragment">
 
@@ -13,11 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@drawable/imae"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/manual_title"
             android:paddingTop="@dimen/_10sdp">
+
+
 
             <TextView
                 android:layout_width="match_parent"

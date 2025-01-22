@@ -1,5 +1,8 @@
 package com.aasolution.cleantrucksys;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import androidx.fragment.app.Fragment;
 
 import android.content.pm.ActivityInfo;
@@ -11,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -30,16 +34,15 @@ public class ManualFragment extends Fragment {
     View mView;
     MainActivity mainActivity;
     RelativeLayout homeButton;
-    Button vacuumInButton, vacuumOutButton, vacuumStopButton,
-            tankInButton, tankOutButton, tankStopButton,
-            waterInButton, waterOutButton, waterStopButton,
-            robotForwardButton, robotBackwardButton, robotStopButton,
-            armUpButton, armDownButton,
-            pipeUpButton, pipeDownButton;
+    ToggleButton vacuumPower, waterPower, tankPower,
+            robotPower, robotForwardButton, robotBackwardButton, robotStopButton;
 
     SpeedView vacuumPressure, waterPressure;
 
-    LabeledSwitch vacuum_pumpButton, water_pumpButton;
+    LabeledSwitch vacuumButton, waterButton, armButton,
+            tankInButton, vacuumOutButton, waterOutButton;
+
+    ImageView robotPowerGradient, vacuumPowerGradient, waterPowerGradient, tankPowerGradient;
 
     private Handler handler = new Handler();
     private Runnable dataFetchRunnable;
@@ -76,59 +79,55 @@ public class ManualFragment extends Fragment {
         waterPressure.getSections().get(2).setColor(Color.parseColor("#CCCCCC"));
 
         // Initialize buttons
+        robotPower = mView.findViewById(R.id.robot_power);
         robotForwardButton = mView.findViewById(R.id.robot_forward_button);
         robotBackwardButton = mView.findViewById(R.id.robot_backward_button);
         robotStopButton = mView.findViewById(R.id.robot_stop_button);
+        armButton = mView.findViewById(R.id.arm_button);
 
-        vacuumInButton = mView.findViewById(R.id.vacuum_in_button);
-        vacuumOutButton = mView.findViewById(R.id.vacuum_out_button);
-        vacuumStopButton = mView.findViewById(R.id.vacuum_stop_button);
-
-        waterInButton = mView.findViewById(R.id.water_in_button);
-        waterOutButton = mView.findViewById(R.id.water_out_button);
-        waterStopButton = mView.findViewById(R.id.water_stop_button);
+        vacuumButton = mView.findViewById(R.id.vacuum_button);
+        vacuumPower = mView.findViewById(R.id.vacuum_power);
+        waterButton = mView.findViewById(R.id.water_button);
+        waterPower = mView.findViewById(R.id.water_power);
 
         tankInButton = mView.findViewById(R.id.tank_in_button);
-        tankOutButton = mView.findViewById(R.id.tank_out_button);
-        tankStopButton = mView.findViewById(R.id.tank_stop_button);
+        tankPower = mView.findViewById(R.id.tank_power);
 
-        armUpButton = mView.findViewById(R.id.arm_up_button);
-        armDownButton = mView.findViewById(R.id.arm_down_button);
+        vacuumOutButton = mView.findViewById(R.id.vacuum_out_button);
+        waterOutButton = mView.findViewById(R.id.water_out_button);
 
-        pipeUpButton = mView.findViewById(R.id.pipe_up_button);
-        pipeDownButton = mView.findViewById(R.id.pipe_down_button);
+        robotPowerGradient = mView.findViewById(R.id.robot_power_gradient);
+        vacuumPowerGradient = mView.findViewById(R.id.vacuum_power_gradient);
+        waterPowerGradient = mView.findViewById(R.id.water_power_gradient);
+        tankPowerGradient = mView.findViewById(R.id.tank_power_gradient);
 
-        vacuum_pumpButton = mView.findViewById(R.id.vacuum_button);
-        water_pumpButton = mView.findViewById(R.id.water_button);
+        robotPowerGradient.setVisibility(GONE);
+        vacuumPowerGradient.setVisibility(GONE);
+        waterPowerGradient.setVisibility(GONE);
+        tankPowerGradient.setVisibility(GONE);
 
-        Button[] group1 = {vacuumInButton, vacuumOutButton, vacuumStopButton};
-        String[] group1Keys = {"vacuum_in", "vacuum_out", "vacuum_stop"};
+        robotPower.setEnabled(false);
+        vacuumPower.setEnabled(false);
+        robotPower.setEnabled(false);
+        vacuumPower.setEnabled(false);
 
-        Button[] group2 = {waterInButton, waterOutButton, waterStopButton};
-        String[] group2Keys = {"water_in", "water_out", "water_stop"};
 
-        Button[] group3 = {tankInButton, tankOutButton, tankStopButton};
-        String[] group3Keys = {"tank_in", "tank_out", "tank_stop"};
-
-        Button[] group4 = {robotForwardButton, robotBackwardButton, robotStopButton};
-        String[] group4Keys = {"robot_forward", "robot_backward", "robot_stop"};
-
-        Button[] group5 = {armUpButton, armDownButton};
-        String[] group5Keys = {"arm_up", "arm_down"};
-
-        Button[] group6 = {pipeUpButton, pipeDownButton};
-        String[] group6Keys = {"pipe_up", "pipe_down"};
+        Button[] group = {robotForwardButton, robotBackwardButton, robotStopButton};
+        String[] groupKeys = {"robot_forward", "robot_backward", "robot_stop"};
 
         // Set up button logic
-        for (Button button : group1) setupButton(button, group1, group1Keys);
-        for (Button button : group2) setupButton(button, group2, group2Keys);
-        for (Button button : group3) setupButton(button, group3, group3Keys);
-        for (Button button : group4) setupButton(button, group4, group4Keys);
-        for (Button button : group5) setupButton(button, group5, group5Keys);
-        for (Button button : group6) setupButton(button, group6, group6Keys);
+        for (Button button : group) setupButton(button, group, groupKeys);
 
-        setupLabeledSwitch(vacuum_pumpButton, "vacuum_power");
-        setupLabeledSwitch(water_pumpButton, "water_power");
+
+        ///vacuum_in for both vacuum_out and water_out
+
+        setupLabeledSwitch(vacuumButton, "vacuum_power", null, null);
+        setupLabeledSwitch(waterButton, "water_power", null, null);
+
+        setupLabeledSwitch(armButton, "arm_up", "arm_down", null);
+        setupLabeledSwitch(tankInButton, "vacuum_in", "vacuum_out", "water_out");
+        setupLabeledSwitch(vacuumOutButton, "vacuum_out", "vacuum_in", "water_out");
+        setupLabeledSwitch(waterOutButton, "water_out","vacuum_in", "vacuum_out");
 
         dataFetch();
         startPeriodicDataFetch();
@@ -165,47 +164,66 @@ public class ManualFragment extends Fragment {
         });
     }
 
-    private void setupLabeledSwitch(LabeledSwitch switchButton, String key) {
+    private void setupLabeledSwitch(LabeledSwitch switchButton, String key1, String key2, String key3) {
         switchButton.setOnClickListener(v -> {
             switchButton.setEnabled(false);
-            sendStateChangeToServer(switchButton, key);
+            try {
+                boolean newState = Boolean.FALSE.equals(buttonStates.getOrDefault(key1, false));
+                buttonStates.put(key1, newState); // Save the intended state locally
+
+                // Prepare the JSON data for the server request
+                JSONObject jsonData = new JSONObject();
+
+                if (key2 == null && key3 == null) {
+                    // Single key: Send (1) or (0)
+                    jsonData.put(key1, newState ? 1 : 0);
+                } else if (key2 != null && key3 == null) {
+                    // Two keys: Send (1;0) or (0;1)
+                    jsonData.put(key1, newState ? 1 : 0);
+                    jsonData.put(key2, newState ? 0 : 1);
+                } else if (key2 != null && key3 != null) {
+                    // Three keys: Send (1;0;0) or (0;0;0)
+                    jsonData.put(key1, newState ? 1 : 0);
+                    jsonData.put(key2, 0);
+                    jsonData.put(key3, 0);
+                }
+
+                mainActivity.postOKHTTP(jsonData.toString());
+            } catch (JSONException e) {
+                Log.e("ManualFragment", "Error preparing JSON for keys: " + key1 + ", " + key2 + ", " + key3, e);
+                // Re-enable the switch in case of error
+                switchButton.setEnabled(true);
+            }
         });
     }
 
-    private void sendStateChangeToServer(LabeledSwitch switchButton, String key) {
-        try {
-            // Prepare the JSON data for the server request
-            boolean newState = !buttonStates.getOrDefault(key, false); // Invert the local state for the request
-            buttonStates.put(key, newState); // Save the intended state locally
 
-            JSONObject jsonData = new JSONObject();
-            jsonData.put(key, newState ? 1 : 0);
-
-            // Send the request to the server (simulated here)
-            mainActivity.postOKHTTP(jsonData.toString());
-        } catch (JSONException e) {
-            Log.e("ManualFragment", "Error preparing JSON for key: " + key, e);
-            // Re-enable the switch in case of error
-            switchButton.setEnabled(true);
-        }
-    }
-
-    private void updateLabeledSwitch(LabeledSwitch switchButton, String key, JSONObject jsonObject) {
+    private void updateLabeledSwitch(LabeledSwitch switchButton, String key1, String key2, JSONObject jsonObject) {
         try {
             if (jsonObject != null) {
-                boolean newState = jsonObject.has(key) && jsonObject.getInt(key) == 1;
+                boolean newState;
 
+                if (key2 == null) {
+                    newState = jsonObject.has(key1) && jsonObject.getInt(key1) == 1;
+                } else {
+                    boolean key1State = jsonObject.has(key1) && jsonObject.getInt(key1) == 1;
+                    boolean key2State = jsonObject.has(key2) && jsonObject.getInt(key2) == 1;
+
+                    newState = key1State && !key2State;
+                }
                 switchButton.setOn(newState);
                 switchButton.setColorOn(Color.parseColor(newState ? "#4CAF50" : "#F00000"));
 
-                buttonStates.put(key, newState);
+                buttonStates.put(key1, newState);
+
                 switchButton.setEnabled(true);
             }
         } catch (JSONException e) {
-            Log.e("ManualFragment", "Error updating LabeledSwitch state for key: " + key, e);
+            Log.e("ManualFragment", "Error updating LabeledSwitch state for keys: " + key1 + ", " + key2, e);
             switchButton.setEnabled(true);
         }
     }
+
 
     private void updateButtonLogic(Button clickedButton, Button[] groupButtons, String[] groupKeys, JSONObject jsonObject) {
         try {
@@ -287,6 +305,21 @@ public class ManualFragment extends Fragment {
     }
 
 
+    private void updateLights(JSONObject jsonObject) {
+        try {
+            robotPower.setChecked(jsonObject.getInt("robot_forward") == 1 || jsonObject.getInt("robot_backward") == 1 || jsonObject.getInt("arm_up") == 1);
+            robotPowerGradient.setVisibility((jsonObject.getInt("robot_forward") == 1 || jsonObject.getInt("robot_backward") == 1 || jsonObject.getInt("arm_up") == 1)? VISIBLE: GONE);
+            vacuumPower.setChecked(jsonObject.getInt("vacuum_power") == 1);
+            vacuumPowerGradient.setVisibility(jsonObject.getInt("vacuum_power") == 1? VISIBLE: GONE);
+            waterPower.setChecked(jsonObject.getInt("water_power") == 1);
+            waterPowerGradient.setVisibility(jsonObject.getInt("water_power") == 1? VISIBLE: GONE);
+            tankPower.setChecked(jsonObject.getInt("vacuum_in") == 1 || jsonObject.getInt("vacuum_out") == 1 || jsonObject.getInt("water_out") == 1);
+            tankPowerGradient.setVisibility((jsonObject.getInt("vacuum_in") == 1 || jsonObject.getInt("vacuum_out") == 1 || jsonObject.getInt("water_out") == 1)? VISIBLE: GONE);
+        } catch (JSONException e) {
+            Log.e("ProcessB1", "Error updating lights", e);
+        }
+    }
+
 
     private void dataFetch() {
         mainActivity.getOKHTTP(new MainActivity.ResponseCallback() {
@@ -298,28 +331,21 @@ public class ManualFragment extends Fragment {
                         JSONObject jsonObject = new JSONObject(response);
                         Log.d("ManualFragment", "Received JSON: " + jsonObject.toString());
 
-                        // Update button states for each group
-                        updateButtonLogic(null, new Button[]{vacuumInButton, vacuumOutButton, vacuumStopButton},
-                                new String[]{"vacuum_in", "vacuum_out", "vacuum_stop"}, jsonObject);
-
-                        updateButtonLogic(null, new Button[]{waterInButton, waterOutButton, waterStopButton},
-                                new String[]{"water_in", "water_out", "water_stop"}, jsonObject);
-
-                        updateButtonLogic(null, new Button[]{tankInButton, tankOutButton, tankStopButton},
-                                new String[]{"tank_in", "tank_out", "tank_stop"}, jsonObject);
+                        updateLights(jsonObject);
 
                         updateButtonLogic(null, new Button[]{robotForwardButton, robotBackwardButton, robotStopButton},
                                 new String[]{"robot_forward", "robot_backward", "robot_stop"}, jsonObject);
 
-                        updateButtonLogic(null, new Button[]{armUpButton, armDownButton},
-                                new String[]{"arm_up", "arm_down"}, jsonObject);
-
-                        updateButtonLogic(null, new Button[]{pipeUpButton, pipeDownButton},
-                                new String[]{"pipe_up", "pipe_down"}, jsonObject);
-
                         // Update labeled switches
-                        updateLabeledSwitch(vacuum_pumpButton, "vacuum_power", jsonObject);
-                        updateLabeledSwitch(water_pumpButton, "water_power", jsonObject);
+                        updateLabeledSwitch(vacuumButton, "vacuum_power", null, jsonObject);
+                        updateLabeledSwitch(waterButton, "water_power", null, jsonObject);
+
+                        updateLabeledSwitch(armButton, "arm_up", "arm_down", jsonObject);
+
+                        updateLabeledSwitch(tankInButton, "vacuum_in", null, jsonObject);
+                        updateLabeledSwitch(vacuumOutButton, "vacuum_out", null,  jsonObject);
+                        updateLabeledSwitch(waterOutButton, "water_out", null, jsonObject);
+
 
                         // Update gauges
                         float vacuumPressureValue = (float) jsonObject.getDouble("vacuum_pressure");
@@ -336,9 +362,10 @@ public class ManualFragment extends Fragment {
             @Override
             public void onError(String error) {
                 if (!isAdded()) return;
-                requireActivity().runOnUiThread(() ->
-                        Toast.makeText(requireContext(), "Failed to fetch data. Check connection.", Toast.LENGTH_LONG).show()
-                );
+                Log.e("ManualFragment", "Network error: " + error);
+//                requireActivity().runOnUiThread(() ->
+//                        Toast.makeText(requireContext(), "Failed to fetch data. Check connection.", Toast.LENGTH_LONG).show()
+//                );
             }
         });
     }

@@ -36,6 +36,7 @@ import okhttp3.Response;
 
 import okhttp3.*;
 
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 
@@ -88,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void postOKHTTP(String status) {
         String url = "http://192.168.1.149/post"; // Ensure the IP matches the ESP32
+//        String url = "http://172.20.10.3/post"; // Ensure the IP matches the ESP32
+
 
         Log.d("HTTP Request", "Payload: " + status);
 
@@ -122,26 +125,52 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getOKHTTP(ResponseCallback callback) {
-        String url = "http://192.168.1.149/hmi"; // Ensure the IP matches the ESP32
-        OkHttpClient client = new OkHttpClient();
+        String url = "http://192.168.1.149/hmi"; // Replace with your server IP and endpoint
+//        String url = "http://172.20.10.3/hmi"; // Replace with your server IP and endpoint
 
+
+        // Build OkHttpClient with timeout settings and HTTP/1.1 support
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(10, TimeUnit.SECONDS) // Connection timeout
+                .readTimeout(30, TimeUnit.SECONDS)    // Read timeout
+                .writeTimeout(30, TimeUnit.SECONDS)   // Write timeout
+                .protocols(Collections.singletonList(Protocol.HTTP_1_1)) // Force HTTP/1.1
+                .build();
+
+        // Create the request
         Request request = new Request.Builder()
                 .url(url)
                 .build();
 
+        // Enqueue the request asynchronously
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                // Log the error and pass it to the callback
+                Log.e("getOKHTTP", "Request failed: " + e.getMessage(), e);
                 callback.onError(e.getMessage());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                // Check if the response is successful
                 if (response.isSuccessful()) {
-                    String responseData = response.body().string();
-                    callback.onResponse(responseData);
+                    try (ResponseBody body = response.body()) {
+                        if (body != null) {
+                            String responseData = body.string();
+                            Log.d("getOKHTTP", "Response body: " + responseData);
+                            callback.onResponse(responseData);
+                        } else {
+                            Log.e("getOKHTTP", "Response body is null");
+                            callback.onError("Response body is null");
+                        }
+                    }
                 } else {
-                    callback.onError("Failed with code: " + response.code());
+                    // Log the response code and message
+                    Log.e("getOKHTTP", "Failed with code: " + response.code() +
+                            ", message: " + response.message());
+                    callback.onError("Failed with code: " + response.code() +
+                            ", message: " + response.message());
                 }
             }
         });

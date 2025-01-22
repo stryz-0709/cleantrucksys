@@ -87,5 +87,7 @@ dependencies {
 
     implementation 'com.github.anastr:speedviewlib:1.6.1'
 
+    implementation 'com.github.SanojPunchihewa:GlowButton:1.0.1'
+
 
 }

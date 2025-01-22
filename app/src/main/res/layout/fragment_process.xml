@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fafcf8"
+    android:background="#FFFFFF"
     android:theme="@style/ThemeOverlay.HMI.FullscreenContainer"
     tools:context=".ProcessFragment">
 
@@ -16,110 +16,1016 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/manual_title"
-            android:paddingTop="@dimen/_10sdp">
+            android:id="@+id/title_layout"
+            android:layout_margin="@dimen/_8ssp">
+
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quy trình hoạt động hệ thống"
+                android:layout_marginStart="@dimen/_10ssp"
+                android:id="@+id/state_title"
+                android:text="Trạng thái: "
                 android:textStyle="bold"
                 android:textColor="@color/Black"
-                android:textSize="@dimen/_20sdp"
-                android:textAlignment="center"/>
+                android:textSize="@dimen/_12sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/state_title"
+                android:id="@+id/state"
+                android:text="Không hoạt động"
+                android:textStyle="bold"
+                android:textColor="#F00000"
+                android:textSize="@dimen/_12sdp"/>
         </RelativeLayout>
 
-        <ScrollView
-            android:id="@+id/ScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:layout_centerInParent="true">
 
-            <HorizontalScrollView
+
+        <RelativeLayout
+            android:layout_width="@dimen/_120sdp"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/buttonTab"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/homeButton"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="@dimen/_30ssp"
+                android:layout_height="@dimen/_30ssp"
+                android:background="@drawable/button_background"
+                android:layout_margin="@dimen/_8ssp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/_30ssp"
+                    android:layout_height="@dimen/_30ssp"
+                    android:background="@drawable/home"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/processA1_tab">
+
+                <TextView
+                    android:id="@+id/processA1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_4ssp"
+                    android:gravity="center"
+                    android:text="Quy trình A1: Hút dầu"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold" />
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/processA1_title"
+                    android:layout_centerInParent="true">
 
-                    <!-- Buttons in the center -->
                     <RelativeLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/_40sdp"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true">
+                        android:id="@+id/start_processA1_tab"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginEnd="@dimen/_10sdp">
 
-                        <android.widget.Button
-                            android:id="@+id/processA"
-                            android:layout_width="@dimen/_140sdp"
-                            android:layout_height="@dimen/_60sdp"
+                        <ToggleButton
+                            android:id="@+id/start_processA1_button"
+                            android:layout_width="@dimen/_22ssp"
+                            android:layout_height="@dimen/_22ssp"
+                            android:layout_marginTop="@dimen/_5ssp"
+                            android:background="@drawable/start_selector"
                             android:layout_centerHorizontal="true"
-                            android:background="@drawable/button_background"
-                            android:padding="@dimen/_8ssp"
-                            android:text="A: Hút dầu cặn"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/_15sdp"
-                            android:textStyle="bold" />
+                            android:checked="false"
+                            android:textOff="START"
+                            android:textOn="START"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_6sdp"
+                            android:textColor="@color/White" />
 
-
-                        <android.widget.Button
-                            android:id="@+id/processB"
-                            android:layout_width="@dimen/_140sdp"
-                            android:layout_height="@dimen/_60sdp"
-                            android:layout_below="@id/processA"
+                        <ImageView
+                            android:id="@+id/start_processA1_gradient"
+                            android:layout_width="@dimen/_32ssp"
+                            android:layout_height="@dimen/_32ssp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/_30ssp"
-                            android:background="@drawable/button_background"
-                            android:padding="@dimen/_8ssp"
-                            android:text="B: Hút nước và cặn"
+                            android:background="@drawable/green_gradient" />
+
+                        <TextView
+                            android:id="@+id/start_process"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@id/start_processA1_button"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_4ssp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="Bật\nQuy trình"
                             android:textColor="#000000"
-                            android:textSize="@dimen/_15sdp"
+                            android:textSize="@dimen/_5sdp"
                             android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/stop_processA1_tab"
+                        android:layout_toEndOf="@id/start_processA1_tab">
+
+                        <ToggleButton
+                            android:id="@+id/stop_processA1_button"
+                            android:layout_width="@dimen/_22ssp"
+                            android:layout_height="@dimen/_22ssp"
+                            android:background="@drawable/stop_selector"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_5ssp"
+                            android:checked="false"
+                            android:textOff="STOP"
+                            android:textOn="STOP"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_6sdp"
+                            android:textColor="@color/White" />
+
+                        <ImageView
+                            android:id="@+id/stop_processA1_gradient"
+                            android:layout_width="@dimen/_32ssp"
+                            android:layout_height="@dimen/_32ssp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/red_gradient" />
+
+                        <TextView
+                            android:id="@+id/stop_process"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@id/stop_processA1_button"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4ssp"
+                            android:textAlignment="center"
+                            android:text="Dừng\nQuy trình"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_5sdp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:layout_below="@id/processA1_tab"
+                android:id="@+id/first_line"
+                android:background="#000000" />
+
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/first_line"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/processA2_tab">
+
+                <TextView
+                    android:id="@+id/processA2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="Quy trình A2: Đẩy dầu qua ngăn trung gian"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/processA2_title"
+                    android:layout_centerInParent="true">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/start_processA2_tab"
+                        android:layout_marginEnd="@dimen/_10sdp">
+
+
+                        <ToggleButton
+                            android:id="@+id/start_processA2_button"
+                            android:layout_width="@dimen/_22ssp"
+                            android:layout_height="@dimen/_22ssp"
+                            android:layout_marginTop="@dimen/_5ssp"
+                            android:background="@drawable/start_selector"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:textOff="START"
+                            android:textOn="START"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_6sdp"
+                            android:textColor="@color/White"
+                            />
+
+                        <ImageView
+                            android:id="@+id/start_processA2_gradient"
+                            android:layout_width="@dimen/_32ssp"
+                            android:layout_height="@dimen/_32ssp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/green_gradient"/>
+
+                        <TextView
+                            android:id="@+id/start_processA2"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@id/start_processA2_button"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="@dimen/_4ssp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="Bật\nQuy trình"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_5sdp"
+                            android:textStyle="bold"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/stop_processA2_tab"
+                        android:layout_toEndOf="@id/start_processA2_tab">
+
+                        <ToggleButton
+                            android:id="@+id/stop_processA2_button"
+                            android:layout_width="@dimen/_22ssp"
+                            android:layout_height="@dimen/_22ssp"
+                            android:background="@drawable/stop_selector"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_5ssp"
+                            android:checked="false"
+                            android:textOff="STOP"
+                            android:textOn="STOP"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_6sdp"
+                            android:textColor="@color/White"
+                            />
+
+                        <ImageView
+                            android:id="@+id/stop_processA2_gradient"
+                            android:layout_width="@dimen/_32ssp"
+                            android:layout_height="@dimen/_32ssp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/red_gradient"/>
+
+                        <TextView
+                            android:id="@+id/stop_processA2"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@id/stop_processA2_button"
+                            android:layout_centerInParent="true"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4ssp"
+                            android:textAlignment="center"
+                            android:text="Dừng\nQuy trình"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_5sdp"
+                            android:textStyle="bold"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:layout_below="@id/processA2_tab"
+                android:id="@+id/second_line"
+                android:background="#000000" />
+
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/second_line"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/processB1_tab">
+
+                <TextView
+                    android:id="@+id/processB1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="Quy trình B1: Phun nước áp lực"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/processB1_title"
+                    android:layout_centerInParent="true">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:id="@+id/start_processB1_tab">
+
+
+                        <ToggleButton
+                            android:id="@+id/start_processB1_button"
+                            android:layout_width="@dimen/_22ssp"
+                            android:layout_height="@dimen/_22ssp"
+                            android:layout_marginTop="@dimen/_5ssp"
+                            android:background="@drawable/start_selector"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:textOff="START"
+                            android:textOn="START"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_6sdp"
+                            android:textColor="@color/White"
+                            />
+
+                        <ImageView
+                            android:id="@+id/start_processB1_gradient"
+                            android:layout_width="@dimen/_32ssp"
+                            android:layout_height="@dimen/_32ssp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/green_gradient"/>
+
+                        <TextView
+                            android:id="@+id/start_processB1"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@id/start_processB1_button"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="@dimen/_4ssp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="Bật\nQuy trình"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_5sdp"
+                            android:textStyle="bold"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/stop_processB1_tab"
+                        android:layout_toEndOf="@id/start_processB1_tab">
+
+                        <ToggleButton
+                            android:id="@+id/stop_processB1_button"
+                            android:layout_width="@dimen/_22ssp"
+                            android:layout_height="@dimen/_22ssp"
+                            android:background="@drawable/stop_selector"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_5ssp"
+                            android:checked="false"
+                            android:textOff="STOP"
+                            android:textOn="STOP"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_6sdp"
+                            android:textColor="@color/White"
+                            />
+
+                        <ImageView
+                            android:id="@+id/stop_processB1_gradient"
+                            android:layout_width="@dimen/_32ssp"
+                            android:layout_height="@dimen/_32ssp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/red_gradient"/>
+
+                        <TextView
+                            android:id="@+id/stop_processB1"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@id/stop_processB1_button"
+                            android:layout_centerInParent="true"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4ssp"
+                            android:textAlignment="center"
+                            android:text="Dừng\nQuy trình"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_5sdp"
+                            android:textStyle="bold"/>
+
                     </RelativeLayout>
 
                 </RelativeLayout>
 
-            </HorizontalScrollView>
+            </RelativeLayout>
 
-        </ScrollView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:layout_below="@id/processB1_tab"
+                android:id="@+id/third_line"
+                android:background="#000000" />
 
-        <RelativeLayout
-            android:id="@+id/backButton"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_width="@dimen/_30ssp"
-            android:layout_height="@dimen/_30ssp"
-            android:background="@drawable/button_background"
-            android:layout_marginEnd="@dimen/_8ssp"
-            android:layout_marginBottom="@dimen/_8ssp"
-            android:layout_gravity="center">
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/third_line"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/processB2_tab">
 
-            <ImageView
-                android:layout_width="@dimen/_30ssp"
-                android:layout_height="@dimen/_30ssp"
-                android:background="@drawable/back"
-                android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:id="@+id/processB2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="Quy trình B2: Đẩy nước súc rửa vào bồn chứa"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/processB2_title"
+                    android:layout_centerInParent="true">
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/start_processB2_tab"
+                    android:layout_marginBottom="@dimen/_8ssp">
+
+
+
+                    <ToggleButton
+                        android:id="@+id/start_processB2_button"
+                        android:layout_width="@dimen/_22ssp"
+                        android:layout_height="@dimen/_22ssp"
+                        android:layout_marginTop="@dimen/_5ssp"
+                        android:background="@drawable/start_selector"
+                        android:layout_centerHorizontal="true"
+                        android:checked="false"
+                        android:textOff="START"
+                        android:textOn="START"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_6sdp"
+                        android:textColor="@color/White"
+                        />
+
+                    <ImageView
+                        android:id="@+id/start_processB2_gradient"
+                        android:layout_width="@dimen/_32ssp"
+                        android:layout_height="@dimen/_32ssp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/green_gradient"/>
+
+                    <TextView
+                        android:id="@+id/start_processB2"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@id/start_processB2_button"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_4ssp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="Bật\nQuy trình"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_5sdp"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/stop_processB2_tab"
+                    android:layout_toEndOf="@id/stop_water_tab"
+                    android:layout_marginBottom="@dimen/_8ssp"
+                    android:layout_alignParentEnd="true">
+
+                    <ToggleButton
+                        android:id="@+id/stop_processB2_button"
+                        android:layout_width="@dimen/_22ssp"
+                        android:layout_height="@dimen/_22ssp"
+                        android:background="@drawable/stop_selector"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_5ssp"
+                        android:checked="false"
+                        android:textOff="STOP"
+                        android:textOn="STOP"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_6sdp"
+                        android:textColor="@color/White"
+                        />
+
+                    <ImageView
+                        android:id="@+id/stop_processB2_gradient"
+                        android:layout_width="@dimen/_32ssp"
+                        android:layout_height="@dimen/_32ssp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/red_gradient"/>
+
+                    <TextView
+                        android:id="@+id/stop_processB2"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@id/stop_processB2_button"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4ssp"
+                        android:textAlignment="center"
+                        android:text="Dừng\nQuy trình"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_5sdp"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/stop_water_tab"
+                    android:layout_toEndOf="@id/start_processB2_tab"
+                    android:layout_marginBottom="@dimen/_8ssp">
+
+                    <ToggleButton
+                        android:id="@+id/stop_water_button"
+                        android:layout_width="@dimen/_22ssp"
+                        android:layout_height="@dimen/_22ssp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/stop_selector"
+                        android:checked="false"
+                        android:textOff="STOP"
+                        android:textOn="STOP"
+                        android:layout_marginTop="@dimen/_5ssp"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_6sdp"
+                        android:textColor="@color/White"
+                        />
+
+                    <ImageView
+                        android:id="@+id/stop_water_gradient"
+                        android:layout_width="@dimen/_32ssp"
+                        android:layout_height="@dimen/_32ssp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/red_gradient"/>
+
+                    <TextView
+                        android:id="@+id/stop_water"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@id/stop_water_button"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4ssp"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:text="Dừng\nBơm cao áp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_5sdp"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/homeButton"
-            android:layout_above="@id/backButton"
-            android:layout_alignParentEnd="true"
-            android:layout_width="@dimen/_30ssp"
-            android:layout_height="@dimen/_30ssp"
-            android:background="@drawable/button_background"
-            android:layout_marginEnd="@dimen/_8ssp"
-            android:layout_marginBottom="@dimen/_8ssp"
-            android:layout_gravity="center">
+            android:layout_width="wrap_content"
+            android:layout_below="@id/title_layout"
+            android:layout_toStartOf="@id/buttonTab"
+            android:fillViewport="true"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/_360sdp"
+                    android:layout_height="@dimen/_240sdp"
+                    android:background="@drawable/process"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve2_glow"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:background="@drawable/v2"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve3_glow"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_54sdp"
+                    android:background="@drawable/v3"
+                    android:layout_marginStart="@dimen/_58sdp"
+                    android:layout_marginTop="@dimen/_43sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve4_glow"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_155sdp"
+                    android:background="@drawable/v4"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_78sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve6_glow"
+                    android:layout_width="@dimen/_62sdp"
+                    android:layout_height="@dimen/_69sdp"
+                    android:background="@drawable/v6"
+                    android:layout_marginStart="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_66sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve8_glow"
+                    android:layout_width="@dimen/_242sdp"
+                    android:layout_height="@dimen/_180sdp"
+                    android:background="@drawable/v8"
+                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_52sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve9_glow"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="@dimen/_78sdp"
+                    android:background="@drawable/v9"
+                    android:layout_marginStart="@dimen/_62sdp"
+                    android:layout_marginTop="@dimen/_62sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_24sdp"
+                    android:layout_marginTop="@dimen/_175sdp"
+                    android:background="#fafcf8"
+                    android:text="BỒN NGẦM"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="@dimen/_16ssp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_217sdp"
+                    android:layout_marginTop="@dimen/_80sdp"
+                    android:background="#fafcf8"
+                    android:gravity="center"
+                    android:text="BỒN CHỨA NƯỚC SẠCH"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_5ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="@dimen/_20ssp"
+                    android:layout_height="@dimen/_20ssp"
+                    android:layout_marginStart="@dimen/_300sdp"
+                    android:layout_marginTop="@dimen/_90sdp"
+                    android:background="#fafcf8"
+                    android:gravity="center"
+                    android:text="BỒN CHỨA NƯỚC SÚC RỬA"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_4ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="@dimen/_16ssp"
+                    android:layout_height="@dimen/_29ssp"
+                    android:background="#fafcf8"
+                    android:gravity="center"
+                    android:text="BỒN CHỨA DẦU CẶN"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_5ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="@dimen/_128sdp"
+                    android:layout_marginTop="@dimen/_70sdp" />
+
+                <TextView
+                    android:layout_width="@dimen/_32ssp"
+                    android:layout_height="wrap_content"
+                    android:background="#fafcf8"
+                    android:gravity="center"
+                    android:text="BỒN HÚT CHÂN KHÔNG"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_6ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="@dimen/_48sdp"
+                    android:layout_marginTop="@dimen/_93sdp" />
+
+
+                <TextView
+                    android:layout_width="@dimen/_40ssp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_75sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:background="#fafcf8"
+                    android:gravity="center"
+                    android:text="BƠM HÚT CHÂN KHÔNG"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_6ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:layout_width="@dimen/_40ssp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_160sdp"
+                    android:layout_marginTop="@dimen/_39sdp"
+                    android:background="#fafcf8"
+                    android:gravity="center"
+                    android:text="MÁY NÉN KHÍ VÀ BÌNH TÍCH"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_6ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:layout_width="@dimen/_40ssp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_240sdp"
+                    android:layout_marginTop="@dimen/_42sdp"
+                    android:background="#fafcf8"
+                    android:gravity="center"
+                    android:text="BƠM CAO ÁP"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_6ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/valve2_light"
+                    android:layout_width="@dimen/_15ssp"
+                    android:layout_height="@dimen/_15ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_19sdp"
+                    android:layout_marginTop="@dimen/_58sdp"
+                    android:background="@drawable/radio_button"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve2_gradient"
+                    android:layout_width="@dimen/_25ssp"
+                    android:layout_height="@dimen/_25ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_53sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_gradient"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ToggleButton
+                    android:id="@+id/valve3_light"
+                    android:layout_width="@dimen/_15ssp"
+                    android:layout_height="@dimen/_15ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_45sdp"
+                    android:layout_marginTop="@dimen/_58sdp"
+                    android:background="@drawable/radio_button"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve3_gradient"
+                    android:layout_width="@dimen/_25ssp"
+                    android:layout_height="@dimen/_25ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_53sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_gradient"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ToggleButton
+                    android:id="@+id/valve4_light"
+                    android:layout_width="@dimen/_15ssp"
+                    android:layout_height="@dimen/_15ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_83sdp"
+                    android:background="@drawable/radio_button"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve4_gradient"
+                    android:layout_width="@dimen/_25ssp"
+                    android:layout_height="@dimen/_25ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_78sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_gradient"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ToggleButton
+                    android:id="@+id/valve6_light"
+                    android:layout_width="@dimen/_15ssp"
+                    android:layout_height="@dimen/_15ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_85sdp"
+                    android:layout_marginTop="@dimen/_110sdp"
+                    android:background="@drawable/radio_button"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve6_gradient"
+                    android:layout_width="@dimen/_25ssp"
+                    android:layout_height="@dimen/_25ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_105sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_gradient"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ToggleButton
+                    android:id="@+id/valve9_light"
+                    android:layout_width="@dimen/_15ssp"
+                    android:layout_height="@dimen/_15ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_168sdp"
+                    android:layout_marginTop="@dimen/_110sdp"
+                    android:background="@drawable/radio_button"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve9_gradient"
+                    android:layout_width="@dimen/_25ssp"
+                    android:layout_height="@dimen/_25ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_163sdp"
+                    android:layout_marginTop="@dimen/_105sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_gradient"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ToggleButton
+                    android:id="@+id/vacuum_light"
+                    android:layout_width="@dimen/_15ssp"
+                    android:layout_height="@dimen/_15ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_87sdp"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:background="@drawable/radio_button"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/vacuum_gradient"
+                    android:layout_width="@dimen/_25ssp"
+                    android:layout_height="@dimen/_25ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_82sdp"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_gradient"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+                <ToggleButton
+                    android:id="@+id/water_light"
+                    android:layout_width="@dimen/_15ssp"
+                    android:layout_height="@dimen/_15ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_220sdp"
+                    android:layout_marginTop="@dimen/_52sdp"
+                    android:background="@drawable/radio_button"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/water_gradient"
+                    android:layout_width="@dimen/_25ssp"
+                    android:layout_height="@dimen/_25ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_215sdp"
+                    android:layout_marginTop="@dimen/_47sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_gradient"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ToggleButton
+                    android:id="@+id/valve8_light"
+                    android:layout_width="@dimen/_15ssp"
+                    android:layout_height="@dimen/_15ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_151sdp"
+                    android:layout_marginTop="@dimen/_75sdp"
+                    android:background="@drawable/radio_button"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/valve8_gradient"
+                    android:layout_width="@dimen/_25ssp"
+                    android:layout_height="@dimen/_25ssp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_146sdp"
+                    android:layout_marginTop="@dimen/_70sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_gradient"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
-                android:layout_width="@dimen/_30ssp"
-                android:layout_height="@dimen/_30ssp"
-                android:background="@drawable/home"
-                android:layout_centerInParent="true"/>
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/imae"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"/>
+
 
         </RelativeLayout>
 

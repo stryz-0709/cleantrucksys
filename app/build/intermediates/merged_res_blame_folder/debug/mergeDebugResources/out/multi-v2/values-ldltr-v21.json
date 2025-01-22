@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "com.aasolution.cleantrucksys.app-mergeDebugResources-63:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-3/9edfcf2efab6dea36220897785193054/transformed/appcompat-1.6.1/res/values-ldltr-v21/values-ldltr-v21.xml",

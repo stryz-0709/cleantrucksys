@@ -3,11 +3,11 @@
     <!-- Active state -->
     <item android:state_checked="true">
         <shape android:shape="oval">
-            <solid android:color="#4CAF50" /> <!-- Green color for "active" state -->
+            <solid android:color="#CCCCCC" /> <!-- Gray color for "inactive" state -->
             <size android:width="100dp" android:height="100dp" /> <!-- Circle size -->
             <stroke
                 android:width="5dp"
-                android:color="#006600" /> <!-- Optional darker green border -->
+                android:color="#FFFFFF" /> <!-- Optional border -->
         </shape>
     </item>
 

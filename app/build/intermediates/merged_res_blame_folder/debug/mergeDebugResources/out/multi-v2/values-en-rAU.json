@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.aasolution.cleantrucksys.app-mergeDebugResources-62:/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "com.aasolution.cleantrucksys.app-mergeDebugResources-63:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-3/9edfcf2efab6dea36220897785193054/transformed/appcompat-1.6.1/res/values-en-rAU/values-en-rAU.xml",
