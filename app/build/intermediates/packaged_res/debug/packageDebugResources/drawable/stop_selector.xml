@@ -1,0 +1,23 @@
+<!-- res/drawable/circle_light_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+    <!-- "on" state -->
+        <shape android:shape="oval">
+            <solid android:color="#F00000" /> <!-- Green color for "on" state -->
+            <size android:width="100dp" android:height="100dp" /> <!-- Circle size -->
+            <stroke
+                android:width="5dp"
+                android:color="#A00000" /> <!-- Optional border color -->
+        </shape>
+    </item>
+    <item>
+    <!-- "off" state -->
+        <shape android:shape="oval">
+            <solid android:color="#A00000" /> <!-- Gray color for "off" state -->
+            <size android:width="100dp" android:height="100dp" /> <!-- Circle size -->
+            <stroke
+                android:width="5dp"
+                android:color="#000000" /> <!-- Optional border color -->
+        </shape>
+    </item>
+</selector>

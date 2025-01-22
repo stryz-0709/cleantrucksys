@@ -1,3 +1,0 @@
-com.aasolution.cleantrucksys.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme
