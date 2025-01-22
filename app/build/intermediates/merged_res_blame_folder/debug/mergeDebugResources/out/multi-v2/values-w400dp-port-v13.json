@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.aasolution.cleantrucksys.app-mergeDebugResources-63:/values-w400dp-port-v13/values-w400dp-port-v13.xml",
+            "outputFile": "com.aasolution.cleantrucksysbeta.app-mergeDebugResources-63:/values-w400dp-port-v13/values-w400dp-port-v13.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-3/1f3bfc63a883d8785cc7aedbe71e7dca/transformed/material-1.11.0/res/values-w400dp-port-v13/values-w400dp-port-v13.xml",

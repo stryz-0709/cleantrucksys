@@ -1,4 +1,4 @@
-package com.aasolution.cleantrucksys;
+package com.aasolution.cleantrucksysbeta;
 
 import androidx.fragment.app.Fragment;
 

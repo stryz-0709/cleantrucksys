@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.aasolution.cleantrucksys'
+    namespace 'com.aasolution.cleantrucksysbeta'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.aasolution.cleantrucksys"
+        applicationId "com.aasolution.cleantrucksysbeta"
         minSdk 28
         targetSdk 34
         versionCode 1

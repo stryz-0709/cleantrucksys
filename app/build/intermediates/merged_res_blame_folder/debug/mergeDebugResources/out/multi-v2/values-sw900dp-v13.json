@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.aasolution.cleantrucksys.app-mergeDebugResources-63:/values-sw900dp-v13/values-sw900dp-v13.xml",
+            "outputFile": "com.aasolution.cleantrucksysbeta.app-mergeDebugResources-63:/values-sw900dp-v13/values-sw900dp-v13.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-3/c063f571734b8f24988b1281828bc71e/transformed/ssp-android-1.1.1/res/values-sw900dp-v13/values-sw900dp-v13.xml",

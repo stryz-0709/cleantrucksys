@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.aasolution.cleantrucksys.app-mergeDebugResources-63:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.aasolution.cleantrucksysbeta.app-mergeDebugResources-63:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-3/8bf0fb3eaac81b2697f3b9ebee9c9262/transformed/core-1.13.1/res/values-en-rGB/values-en-rGB.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.aasolution.cleantrucksys.app-mergeDebugResources-63:/values-ka/values-ka.xml",
+            "outputFile": "com.aasolution.cleantrucksysbeta.app-mergeDebugResources-63:/values-ka/values-ka.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-3/3f6d522bd146ad2678bf90ce6e6aa4ac/transformed/navigation-ui-2.7.7/res/values-ka/values-ka.xml",

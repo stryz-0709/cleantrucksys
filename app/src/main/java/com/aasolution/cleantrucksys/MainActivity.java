@@ -1,4 +1,4 @@
-package com.aasolution.cleantrucksys;
+package com.aasolution.cleantrucksysbeta;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -88,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void postOKHTTP(String status) {
-        String url = "http://192.168.1.149/post"; // Ensure the IP matches the ESP32
-//        String url = "http://172.20.10.3/post"; // Ensure the IP matches the ESP32
+//        String url = "http://192.168.1.149/post"; // Ensure the IP matches the ESP32
+        String url = "http://172.20.10.3/post"; // Ensure the IP matches the ESP32
 
 
         Log.d("HTTP Request", "Payload: " + status);
@@ -125,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getOKHTTP(ResponseCallback callback) {
-        String url = "http://192.168.1.149/hmi"; // Replace with your server IP and endpoint
-//        String url = "http://172.20.10.3/hmi"; // Replace with your server IP and endpoint
+//        String url = "http://192.168.1.149/hmi"; // Replace with your server IP and endpoint
+        String url = "http://172.20.10.3/hmi"; // Replace with your server IP and endpoint
 
 
         // Build OkHttpClient with timeout settings and HTTP/1.1 support
