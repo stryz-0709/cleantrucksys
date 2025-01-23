@@ -30,7 +30,7 @@ import org.json.JSONObject;
  */
 public class ProcessFragment extends Fragment {
     View mView;
-    MainActivity mainActivity;
+    com.aasolution.cleantrucksysbeta.MainActivity mainActivity;
     ToggleButton startProcessA1, stopProcessA1,
             startProcessA2, stopProcessA2,
             startProcessB1, stopProcessB1,
@@ -41,7 +41,12 @@ public class ProcessFragment extends Fragment {
     ToggleButton valve2Light, valve3Light, valve4Light, valve6Light, valve8Light,
             valve9Light, vacuumLight, waterLight;
 
-    ImageView valve2Glow, valve3Glow, valve4Glow, valve6Glow, valve8Glow, valve9Glow;
+    ImageView valve2Glow1, valve2Glow2, valve2Glow3, valve2Glow4,
+            valve3Glow1, valve3Glow2, valve3Glow3, valve3Glow4,
+            valve4Glow1, valve4Glow2, valve4Glow3, valve4Glow4,
+            valve6Glow1, valve6Glow2, valve6Glow3, valve6Glow4,
+            valve8Glow1, valve8Glow2, valve8Glow3, valve8Glow4,
+            valve9Glow1, valve9Glow2, valve9Glow3, valve9Glow4;
 
     ImageView startProcessA1Gradient, stopProcessA1Gradient,
             startProcessA2Gradient, stopProcessA2Gradient,
@@ -66,7 +71,7 @@ public class ProcessFragment extends Fragment {
         requireActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         super.onCreate(savedInstanceState);
         mView = inflater.inflate(R.layout.fragment_process, container, false);
-        mainActivity = (MainActivity) getActivity();
+        mainActivity = (com.aasolution.cleantrucksysbeta.MainActivity) getActivity();
 
         startProcessA1 = mView.findViewById(R.id.start_processA1_button);
         stopProcessA1 = mView.findViewById(R.id.stop_processA1_button);
@@ -98,12 +103,35 @@ public class ProcessFragment extends Fragment {
         vacuumGradient = mView.findViewById(R.id.vacuum_gradient);
         waterGradient = mView.findViewById(R.id.water_gradient);
 
-        valve2Glow = mView.findViewById(R.id.valve2_glow);
-        valve3Glow = mView.findViewById(R.id.valve3_glow);
-        valve4Glow = mView.findViewById(R.id.valve4_glow);
-        valve6Glow = mView.findViewById(R.id.valve6_glow);
-        valve8Glow = mView.findViewById(R.id.valve8_glow);
-        valve9Glow = mView.findViewById(R.id.valve9_glow);
+        valve2Glow1 = mView.findViewById(R.id.valve2_glow1);
+        valve2Glow2 = mView.findViewById(R.id.valve2_glow2);
+        valve2Glow3 = mView.findViewById(R.id.valve2_glow3);
+        valve2Glow4 = mView.findViewById(R.id.valve2_glow4);
+
+        valve3Glow1 = mView.findViewById(R.id.valve3_glow1);
+        valve3Glow2 = mView.findViewById(R.id.valve3_glow2);
+        valve3Glow3 = mView.findViewById(R.id.valve3_glow3);
+        valve3Glow4 = mView.findViewById(R.id.valve3_glow4);
+
+        valve4Glow1 = mView.findViewById(R.id.valve4_glow1);
+        valve4Glow2 = mView.findViewById(R.id.valve4_glow2);
+        valve4Glow3 = mView.findViewById(R.id.valve4_glow3);
+        valve4Glow4 = mView.findViewById(R.id.valve4_glow4);
+
+        valve6Glow1 = mView.findViewById(R.id.valve6_glow1);
+        valve6Glow2 = mView.findViewById(R.id.valve6_glow2);
+        valve6Glow3 = mView.findViewById(R.id.valve6_glow3);
+        valve6Glow4 = mView.findViewById(R.id.valve6_glow4);
+
+        valve8Glow1 = mView.findViewById(R.id.valve8_glow1);
+        valve8Glow2 = mView.findViewById(R.id.valve8_glow2);
+        valve8Glow3 = mView.findViewById(R.id.valve8_glow3);
+        valve8Glow4 = mView.findViewById(R.id.valve8_glow4);
+
+        valve9Glow1 = mView.findViewById(R.id.valve9_glow1);
+        valve9Glow2 = mView.findViewById(R.id.valve9_glow2);
+        valve9Glow3 = mView.findViewById(R.id.valve9_glow3);
+        valve9Glow4 = mView.findViewById(R.id.valve9_glow4);
 
         startProcessA1Gradient.setVisibility(GONE);
         stopProcessA1Gradient.setVisibility(GONE);
@@ -124,12 +152,35 @@ public class ProcessFragment extends Fragment {
         vacuumGradient.setVisibility(GONE);
         waterGradient.setVisibility(GONE);
 
-        valve2Glow.setVisibility(GONE);
-        valve3Glow.setVisibility(GONE);
-        valve4Glow.setVisibility(GONE);
-        valve6Glow.setVisibility(GONE);
-        valve8Glow.setVisibility(GONE);
-        valve9Glow.setVisibility(GONE);
+        valve2Glow1.setVisibility(GONE);
+        valve2Glow2.setVisibility(GONE);
+        valve2Glow3.setVisibility(GONE);
+        valve2Glow4.setVisibility(GONE);
+
+        valve3Glow1.setVisibility(GONE);
+        valve3Glow2.setVisibility(GONE);
+        valve3Glow3.setVisibility(GONE);
+        valve3Glow4.setVisibility(GONE);
+
+        valve4Glow1.setVisibility(GONE);
+        valve4Glow2.setVisibility(GONE);
+        valve4Glow3.setVisibility(GONE);
+        valve4Glow4.setVisibility(GONE);
+
+        valve6Glow1.setVisibility(GONE);
+        valve6Glow2.setVisibility(GONE);
+        valve6Glow3.setVisibility(GONE);
+        valve6Glow4.setVisibility(GONE);
+
+        valve8Glow1.setVisibility(GONE);
+        valve8Glow2.setVisibility(GONE);
+        valve8Glow3.setVisibility(GONE);
+        valve8Glow4.setVisibility(GONE);
+
+        valve9Glow1.setVisibility(GONE);
+        valve9Glow2.setVisibility(GONE);
+        valve9Glow3.setVisibility(GONE);
+        valve9Glow4.setVisibility(GONE);
 
 
         homeButton = mView.findViewById(R.id.homeButton);
@@ -251,6 +302,7 @@ public class ProcessFragment extends Fragment {
     }
 
     private boolean toggleState = true;
+    private int flowState = 0;
     private Handler toggleHandler = new Handler(); // Handler for scheduling tasks
 
     // Starts the toggling process
@@ -267,27 +319,13 @@ public class ProcessFragment extends Fragment {
     private void updateLights(JSONObject jsonObject) {
         try {
             valve2Light.setChecked(jsonObject.getInt("v2") == 1);
-            valve2Gradient.setVisibility(jsonObject.getInt("v2") == 1 ? VISIBLE : GONE);
-            valve2Glow.setVisibility(jsonObject.getInt("v2") == 1 ? VISIBLE : GONE);
             valve3Light.setChecked(jsonObject.getInt("v3") == 1);
-            valve3Gradient.setVisibility(jsonObject.getInt("v3") == 1 ? VISIBLE : GONE);
-            valve3Glow.setVisibility(jsonObject.getInt("v3") == 1 ? VISIBLE : GONE);
             valve4Light.setChecked(jsonObject.getInt("v4") == 1);
-            valve4Gradient.setVisibility(jsonObject.getInt("v4") == 1 ? VISIBLE : GONE);
-            valve4Glow.setVisibility(jsonObject.getInt("v4") == 1 ? VISIBLE : GONE);
             valve6Light.setChecked(jsonObject.getInt("v6") == 1);
-            valve6Gradient.setVisibility(jsonObject.getInt("v6") == 1 ? VISIBLE : GONE);
-            valve6Glow.setVisibility(jsonObject.getInt("v6") == 1 ? VISIBLE : GONE);
             valve9Light.setChecked(jsonObject.getInt("v9") == 1);
-            valve9Gradient.setVisibility(jsonObject.getInt("v9") == 1 ? VISIBLE : GONE);
-            valve9Glow.setVisibility(jsonObject.getInt("v9") == 1 ? VISIBLE : GONE);
             valve8Light.setChecked(jsonObject.getInt("v8") == 1);
-            valve8Gradient.setVisibility(jsonObject.getInt("v8") == 1 ? VISIBLE : GONE);
-            valve8Glow.setVisibility(jsonObject.getInt("v8") == 1 ? VISIBLE : GONE);
             vacuumLight.setChecked(jsonObject.getInt("vacuum_power") == 1);
-            vacuumGradient.setVisibility(jsonObject.getInt("vacuum_power") == 1 ? VISIBLE : GONE);
             waterLight.setChecked(jsonObject.getInt("water_power") == 1);
-            waterGradient.setVisibility(jsonObject.getInt("water_power") == 1 ? VISIBLE : GONE);
 
             startTogglingLights();
 
@@ -296,24 +334,36 @@ public class ProcessFragment extends Fragment {
         }
     }
 
+    private int toggleCounter = 0; // Counter to track when to toggle state
+
     private Runnable toggleRunnable = new Runnable() {
         @Override
         public void run() {
             try {
                 // Toggle only activated lights
-                toggleLightIfActivated(valve2Light, valve2Gradient, valve2Glow);
-                toggleLightIfActivated(valve3Light, valve3Gradient, valve3Glow);
-                toggleLightIfActivated(valve4Light, valve4Gradient, valve4Glow);
-                toggleLightIfActivated(valve6Light, valve6Gradient, valve6Glow);
-                toggleLightIfActivated(valve8Light, valve8Gradient, valve8Glow);
-                toggleLightIfActivated(valve9Light, valve9Gradient, valve9Glow);
-                toggleLightIfActivated(vacuumLight, vacuumGradient, null);
-                toggleLightIfActivated(waterLight, waterGradient, null);
+                toggleLight(valve2Light, valve2Gradient, valve2Glow1, valve2Glow2, valve2Glow3, valve2Glow4, 0);
+                toggleLight(valve3Light, valve3Gradient, valve3Glow1, valve3Glow2, valve3Glow3, valve3Glow4, 0);
+                toggleLight(valve4Light, valve4Gradient, valve4Glow1, valve4Glow2, valve4Glow3, valve4Glow4, 1);
+                toggleLight(valve6Light, valve6Gradient, valve6Glow1, valve6Glow2, valve6Glow3, valve6Glow4, 1);
+                toggleLight(valve8Light, valve8Gradient, valve8Glow1, valve8Glow2, valve8Glow3, valve8Glow4, 0);
+                toggleLight(valve9Light, valve9Gradient, valve9Glow1, valve9Glow2, valve9Glow3, valve9Glow4, 1);
+                toggleLight(vacuumLight, vacuumGradient, null, null, null, null, 0);
+                toggleLight(waterLight, waterGradient, null, null, null, null, 0);
 
-                toggleState = !toggleState; // Flip the toggle state
+                // Increment the toggleCounter
+                toggleCounter++;
+
+                // Flip the toggle state every 1 second (5 cycles of 200 ms)
+                if (toggleCounter >= 10) {
+                    toggleState = !toggleState;
+                    toggleCounter = 0; // Reset the counter
+                }
+
+                // Update flowState for glow animation
+                flowState = (flowState == 3) ? 0 : flowState + 1;
 
                 // Schedule the next toggle
-                toggleHandler.postDelayed(this, 2000);
+                toggleHandler.postDelayed(this, 100); // Run every 200 ms
             } catch (Exception e) {
                 Log.e("ToggleLights", "Error during light toggling", e);
             }
@@ -321,12 +371,41 @@ public class ProcessFragment extends Fragment {
     };
 
     // Helper method to toggle only activated lights
-    private void toggleLightIfActivated(ToggleButton lightButton, View gradient, View glow) {
+    private void toggleLight(ToggleButton lightButton, View gradient, View glow1, View glow2, View glow3, View glow4, int type) {
         if (lightButton.isChecked()) {
             gradient.setVisibility(toggleState ? GONE : VISIBLE);
-            if (glow != null) glow.setVisibility(toggleState? VISIBLE : GONE);
+            if (glow1 != null && glow2 != null && glow3 != null && glow4 != null){
+                lineFlow(glow1, glow2, glow3, glow4, type);
+            }
+        }
+        else {
+            gradient.setVisibility(GONE);
+            if (glow1 != null) glow1.setVisibility(GONE);
+            if (glow2 != null) glow2.setVisibility(GONE);
+            if (glow3 != null) glow3.setVisibility(GONE);
+            if (glow4 != null) glow4.setVisibility(GONE);
         }
     }
+
+    private void lineFlow(View glow1, View glow2, View glow3, View glow4, int type) {
+        // Array to hold the glow views
+        View[] glowViews;
+
+        if (type == 0) {
+            glowViews = new View[]{glow1, glow2, glow3, glow4};
+        } else { // Reverse order for type == 2
+            glowViews = new View[]{glow4, glow3, glow2, glow1};
+        }
+
+        for (int i = 0; i < glowViews.length; i++) {
+            if (glowViews[i] != null) {
+                glowViews[i].setVisibility(i == flowState ? VISIBLE : GONE); // Only set VISIBLE for the matching flowState
+            }
+        }
+        Log.d("flowState", String.valueOf(flowState));
+    }
+
+
 
     private void dataFetch() {
         mainActivity.getOKHTTP(new MainActivity.ResponseCallback() {

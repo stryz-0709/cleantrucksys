@@ -16,7 +16,18 @@
         <ImageView
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
+            android:id="@+id/logo"
             android:background="@drawable/imae"/>
+
+        <TextView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:text="BETA"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginTop="-10sp"
+            android:textSize="@dimen/_12sdp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

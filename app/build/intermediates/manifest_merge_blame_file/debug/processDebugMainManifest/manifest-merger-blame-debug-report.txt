@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.aasolution.cleantrucksys"
+3    package="com.aasolution.cleantrucksysbeta"
 4    android:versionCode="1"
-5    android:versionName="1.0" >
+5    android:versionName="3.0.1" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="28"
@@ -47,12 +47,12 @@
 23
 24    <permission
 24-->[androidx.core:core:1.13.1] /Users/macbook/.gradle/caches/transforms-3/8bf0fb3eaac81b2697f3b9ebee9c9262/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
-25        android:name="com.aasolution.cleantrucksys.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+25        android:name="com.aasolution.cleantrucksysbeta.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
 25-->[androidx.core:core:1.13.1] /Users/macbook/.gradle/caches/transforms-3/8bf0fb3eaac81b2697f3b9ebee9c9262/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
 26        android:protectionLevel="signature" />
 26-->[androidx.core:core:1.13.1] /Users/macbook/.gradle/caches/transforms-3/8bf0fb3eaac81b2697f3b9ebee9c9262/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
 27
-28    <uses-permission android:name="com.aasolution.cleantrucksys.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+28    <uses-permission android:name="com.aasolution.cleantrucksysbeta.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 28-->[androidx.core:core:1.13.1] /Users/macbook/.gradle/caches/transforms-3/8bf0fb3eaac81b2697f3b9ebee9c9262/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
 28-->[androidx.core:core:1.13.1] /Users/macbook/.gradle/caches/transforms-3/8bf0fb3eaac81b2697f3b9ebee9c9262/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
 29
@@ -87,7 +87,7 @@
 45-->/Users/macbook/Projects/ThucTap/CleanTruckSys/CleanTruckSys/app/src/main/AndroidManifest.xml:29:9-44
 46        <activity
 46-->/Users/macbook/Projects/ThucTap/CleanTruckSys/CleanTruckSys/app/src/main/AndroidManifest.xml:32:9-40:20
-47            android:name="com.aasolution.cleantrucksys.MainActivity"
+47            android:name="com.aasolution.cleantrucksysbeta.MainActivity"
 47-->/Users/macbook/Projects/ThucTap/CleanTruckSys/CleanTruckSys/app/src/main/AndroidManifest.xml:33:13-41
 48            android:exported="true" >
 48-->/Users/macbook/Projects/ThucTap/CleanTruckSys/CleanTruckSys/app/src/main/AndroidManifest.xml:34:13-36
@@ -122,7 +122,7 @@
 64-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/transforms-3/b9fca4beb9b805987449086cbd45da99/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
 65            android:name="androidx.startup.InitializationProvider"
 65-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/transforms-3/b9fca4beb9b805987449086cbd45da99/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
-66            android:authorities="com.aasolution.cleantrucksys.androidx-startup"
+66            android:authorities="com.aasolution.cleantrucksysbeta.androidx-startup"
 66-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/transforms-3/b9fca4beb9b805987449086cbd45da99/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
 67            android:exported="false" >
 67-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/transforms-3/b9fca4beb9b805987449086cbd45da99/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
