@@ -30,9 +30,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import kotlin.jvm.functions.Function2;
+
 public class ManualFragment extends Fragment {
     View mView;
-    MainActivity mainActivity;
+    com.aasolution.cleantrucksysbeta.MainActivity mainActivity;
     RelativeLayout homeButton;
     ToggleButton vacuumPower, waterPower, tankPower,
             robotPower, robotForwardButton, robotBackwardButton, robotStopButton;
@@ -54,13 +56,13 @@ public class ManualFragment extends Fragment {
         requireActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         super.onCreate(savedInstanceState);
         mView = inflater.inflate(R.layout.fragment_manual, container, false);
-        mainActivity = (MainActivity) getActivity();
+        mainActivity = (com.aasolution.cleantrucksysbeta.MainActivity) getActivity();
 
         homeButton = mView.findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainActivity.openFragment(new HomeFragment());
+                mainActivity.openFragment(new com.aasolution.cleantrucksysbeta.HomeFragment());
             }
         });
 
@@ -70,6 +72,13 @@ public class ManualFragment extends Fragment {
         vacuumPressure.getSections().get(0).setColor(Color.parseColor("#CCCCCC"));
         vacuumPressure.getSections().get(1).setColor(Color.parseColor("#CCCCCC"));
         vacuumPressure.getSections().get(2).setColor(Color.parseColor("#CCCCCC"));
+
+        vacuumPressure.setOnPrintTickLabel(new Function2<Integer, Float, String>() {
+            @Override
+            public String invoke(Integer tickPosition, Float tick) {
+                return String.format("%.2f", tick);
+            }
+        });
 
         vacuumPressure.speedTo(0);
         waterPressure.speedTo(0);
@@ -322,7 +331,7 @@ public class ManualFragment extends Fragment {
 
 
     private void dataFetch() {
-        mainActivity.getOKHTTP(new MainActivity.ResponseCallback() {
+        mainActivity.getOKHTTP(new com.aasolution.cleantrucksysbeta.MainActivity.ResponseCallback() {
             @Override
             public void onResponse(String response) {
                 if (!isAdded()) return;

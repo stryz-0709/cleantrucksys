@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/title_layout"
-            android:layout_margin="@dimen/_8ssp">
+            android:layout_marginTop="@dimen/_5ssp">
 
 
             <TextView
@@ -67,6 +67,24 @@
                     android:layout_centerInParent="true"/>
 
             </RelativeLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:id="@+id/logo"
+                android:layout_above="@id/beta"
+                android:background="@drawable/imae"/>
+
+            <TextView
+                android:layout_width="@dimen/_30sdp"
+                android:id="@+id/beta"
+                android:layout_height="wrap_content"
+                android:text="BETA"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginTop="-5sp"
+                android:textSize="@dimen/_8sdp"
+                android:layout_alignParentBottom="true"/>
 
 
 
@@ -465,9 +483,10 @@
 
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_40sdp"
+                    android:layout_width="@dimen/_38sdp"
                     android:layout_height="wrap_content"
                     android:id="@+id/start_processB2_tab"
+                    android:layout_toEndOf="@id/stop_water_tab"
                     android:layout_marginBottom="@dimen/_8ssp">
 
 
@@ -498,8 +517,8 @@
                         android:id="@+id/start_processB2"
                         android:layout_width="wrap_content"
                         android:layout_below="@id/start_processB2_button"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_centerInParent="true"
-                        android:layout_marginTop="@dimen/_4ssp"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:text="Bật\nQuy trình"
@@ -510,10 +529,10 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_40sdp"
+                    android:layout_width="@dimen/_38sdp"
                     android:layout_height="wrap_content"
                     android:id="@+id/stop_processB2_tab"
-                    android:layout_toEndOf="@id/stop_water_tab"
+                    android:layout_toEndOf="@id/start_processB2_tab"
                     android:layout_marginBottom="@dimen/_8ssp"
                     android:layout_alignParentEnd="true">
 
@@ -543,9 +562,9 @@
                         android:id="@+id/stop_processB2"
                         android:layout_width="wrap_content"
                         android:layout_below="@id/stop_processB2_button"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_centerInParent="true"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_4ssp"
                         android:textAlignment="center"
                         android:text="Dừng\nQuy trình"
                         android:textColor="#000000"
@@ -555,44 +574,42 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_40sdp"
+                    android:layout_width="@dimen/_45sdp"
                     android:layout_height="wrap_content"
                     android:id="@+id/stop_water_tab"
-                    android:layout_toEndOf="@id/start_processB2_tab"
                     android:layout_marginBottom="@dimen/_8ssp">
 
-                    <ToggleButton
-                        android:id="@+id/stop_water_button"
-                        android:layout_width="@dimen/_22ssp"
-                        android:layout_height="@dimen/_22ssp"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/stop_selector"
-                        android:checked="false"
-                        android:textOff="STOP"
-                        android:textOn="STOP"
-                        android:layout_marginTop="@dimen/_5ssp"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_6sdp"
-                        android:textColor="@color/White"
-                        />
 
-                    <ImageView
-                        android:id="@+id/stop_water_gradient"
-                        android:layout_width="@dimen/_32ssp"
+                    <RelativeLayout
+                        android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_32ssp"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/red_gradient"/>
+                        android:id="@+id/water_button_tab"
+                        android:layout_centerHorizontal="true">
 
+                        <com.github.angads25.toggle.widget.LabeledSwitch
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_18sdp"
+                            android:id="@+id/water_button"
+                            android:layout_centerInParent="true"
+                            app:on="false"
+                            app:colorBorder="#F00000"
+                            app:colorOn="#F00000"
+                            app:colorOff="#FFFFFF"
+                            app:textOff="OFF"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_6sdp"
+                            app:textOn="ON"/>
+
+                    </RelativeLayout>
                     <TextView
                         android:id="@+id/stop_water"
                         android:layout_width="wrap_content"
-                        android:layout_below="@id/stop_water_button"
+                        android:layout_below="@id/water_button_tab"
                         android:layout_centerInParent="true"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_4ssp"
                         android:gravity="center"
                         android:textAlignment="center"
-                        android:text="Dừng\nBơm cao áp"
+                        android:text="Bật/Tắt\nBơm cao áp"
                         android:textColor="#000000"
                         android:textSize="@dimen/_5sdp"
                         android:textStyle="bold"/>
@@ -627,200 +644,200 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     android:background="@drawable/process"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve2_glow1"
-                    android:background="@drawable/v2_1"
+                    android:background="@drawable/v2_1a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve2_glow2"
-                    android:background="@drawable/v2_2"
+                    android:background="@drawable/v2_2a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve2_glow3"
-                    android:background="@drawable/v2_3"
+                    android:background="@drawable/v2_3a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve2_glow4"
-                    android:background="@drawable/v2_4"
+                    android:background="@drawable/v2_4a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve3_glow1"
-                    android:background="@drawable/v3_1"
+                    android:background="@drawable/v3_1a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve3_glow2"
-                    android:background="@drawable/v3_2"
+                    android:background="@drawable/v3_2a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve3_glow3"
-                    android:background="@drawable/v3_3"
+                    android:background="@drawable/v3_3a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve3_glow4"
-                    android:background="@drawable/v3_4"
+                    android:background="@drawable/v3_4a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve4_glow1"
-                    android:background="@drawable/v4_1"
+                    android:background="@drawable/v4_1a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve4_glow2"
-                    android:background="@drawable/v4_2"
+                    android:background="@drawable/v4_2a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve4_glow3"
-                    android:background="@drawable/v4_3"
+                    android:background="@drawable/v4_3a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve4_glow4"
-                    android:background="@drawable/v4_4"
+                    android:background="@drawable/v4_4a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve6_glow1"
-                    android:background="@drawable/v6_1"
+                    android:background="@drawable/v6_1a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve6_glow2"
-                    android:background="@drawable/v6_2"
+                    android:background="@drawable/v6_2a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve6_glow3"
-                    android:background="@drawable/v6_3"
+                    android:background="@drawable/v6_3a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve6_glow4"
-                    android:background="@drawable/v6_4"
+                    android:background="@drawable/v6_4a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve8_glow1"
-                    android:background="@drawable/v8_1"
+                    android:background="@drawable/v8_1a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve8_glow2"
-                    android:background="@drawable/v8_2"
+                    android:background="@drawable/v8_2a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve8_glow3"
-                    android:background="@drawable/v8_3"
+                    android:background="@drawable/v8_3a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve8_glow4"
-                    android:background="@drawable/v8_4"
+                    android:background="@drawable/v8_4a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve9_glow1"
-                    android:background="@drawable/v9_1"
+                    android:background="@drawable/v9_1a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve9_glow2"
-                    android:background="@drawable/v9_2"
+                    android:background="@drawable/v9_2a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve9_glow3"
-                    android:background="@drawable/v9_3"
+                    android:background="@drawable/v9_3a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/valve9_glow4"
-                    android:background="@drawable/v9_4"
+                    android:background="@drawable/v9_4a"
                     android:layout_width="@dimen/_360sdp"
-                    android:layout_height="@dimen/_240sdp"
+                    android:layout_height="@dimen/_260sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -829,7 +846,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_24sdp"
-                    android:layout_marginTop="@dimen/_175sdp"
+                    android:layout_marginTop="@dimen/_185sdp"
                     android:background="#fafcf8"
                     android:text="BỒN NGẦM"
                     android:textColor="#000000"
@@ -842,7 +859,7 @@
                     android:layout_width="@dimen/_16ssp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_217sdp"
-                    android:layout_marginTop="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_88sdp"
                     android:background="#fafcf8"
                     android:gravity="center"
                     android:text="BỒN CHỨA NƯỚC SẠCH"
@@ -853,10 +870,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="@dimen/_20ssp"
-                    android:layout_height="@dimen/_20ssp"
-                    android:layout_marginStart="@dimen/_300sdp"
-                    android:layout_marginTop="@dimen/_90sdp"
+                    android:layout_width="@dimen/_19ssp"
+                    android:layout_height="@dimen/_22ssp"
+                    android:layout_marginStart="@dimen/_302sdp"
+                    android:layout_marginTop="@dimen/_99sdp"
                     android:background="#fafcf8"
                     android:gravity="center"
                     android:text="BỒN CHỨA NƯỚC SÚC RỬA"
@@ -878,7 +895,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginStart="@dimen/_128sdp"
-                    android:layout_marginTop="@dimen/_70sdp" />
+                    android:layout_marginTop="@dimen/_77sdp" />
 
                 <TextView
                     android:layout_width="@dimen/_32ssp"
@@ -891,15 +908,15 @@
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="@dimen/_48sdp"
-                    android:layout_marginTop="@dimen/_93sdp" />
+                    android:layout_marginStart="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_102sdp" />
 
 
                 <TextView
                     android:layout_width="@dimen/_40ssp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_75sdp"
-                    android:layout_marginTop="@dimen/_24sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
                     android:background="#fafcf8"
                     android:gravity="center"
                     android:text="BƠM HÚT CHÂN KHÔNG"
@@ -914,7 +931,7 @@
                     android:layout_width="@dimen/_40ssp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_160sdp"
-                    android:layout_marginTop="@dimen/_39sdp"
+                    android:layout_marginTop="@dimen/_42sdp"
                     android:background="#fafcf8"
                     android:gravity="center"
                     android:text="MÁY NÉN KHÍ VÀ BÌNH TÍCH"
@@ -929,7 +946,7 @@
                     android:layout_width="@dimen/_40ssp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_240sdp"
-                    android:layout_marginTop="@dimen/_42sdp"
+                    android:layout_marginTop="@dimen/_45sdp"
                     android:background="#fafcf8"
                     android:gravity="center"
                     android:text="BƠM CAO ÁP"
@@ -945,11 +962,12 @@
                     android:layout_height="@dimen/_15ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_19sdp"
-                    android:layout_marginTop="@dimen/_58sdp"
+                    android:layout_marginTop="@dimen/_63sdp"
                     android:background="@drawable/radio_button"
                     android:checked="false"
                     android:textOff="2"
                     android:textOn="2"
+                    android:textColor="@color/Black"
                     android:textSize="@dimen/_7sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -960,7 +978,7 @@
                     android:layout_height="@dimen/_25ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_14sdp"
-                    android:layout_marginTop="@dimen/_53sdp"
+                    android:layout_marginTop="@dimen/_58sdp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/green_gradient"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -972,11 +990,12 @@
                     android:layout_height="@dimen/_15ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_45sdp"
-                    android:layout_marginTop="@dimen/_58sdp"
+                    android:layout_marginTop="@dimen/_63sdp"
                     android:background="@drawable/radio_button"
                     android:checked="false"
                     android:textOff="3"
                     android:textOn="3"
+                    android:textColor="@color/Black"
                     android:textSize="@dimen/_7sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -987,7 +1006,7 @@
                     android:layout_height="@dimen/_25ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_40sdp"
-                    android:layout_marginTop="@dimen/_53sdp"
+                    android:layout_marginTop="@dimen/_58sdp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/green_gradient"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -999,11 +1018,12 @@
                     android:layout_height="@dimen/_15ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_83sdp"
+                    android:layout_marginTop="@dimen/_90sdp"
                     android:background="@drawable/radio_button"
                     android:checked="false"
                     android:textOff="4"
                     android:textOn="4"
+                    android:textColor="@color/Black"
                     android:textSize="@dimen/_7sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1014,7 +1034,7 @@
                     android:layout_height="@dimen/_25ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_3sdp"
-                    android:layout_marginTop="@dimen/_78sdp"
+                    android:layout_marginTop="@dimen/_85sdp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/green_gradient"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -1025,12 +1045,13 @@
                     android:layout_width="@dimen/_15ssp"
                     android:layout_height="@dimen/_15ssp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_85sdp"
-                    android:layout_marginTop="@dimen/_110sdp"
+                    android:layout_marginStart="@dimen/_87sdp"
+                    android:layout_marginTop="@dimen/_118sdp"
                     android:background="@drawable/radio_button"
                     android:checked="false"
                     android:textOff="6"
                     android:textOn="6"
+                    android:textColor="@color/Black"
                     android:textSize="@dimen/_7sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1040,8 +1061,8 @@
                     android:layout_width="@dimen/_25ssp"
                     android:layout_height="@dimen/_25ssp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_80sdp"
-                    android:layout_marginTop="@dimen/_105sdp"
+                    android:layout_marginStart="@dimen/_82sdp"
+                    android:layout_marginTop="@dimen/_113sdp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/green_gradient"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -1052,12 +1073,13 @@
                     android:layout_width="@dimen/_15ssp"
                     android:layout_height="@dimen/_15ssp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_168sdp"
-                    android:layout_marginTop="@dimen/_110sdp"
+                    android:layout_marginStart="@dimen/_170sdp"
+                    android:layout_marginTop="@dimen/_120sdp"
                     android:background="@drawable/radio_button"
                     android:checked="false"
                     android:textOff="9"
                     android:textOn="9"
+                    android:textColor="@color/Black"
                     android:textSize="@dimen/_7sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1067,8 +1089,8 @@
                     android:layout_width="@dimen/_25ssp"
                     android:layout_height="@dimen/_25ssp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_163sdp"
-                    android:layout_marginTop="@dimen/_105sdp"
+                    android:layout_marginStart="@dimen/_165sdp"
+                    android:layout_marginTop="@dimen/_115sdp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/green_gradient"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -1080,7 +1102,7 @@
                     android:layout_height="@dimen/_15ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_87sdp"
-                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_45sdp"
                     android:background="@drawable/radio_button"
                     android:checked="false"
                     android:textOff=""
@@ -1094,7 +1116,7 @@
                     android:layout_height="@dimen/_25ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_82sdp"
-                    android:layout_marginTop="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_40sdp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/green_gradient"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -1107,7 +1129,7 @@
                     android:layout_height="@dimen/_15ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_220sdp"
-                    android:layout_marginTop="@dimen/_52sdp"
+                    android:layout_marginTop="@dimen/_57sdp"
                     android:background="@drawable/radio_button"
                     android:checked="false"
                     android:textOff=""
@@ -1121,7 +1143,7 @@
                     android:layout_height="@dimen/_25ssp"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_215sdp"
-                    android:layout_marginTop="@dimen/_47sdp"
+                    android:layout_marginTop="@dimen/_52sdp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/green_gradient"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -1132,12 +1154,13 @@
                     android:layout_width="@dimen/_15ssp"
                     android:layout_height="@dimen/_15ssp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_151sdp"
-                    android:layout_marginTop="@dimen/_75sdp"
+                    android:layout_marginStart="@dimen/_153sdp"
+                    android:layout_marginTop="@dimen/_82sdp"
                     android:background="@drawable/radio_button"
                     android:checked="false"
                     android:textOff="8"
                     android:textOn="8"
+                    android:textColor="@color/Black"
                     android:textSize="@dimen/_7sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1147,35 +1170,85 @@
                     android:layout_width="@dimen/_25ssp"
                     android:layout_height="@dimen/_25ssp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_146sdp"
-                    android:layout_marginTop="@dimen/_70sdp"
+                    android:layout_marginStart="@dimen/_148sdp"
+                    android:layout_marginTop="@dimen/_77sdp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/green_gradient"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:id="@+id/logo"
-                android:layout_above="@id/beta"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/imae"/>
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/vacuum_pressure_gauge"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="@dimen/_65sdp"
+                android:layout_above="@id/pressure_text"
+                android:paddingHorizontal="@dimen/_4sdp"
+                app:sv_unit="MPa"
+                app:sv_minSpeed="-0.1"
+                app:sv_maxSpeed="0"
+                app:sv_withTremble="false"
+                app:sv_tickNumber="6"
+                app:sv_marksNumber="4"
+                app:sv_indicatorColor="#F00000"
+                app:sv_tickRotation="false"
+                app:sv_markWidth="@dimen/_2sdp"
+                app:sv_speedTextSize="@dimen/_8sdp"
+                app:sv_centerCircleRadius="@dimen/_3sdp"
+                app:sv_markColor="@color/Black"
+                app:sv_indicatorWidth="@dimen/_2sdp"
+                app:sv_speedometerWidth="@dimen/_5sdp"
+                app:sv_indicator="NormalSmallIndicator"
+                android:layout_toStartOf="@id/water_pressure_gauge" />
 
             <TextView
-                android:layout_width="@dimen/_40sdp"
-                android:id="@+id/beta"
+                android:id="@+id/pressure_text"
+                android:layout_width="@dimen/_65sdp"
                 android:layout_height="wrap_content"
-                android:text="BETA"
+                android:layout_marginTop="-20dp"
+                android:text="Áp suất\n chân không"
+                android:textSize="@dimen/_8sdp"
                 android:textStyle="bold"
-                android:textAlignment="center"
-                android:layout_marginTop="-10sp"
-                android:textSize="@dimen/_12sdp"
+                android:gravity="center"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"/>
+                android:layout_toStartOf="@id/water_pressure_gauge"/>
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/water_pressure_gauge"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="@dimen/_65sdp"
+                android:paddingHorizontal="@dimen/_4sdp"
+                android:layout_above="@id/water_text"
+                app:sv_unit="MPa"
+                app:sv_tickNumber="6"
+                app:sv_marksNumber="4"
+                app:sv_minSpeed="0"
+                app:sv_maxSpeed="5"
+                app:sv_withTremble="false"
+                app:sv_tickRotation="false"
+                app:sv_indicatorColor="#F00000"
+                app:sv_markWidth="@dimen/_2sdp"
+                app:sv_speedTextSize="@dimen/_8sdp"
+                app:sv_centerCircleRadius="@dimen/_3sdp"
+                app:sv_markColor="@color/Black"
+                app:sv_indicatorWidth="@dimen/_2sdp"
+                app:sv_speedometerWidth="@dimen/_5sdp"
+                app:sv_indicator="NormalSmallIndicator"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:id="@+id/water_text"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="Áp suất\n cao áp"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_toStartOf="@id/water_pressure_gauge"/>
 
 
         </RelativeLayout>

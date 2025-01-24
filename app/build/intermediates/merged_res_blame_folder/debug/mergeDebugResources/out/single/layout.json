@@ -8,10 +8,6 @@
         "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/layout/fragment_manual.xml"
     },
     {
-        "merged": "com.aasolution.cleantrucksysbeta.app-mergeDebugResources-64:/layout/fragment_manual.xml",
-        "source": "com.aasolution.cleantrucksysbeta.app-main-67:/layout/fragment_manual.xml"
-    },
-    {
         "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-mergeDebugResources-64:/layout/activity_main.xml",
         "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/layout/activity_main.xml"
     },

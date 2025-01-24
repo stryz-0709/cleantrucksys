@@ -21,8 +21,16 @@ import android.widget.ToggleButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import com.github.anastr.speedviewlib.SpeedView;
+import com.github.angads25.toggle.widget.LabeledSwitch;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import kotlin.jvm.functions.Function2;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -34,12 +42,14 @@ public class ProcessFragment extends Fragment {
     ToggleButton startProcessA1, stopProcessA1,
             startProcessA2, stopProcessA2,
             startProcessB1, stopProcessB1,
-            startProcessB2, stopProcessB2, waterStopButton;
+            startProcessB2, stopProcessB2;
     RelativeLayout homeButton;
     RelativeLayout zoomIn, zoomOut;
     ConstraintLayout constraintLayout;
+    SpeedView vacuumPressure, waterPressure;
     ToggleButton valve2Light, valve3Light, valve4Light, valve6Light, valve8Light,
             valve9Light, vacuumLight, waterLight;
+    LabeledSwitch waterButton;
 
     ImageView valve2Glow1, valve2Glow2, valve2Glow3, valve2Glow4,
             valve3Glow1, valve3Glow2, valve3Glow3, valve3Glow4,
@@ -51,7 +61,7 @@ public class ProcessFragment extends Fragment {
     ImageView startProcessA1Gradient, stopProcessA1Gradient,
             startProcessA2Gradient, stopProcessA2Gradient,
             startProcessB1Gradient, stopProcessB1Gradient,
-            startProcessB2Gradient, stopProcessB2Gradient, stopWaterGradient,
+            startProcessB2Gradient, stopProcessB2Gradient,
             valve2Gradient, valve3Gradient, valve4Gradient,
             valve6Gradient, valve9Gradient, valve8Gradient,
             vacuumGradient, waterGradient;
@@ -64,6 +74,8 @@ public class ProcessFragment extends Fragment {
 
     private Handler handler = new Handler();
     private Runnable dataFetchRunnable;
+
+    private final Map<String, Boolean> buttonStates = new HashMap<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,7 +93,7 @@ public class ProcessFragment extends Fragment {
         stopProcessB1 = mView.findViewById(R.id.stop_processB1_button);
         startProcessB2 = mView.findViewById(R.id.start_processB2_button);
         stopProcessB2 = mView.findViewById(R.id.stop_processB2_button);
-        waterStopButton = mView.findViewById(R.id.stop_water_button);
+        waterButton = mView.findViewById(R.id.water_button);
 
         state = mView.findViewById(R.id.state);
 
@@ -93,7 +105,6 @@ public class ProcessFragment extends Fragment {
         stopProcessB1Gradient = mView.findViewById(R.id.stop_processB1_gradient);
         startProcessB2Gradient = mView.findViewById(R.id.start_processB2_gradient);
         stopProcessB2Gradient = mView.findViewById(R.id.stop_processB2_gradient);
-        stopWaterGradient = mView.findViewById(R.id.stop_water_gradient);
         valve2Gradient = mView.findViewById(R.id.valve2_gradient);
         valve3Gradient = mView.findViewById(R.id.valve3_gradient);
         valve4Gradient = mView.findViewById(R.id.valve4_gradient);
@@ -141,7 +152,6 @@ public class ProcessFragment extends Fragment {
         stopProcessB1Gradient.setVisibility(GONE);
         startProcessB2Gradient.setVisibility(GONE);
         stopProcessB2Gradient.setVisibility(GONE);
-        stopWaterGradient.setVisibility(GONE);
 
         valve2Gradient.setVisibility(GONE);
         valve3Gradient.setVisibility(GONE);
@@ -182,12 +192,33 @@ public class ProcessFragment extends Fragment {
         valve9Glow3.setVisibility(GONE);
         valve9Glow4.setVisibility(GONE);
 
+        vacuumPressure = mView.findViewById(R.id.vacuum_pressure_gauge);
+        waterPressure = mView.findViewById(R.id.water_pressure_gauge);
+
+        vacuumPressure.getSections().get(0).setColor(Color.parseColor("#CCCCCC"));
+        vacuumPressure.getSections().get(1).setColor(Color.parseColor("#CCCCCC"));
+        vacuumPressure.getSections().get(2).setColor(Color.parseColor("#CCCCCC"));
+        vacuumPressure.setOnPrintTickLabel(new Function2<Integer, Float, String>() {
+            @Override
+            public String invoke(Integer tickPosition, Float tick) {
+                return String.format("%.2f", tick);
+            }
+        });
+
+        vacuumPressure.speedTo(0);
+        waterPressure.speedTo(0);
+
+        waterPressure.getSections().get(0).setColor(Color.parseColor("#CCCCCC"));
+        waterPressure.getSections().get(1).setColor(Color.parseColor("#CCCCCC"));
+        waterPressure.getSections().get(2).setColor(Color.parseColor("#CCCCCC"));
+
+
 
         homeButton = mView.findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainActivity.openFragment(new HomeFragment());
+                mainActivity.openFragment(new com.aasolution.cleantrucksysbeta.HomeFragment());
             }
         });
 
@@ -200,7 +231,8 @@ public class ProcessFragment extends Fragment {
         stopProcessB1.setOnClickListener(v -> updateButton(startProcessB1, startProcessB1Gradient, stopProcessB1, stopProcessB1Gradient, "process", 3, null));
         startProcessB2.setOnClickListener(v -> updateButton(startProcessB2, startProcessB2Gradient, stopProcessB2, stopProcessB2Gradient, "process", 4, null));
         stopProcessB2.setOnClickListener(v -> updateButton(startProcessB2, startProcessB2Gradient, stopProcessB2, stopProcessB2Gradient, "process", 4, null));
-        waterStopButton.setOnClickListener(v -> updateButton(waterStopButton, stopWaterGradient, null, null, "water_power", 0, null));
+
+        setupLabeledSwitch(waterButton, "water_power", null, null);
 
         constraintLayout = mView.findViewById(R.id.ConstraintLayout);
 
@@ -226,6 +258,65 @@ public class ProcessFragment extends Fragment {
         startPeriodicDataFetch();
 
         return mView;
+    }
+
+    private void setupLabeledSwitch(LabeledSwitch switchButton, String key1, String key2, String key3) {
+        switchButton.setOnClickListener(v -> {
+            switchButton.setEnabled(false);
+            try {
+                boolean newState = Boolean.FALSE.equals(buttonStates.getOrDefault(key1, false));
+                buttonStates.put(key1, newState); // Save the intended state locally
+
+                // Prepare the JSON data for the server request
+                JSONObject jsonData = new JSONObject();
+
+                if (key2 == null && key3 == null) {
+                    // Single key: Send (1) or (0)
+                    jsonData.put(key1, newState ? 1 : 0);
+                } else if (key2 != null && key3 == null) {
+                    // Two keys: Send (1;0) or (0;1)
+                    jsonData.put(key1, newState ? 1 : 0);
+                    jsonData.put(key2, newState ? 0 : 1);
+                } else if (key2 != null && key3 != null) {
+                    // Three keys: Send (1;0;0) or (0;0;0)
+                    jsonData.put(key1, newState ? 1 : 0);
+                    jsonData.put(key2, 0);
+                    jsonData.put(key3, 0);
+                }
+
+                mainActivity.postOKHTTP(jsonData.toString());
+            } catch (JSONException e) {
+                Log.e("ManualFragment", "Error preparing JSON for keys: " + key1 + ", " + key2 + ", " + key3, e);
+                // Re-enable the switch in case of error
+                switchButton.setEnabled(true);
+            }
+        });
+    }
+
+    private void updateLabeledSwitch(LabeledSwitch switchButton, String key1, String key2, JSONObject jsonObject) {
+        try {
+            if (jsonObject != null) {
+                boolean newState;
+
+                if (key2 == null) {
+                    newState = jsonObject.has(key1) && jsonObject.getInt(key1) == 1;
+                } else {
+                    boolean key1State = jsonObject.has(key1) && jsonObject.getInt(key1) == 1;
+                    boolean key2State = jsonObject.has(key2) && jsonObject.getInt(key2) == 1;
+
+                    newState = key1State && !key2State;
+                }
+                switchButton.setOn(newState);
+                switchButton.setColorOn(Color.parseColor(newState ? "#4CAF50" : "#F00000"));
+
+                buttonStates.put(key1, newState);
+
+                switchButton.setEnabled(true);
+            }
+        } catch (JSONException e) {
+            Log.e("ManualFragment", "Error updating LabeledSwitch state for keys: " + key1 + ", " + key2, e);
+            switchButton.setEnabled(true);
+        }
     }
 
     private void updateButton(ToggleButton startButton, ImageView startGradient, ToggleButton stopButton, ImageView stopGradient, String key, int type, JSONObject jsonObject) {
@@ -341,12 +432,12 @@ public class ProcessFragment extends Fragment {
         public void run() {
             try {
                 // Toggle only activated lights
-                toggleLight(valve2Light, valve2Gradient, valve2Glow1, valve2Glow2, valve2Glow3, valve2Glow4, 0);
-                toggleLight(valve3Light, valve3Gradient, valve3Glow1, valve3Glow2, valve3Glow3, valve3Glow4, 0);
-                toggleLight(valve4Light, valve4Gradient, valve4Glow1, valve4Glow2, valve4Glow3, valve4Glow4, 1);
-                toggleLight(valve6Light, valve6Gradient, valve6Glow1, valve6Glow2, valve6Glow3, valve6Glow4, 1);
+                toggleLight(valve2Light, valve2Gradient, valve2Glow1, valve2Glow2, valve2Glow3, valve2Glow4, 1);
+                toggleLight(valve3Light, valve3Gradient, valve3Glow1, valve3Glow2, valve3Glow3, valve3Glow4, 1);
+                toggleLight(valve4Light, valve4Gradient, valve4Glow1, valve4Glow2, valve4Glow3, valve4Glow4, 0);
+                toggleLight(valve6Light, valve6Gradient, valve6Glow1, valve6Glow2, valve6Glow3, valve6Glow4, 0);
                 toggleLight(valve8Light, valve8Gradient, valve8Glow1, valve8Glow2, valve8Glow3, valve8Glow4, 0);
-                toggleLight(valve9Light, valve9Gradient, valve9Glow1, valve9Glow2, valve9Glow3, valve9Glow4, 1);
+                toggleLight(valve9Light, valve9Gradient, valve9Glow1, valve9Glow2, valve9Glow3, valve9Glow4, 0);
                 toggleLight(vacuumLight, vacuumGradient, null, null, null, null, 0);
                 toggleLight(waterLight, waterGradient, null, null, null, null, 0);
 
@@ -408,7 +499,7 @@ public class ProcessFragment extends Fragment {
 
 
     private void dataFetch() {
-        mainActivity.getOKHTTP(new MainActivity.ResponseCallback() {
+        mainActivity.getOKHTTP(new com.aasolution.cleantrucksysbeta.MainActivity.ResponseCallback() {
             @Override
             public void onResponse(String response) {
                 if (!isAdded()) return;
@@ -422,12 +513,20 @@ public class ProcessFragment extends Fragment {
                         updateButton(startProcessA2, startProcessA2Gradient, stopProcessA2, stopProcessA2Gradient, "process", 2, jsonObject);
                         updateButton(startProcessB1, startProcessB1Gradient, stopProcessB1, stopProcessB1Gradient, "process", 3, jsonObject);
                         updateButton(startProcessB2, startProcessB2Gradient, stopProcessB2, stopProcessB2Gradient, "process", 4, jsonObject);
-                        updateButton(waterStopButton, stopWaterGradient, null, null, "water_power", 0, jsonObject);
+
+
+                        updateLabeledSwitch(waterButton, "water_power", null, jsonObject);
 
                         int process = jsonObject.getInt("process");
 
                         state.setText(process == 1 ? "Quy trình A1 đang diễn ra" : process == 2 ? "Quy trình A2 đang diễn ra" : process == 3 ? "Quy trình B1 đang diễn ra" : process == 4 ? "Quy trình B2 đang diễn ra" : "Không hoạt động");
                         state.setTextColor(process != 0 ? Color.parseColor("#00CC66") : Color.parseColor("#FF0000"));
+
+                        float vacuumPressureValue = (float) jsonObject.getDouble("vacuum_pressure");
+                        float waterPressureValue = (float) jsonObject.getDouble("water_pressure");
+
+                        vacuumPressure.speedTo(vacuumPressureValue);
+                        waterPressure.speedTo(waterPressureValue);
 
                     } catch (JSONException e) {
                         Log.e("ProcessB2", "Error parsing JSON response", e);
