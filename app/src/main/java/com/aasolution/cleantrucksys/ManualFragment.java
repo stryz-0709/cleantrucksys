@@ -16,20 +16,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.github.anastr.speedviewlib.SpeedView;
-import com.github.anastr.speedviewlib.components.note.Note;
 import com.github.angads25.toggle.widget.LabeledSwitch;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 
 public class ManualFragment extends Fragment {
@@ -39,16 +38,20 @@ public class ManualFragment extends Fragment {
     ToggleButton vacuumPower, waterPower, tankPower,
             robotPower, robotForwardButton, robotBackwardButton, robotStopButton;
 
-    SpeedView vacuumPressure, waterPressure;
+    SpeedView vacuumPressure, waterPressure, noPressure;
 
     LabeledSwitch vacuumButton, waterButton, armButton,
             tankInButton, vacuumOutButton, waterOutButton;
 
     ImageView robotPowerGradient, vacuumPowerGradient, waterPowerGradient, tankPowerGradient;
 
+    private final Map<String, Boolean> pendingUpdates = new HashMap<>();
+
     private Handler handler = new Handler();
     private Runnable dataFetchRunnable;
     private final Map<String, Boolean> buttonStates = new HashMap<>();
+    private Handler wifiHandler = new Handler();
+    private Runnable wifiRunnable;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,6 +71,7 @@ public class ManualFragment extends Fragment {
 
         vacuumPressure = mView.findViewById(R.id.vacuum_pressure_gauge);
         waterPressure = mView.findViewById(R.id.water_pressure_gauge);
+        noPressure = mView.findViewById(R.id.no_pressure_gauge);
 
         vacuumPressure.getSections().get(0).setColor(Color.parseColor("#CCCCCC"));
         vacuumPressure.getSections().get(1).setColor(Color.parseColor("#CCCCCC"));
@@ -80,12 +84,23 @@ public class ManualFragment extends Fragment {
             }
         });
 
+        vacuumPressure.setSpeedTextListener(new Function1<Float, String>() {
+            @Override
+            public String invoke(Float speed) {
+                return String.format("%.2f", speed);
+            }
+        });
+
         vacuumPressure.speedTo(0);
         waterPressure.speedTo(0);
 
         waterPressure.getSections().get(0).setColor(Color.parseColor("#CCCCCC"));
         waterPressure.getSections().get(1).setColor(Color.parseColor("#CCCCCC"));
         waterPressure.getSections().get(2).setColor(Color.parseColor("#CCCCCC"));
+
+        noPressure.getSections().get(0).setColor(Color.parseColor("#CCCCCC"));
+        noPressure.getSections().get(1).setColor(Color.parseColor("#CCCCCC"));
+        noPressure.getSections().get(2).setColor(Color.parseColor("#CCCCCC"));
 
         // Initialize buttons
         robotPower = mView.findViewById(R.id.robot_power);
@@ -117,8 +132,8 @@ public class ManualFragment extends Fragment {
 
         robotPower.setEnabled(false);
         vacuumPower.setEnabled(false);
-        robotPower.setEnabled(false);
-        vacuumPower.setEnabled(false);
+        tankPower.setEnabled(false);
+        waterPower.setEnabled(false);
 
 
         Button[] group = {robotForwardButton, robotBackwardButton, robotStopButton};
@@ -155,7 +170,7 @@ public class ManualFragment extends Fragment {
             @Override
             public void run() {
                 dataFetch();
-                handler.postDelayed(this, 1000); // Run every 1 seconds
+                handler.postDelayed(this, 2000); // Run every 2 seconds
             }
         };
         handler.post(dataFetchRunnable);
@@ -178,7 +193,8 @@ public class ManualFragment extends Fragment {
             switchButton.setEnabled(false);
             try {
                 boolean newState = Boolean.FALSE.equals(buttonStates.getOrDefault(key1, false));
-                buttonStates.put(key1, newState); // Save the intended state locally
+                buttonStates.put(key1, newState);
+                pendingUpdates.put(key1, newState);  // Track intent
 
                 // Prepare the JSON data for the server request
                 JSONObject jsonData = new JSONObject();
@@ -198,9 +214,9 @@ public class ManualFragment extends Fragment {
                 }
 
                 mainActivity.postOKHTTP(jsonData.toString());
+
             } catch (JSONException e) {
-                Log.e("ManualFragment", "Error preparing JSON for keys: " + key1 + ", " + key2 + ", " + key3, e);
-                // Re-enable the switch in case of error
+                Log.e("ManualFragment", "Error preparing JSON", e);
                 switchButton.setEnabled(true);
             }
         });
@@ -217,27 +233,42 @@ public class ManualFragment extends Fragment {
                 } else {
                     boolean key1State = jsonObject.has(key1) && jsonObject.getInt(key1) == 1;
                     boolean key2State = jsonObject.has(key2) && jsonObject.getInt(key2) == 1;
-
                     newState = key1State && !key2State;
                 }
+
+                Boolean pending = pendingUpdates.get(key1);
+                if (pending != null && pending == newState) {
+                    // Matched pending request, clear it
+                    pendingUpdates.remove(key1);
+                } else if (pending != null) {
+                    // Ignore outdated or conflicting update
+                    Log.d("ManualFragment", "Ignoring outdated response for " + key1);
+                    return;
+                }
+
                 switchButton.setOn(newState);
                 switchButton.setColorOn(Color.parseColor(newState ? "#4CAF50" : "#F00000"));
-
                 buttonStates.put(key1, newState);
-
                 switchButton.setEnabled(true);
             }
         } catch (JSONException e) {
-            Log.e("ManualFragment", "Error updating LabeledSwitch state for keys: " + key1 + ", " + key2, e);
+            Log.e("ManualFragment", "Error updating state for keys: " + key1 + ", " + key2, e);
             switchButton.setEnabled(true);
         }
     }
-
 
     private void updateButtonLogic(Button clickedButton, Button[] groupButtons, String[] groupKeys, JSONObject jsonObject) {
         try {
             JSONObject jsonData = new JSONObject();
             boolean isStopButton = true;
+            String groupIntentKey = String.join("_", groupKeys);
+
+            if (jsonObject == null) {
+                pendingUpdates.put(groupIntentKey, true);
+            } else if (pendingUpdates.containsKey(groupIntentKey)) {
+                Log.d("ManualFragment", "Ignoring outdated group response for " + groupIntentKey);
+                return;
+            }
 
             for (int i = 0; i < groupButtons.length; i++) {
                 Button groupButton = groupButtons[i];
@@ -295,6 +326,7 @@ public class ManualFragment extends Fragment {
                         Log.d("ManualFragment", "Activated stop button: " + groupKey);
                     }
                 }
+                pendingUpdates.remove(groupIntentKey);
             }
 
             if (jsonObject == null) {
@@ -306,6 +338,7 @@ public class ManualFragment extends Fragment {
                 }
 
                 // Send updated state to the server
+                pendingUpdates.remove(groupIntentKey); // remove after sending
                 mainActivity.postOKHTTP(jsonData.toString());
             }
         } catch (JSONException e) {
@@ -377,5 +410,23 @@ public class ManualFragment extends Fragment {
 //                );
             }
         });
+        // Only declare and post wifiRunnable once
+        if (wifiRunnable == null) {
+            wifiRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    if (!Objects.equals(mainActivity.getWifi(), "HMI2")) {
+                        android.widget.Toast.makeText(requireContext(), "Kết nối bị gián đoạn, vui lòng kiểm tra lại đường truyền", android.widget.Toast.LENGTH_SHORT).show();
+                        if (getParentFragmentManager().getBackStackEntryCount() > 0) {
+                            getParentFragmentManager().popBackStack();  // Pop the current fragment
+                        } else {
+                            requireActivity().onBackPressed();  // Go back in the activity's back stack
+                        }
+                    }
+                    wifiHandler.postDelayed(this, 2000);  // Repeat every 2 seconds
+                }
+            };
+            wifiHandler.post(wifiRunnable);
+        }
     }
 }

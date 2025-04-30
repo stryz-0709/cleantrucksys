@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.aasolution.cleantrucksys.test",
+  "applicationId": "com.aasolution.cleantrucksysbeta.test",
   "variantName": "debugAndroidTest",
   "elements": [
     {

@@ -2,12 +2,13 @@ package com.aasolution.cleantrucksysbeta;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -21,9 +22,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -42,6 +40,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
+
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private final OkHttpClient client = new OkHttpClient.Builder()
             .connectTimeout(60, TimeUnit.SECONDS) // Increase connection timeout
             .readTimeout(60, TimeUnit.SECONDS)    // Increase read timeout
@@ -65,8 +65,12 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+        }
+
         if (savedInstanceState == null)
-            fragmentManager.beginTransaction().add(R.id.fragment_layout, new HomeFragment(), "HomeFragment").commit();
+            fragmentManager.beginTransaction().add(R.id.fragment_layout, new com.aasolution.cleantrucksysbeta.HomeFragment(), "HomeFragment").commit();
     }
 
     @Override
@@ -86,10 +90,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public String getWifi() {
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        String currentSsid = wifiInfo.getSSID();
+        Log.d("Current SSID", currentSsid);
+
+        currentSsid = currentSsid.replace("\"", ""); // Remove quotes
+
+        return currentSsid;
+    }
+
 
     public void postOKHTTP(String status) {
         String url = "http://192.168.1.149/post"; // Ensure the IP matches the ESP32
-//        String url = "http://172.20.10.3/post"; // Ensure the IP matches the ESP32
+//        String url = "http://192.168.8.148/post"; // Ensure the IP matches the ESP32
+//        String url = "http://192.168.8.148/post";
+//        String url = "http://172.20.10.11/post";
+//        String url = "http://192.168.1.15/post";
 
 
         Log.d("HTTP Request", "Payload: " + status);
@@ -126,7 +144,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void getOKHTTP(ResponseCallback callback) {
         String url = "http://192.168.1.149/hmi"; // Replace with your server IP and endpoint
-//        String url = "http://172.20.10.3/hmi"; // Replace with your server IP and endpoint
+//        String url = "http://192.168.8.148/hmi"; // Replace with your server IP and endpoint
+//        String url = "http://172.20.10.11/hmi";
+//        String url = "http://192.168.1.15/hmi";
 
 
         // Build OkHttpClient with timeout settings and HTTP/1.1 support

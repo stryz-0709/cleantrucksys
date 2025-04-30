@@ -117,6 +117,15 @@
                     android:textOff=""
                     android:textOn="" />
 
+                <ImageView
+                    android:id="@+id/tank_power_gradient"
+                    android:layout_width="@dimen/_40ssp"
+                    android:layout_height="@dimen/_40ssp"
+                    android:layout_marginStart="@dimen/_382sdp"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:background="@drawable/green_gradient"/>
+
+
                 <ToggleButton
                     android:id="@+id/tank_power"
                     android:layout_width="@dimen/_20ssp"
@@ -129,13 +138,6 @@
                     android:textOff=""
                     android:textOn="" />
 
-                <ImageView
-                    android:id="@+id/tank_power_gradient"
-                    android:layout_width="@dimen/_40ssp"
-                    android:layout_height="@dimen/_40ssp"
-                    android:layout_marginStart="@dimen/_382sdp"
-                    android:layout_marginTop="@dimen/_35sdp"
-                    android:background="@drawable/green_gradient"/>
 
                 <com.github.angads25.toggle.widget.LabeledSwitch
                     android:layout_width="@dimen/_42sdp"
@@ -256,6 +258,13 @@
                     android:textOn="" />
 
 
+                <ImageView
+                    android:id="@+id/water_power_gradient"
+                    android:layout_width="@dimen/_40ssp"
+                    android:layout_height="@dimen/_40ssp"
+                    android:layout_marginStart="@dimen/_282sdp"
+                    android:layout_marginTop="@dimen/_152sdp"
+                    android:background="@drawable/green_gradient"/>
 
 
                 <ToggleButton
@@ -270,24 +279,13 @@
                     android:textOff=""
                     android:textOn="" />
 
-                <ImageView
-                    android:id="@+id/water_power_gradient"
-                    android:layout_width="@dimen/_40ssp"
-                    android:layout_height="@dimen/_40ssp"
-                    android:layout_marginStart="@dimen/_282sdp"
-                    android:layout_marginTop="@dimen/_152sdp"
-                    android:background="@drawable/green_gradient"/>
-
-
-
-
                 <com.github.anastr.speedviewlib.SpeedView
-                    android:id="@+id/vacuum_pressure_gauge"
+                    android:id="@+id/no_pressure_gauge"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:sv_unit="MPa"
-                    app:sv_minSpeed="-0.1"
-                    app:sv_maxSpeed="0"
+                    app:sv_minSpeed="0"
+                    app:sv_maxSpeed="5"
                     app:sv_withTremble="false"
                     app:sv_tickNumber="6"
                     app:sv_indicatorColor="#F00000"
@@ -295,6 +293,7 @@
                     app:sv_markWidth="@dimen/_2sdp"
                     app:sv_tickRotation="false"
                     app:sv_speedTextSize="@dimen/_10sdp"
+                    app:sv_speedTextFormat="FLOAT"
                     app:sv_centerCircleRadius="@dimen/_4sdp"
                     app:sv_textSize="@dimen/_6sdp"
                     app:sv_markColor="@color/Black"
@@ -302,7 +301,9 @@
                     app:sv_speedometerWidth="@dimen/_8sdp"
                     app:sv_indicator="NormalSmallIndicator"
                     android:layout_marginStart="@dimen/_142sdp"
-                    android:layout_marginTop="@dimen/_53sdp" />
+                    android:layout_marginTop="@dimen/_63sdp" />
+
+
 
                 <com.github.anastr.speedviewlib.SpeedView
                     android:id="@+id/water_pressure_gauge"
@@ -312,11 +313,12 @@
                     app:sv_unit="MPa"
                     app:sv_tickNumber="6"
                     app:sv_minSpeed="0"
-                    app:sv_maxSpeed="5"
+                    app:sv_maxSpeed="25"
                     app:sv_withTremble="false"
                     app:sv_tickRotation="false"
                     app:sv_indicatorColor="#F00000"
                     app:sv_marksNumber="4"
+                    app:sv_speedTextFormat="FLOAT"
                     app:sv_markWidth="@dimen/_2sdp"
                     app:sv_textSize="@dimen/_6sdp"
                     app:sv_speedTextSize="@dimen/_10sdp"
@@ -325,7 +327,31 @@
                     app:sv_indicatorWidth="@dimen/_4sdp"
                     app:sv_speedometerWidth="@dimen/_8sdp"
                     app:sv_indicator="NormalSmallIndicator"
-                    android:layout_marginTop="@dimen/_53sdp" />
+                    android:layout_marginTop="@dimen/_63sdp" />
+
+                <com.github.anastr.speedviewlib.SpeedView
+                    android:id="@+id/vacuum_pressure_gauge"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    app:sv_unit="MPa"
+                    app:sv_minSpeed="-1"
+                    app:sv_maxSpeed="5"
+                    app:sv_withTremble="false"
+                    app:sv_tickNumber="7"
+                    app:sv_indicatorColor="#F00000"
+                    app:sv_marksNumber="5"
+                    app:sv_markWidth="@dimen/_2sdp"
+                    app:sv_tickRotation="false"
+                    app:sv_speedTextSize="@dimen/_10sdp"
+                    app:sv_speedTextFormat="FLOAT"
+                    app:sv_centerCircleRadius="@dimen/_4sdp"
+                    app:sv_textSize="@dimen/_6sdp"
+                    app:sv_markColor="@color/Black"
+                    app:sv_indicatorWidth="@dimen/_4sdp"
+                    app:sv_speedometerWidth="@dimen/_8sdp"
+                    app:sv_indicator="NormalSmallIndicator"
+                    android:layout_marginStart="@dimen/_338sdp"
+                    android:layout_marginTop="@dimen/_83sdp" />
 
 
 
@@ -338,16 +364,6 @@
             android:layout_height="@dimen/_40sdp"
             android:id="@+id/logo"
             android:background="@drawable/imae"/>
-
-        <TextView
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/logo"
-            android:text="BETA"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:layout_marginTop="-10sp"
-            android:textSize="@dimen/_12sdp"/>
 
         <RelativeLayout
             android:id="@+id/homeButton"

@@ -60,16 +60,16 @@
         "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/radio_button.xml"
     },
     {
-        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_stop.png.flat",
-        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/stop.png"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_v9_1a.png.flat",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/v9_1a.png"
     },
     {
         "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_minus.xml.flat",
         "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/minus.xml"
     },
     {
-        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_v9_1a.png.flat",
-        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/v9_1a.png"
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_stop.png.flat",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/stop.png"
     },
     {
         "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
@@ -140,16 +140,20 @@
         "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/up_button.xml"
     },
     {
-        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_v9_2.png.flat",
-        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/v9_2.png"
-    },
-    {
         "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_red_gradient.xml.flat",
         "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/red_gradient.xml"
     },
     {
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_v9_2.png.flat",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/v9_2.png"
+    },
+    {
         "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_ic_launcher_background.xml.flat",
         "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_insert_field.xml.flat",
+        "source": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-main-67:/drawable/insert_field.xml"
     },
     {
         "merged": "/Users/macbook/.gradle/daemon/8.4/com.aasolution.cleantrucksysbeta.app-debug-65:/drawable_v4_4a.png.flat",

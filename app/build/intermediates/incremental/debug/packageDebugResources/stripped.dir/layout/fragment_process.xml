@@ -47,6 +47,7 @@
             android:layout_width="@dimen/_120sdp"
             android:layout_alignParentEnd="true"
             android:id="@+id/buttonTab"
+            android:layout_centerInParent="true"
             android:layout_height="match_parent">
 
 
@@ -72,21 +73,8 @@
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:id="@+id/logo"
-                android:layout_above="@id/beta"
-                android:background="@drawable/imae"/>
-
-            <TextView
-                android:layout_width="@dimen/_30sdp"
-                android:id="@+id/beta"
-                android:layout_height="wrap_content"
-                android:text="BETA"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:layout_marginTop="-5sp"
-                android:textSize="@dimen/_8sdp"
+                android:background="@drawable/imae"
                 android:layout_alignParentBottom="true"/>
-
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -101,7 +89,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_4ssp"
                     android:gravity="center"
-                    android:text="Quy trình A1: Hút dầu"
+                    android:text="Quy trình: Tráng bồn"
                     android:textColor="#000000"
                     android:textSize="@dimen/_7sdp"
                     android:textStyle="bold" />
@@ -110,90 +98,163 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/processA1_title"
+                    android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_centerInParent="true">
 
                     <RelativeLayout
-                        android:layout_width="@dimen/_40sdp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/start_processA1_tab"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginEnd="@dimen/_10sdp">
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/phun_a_tab">
+
+                        <TextView
+                            android:id="@+id/phun_a_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Phun"
+                            android:textAlignment="center"
+                            android:layout_centerVertical="true"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/phun_a_value"
+                            android:imeOptions="actionDone"
+                            android:layout_toEndOf="@id/phun_a_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_marginStart="@dimen/_2ssp"
+                            android:inputType="number"
+                            android:hint="Nhập số"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="@dimen/_6sdp"
+                            android:background="@drawable/insert_field"
+                            android:layout_marginBottom="@dimen/_2ssp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/phun_a_tab"
+                        android:id="@+id/hut_a_tab">
+
+                        <TextView
+                            android:id="@+id/hut_a_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Hút"
+                            android:layout_centerVertical="true"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/hut_a_value"
+                            android:imeOptions="actionDone"
+                            android:layout_toEndOf="@id/hut_a_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_marginStart="@dimen/_2ssp"
+                            android:inputType="number"
+                            android:hint="Nhập số"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="@dimen/_6sdp"
+                            android:background="@drawable/insert_field"
+                            android:layout_marginBottom="@dimen/_2ssp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/hut_a_tab"
+                        android:id="@+id/so_lan_a_tab">
+
+                        <TextView
+                            android:id="@+id/so_lan_a_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Số lần"
+                            android:layout_centerVertical="true"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/so_lan_a_value"
+                            android:imeOptions="actionDone"
+                            android:layout_toEndOf="@id/so_lan_a_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_marginStart="@dimen/_2ssp"
+                            android:inputType="number"
+                            android:hint="Nhập số"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="@dimen/_6sdp"
+                            android:background="@drawable/insert_field"
+                            android:layout_marginBottom="@dimen/_2ssp"/>
+                    </RelativeLayout>
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_below="@id/so_lan_a_tab"
+                        android:id="@+id/start_processA1_tab">
+
+                        <TextView
+                            android:id="@+id/start_processA1_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Bật quy trình"
+                            android:layout_centerVertical="true"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"/>
 
                         <ToggleButton
                             android:id="@+id/start_processA1_button"
+                            android:layout_toEndOf="@id/start_processA1_text"
+                            android:layout_marginStart="@dimen/_7ssp"
                             android:layout_width="@dimen/_22ssp"
                             android:layout_height="@dimen/_22ssp"
                             android:layout_marginTop="@dimen/_5ssp"
                             android:background="@drawable/start_selector"
-                            android:layout_centerHorizontal="true"
                             android:checked="false"
                             android:textOff="START"
                             android:textOn="START"
                             android:textStyle="bold"
                             android:textSize="@dimen/_6sdp"
-                            android:textColor="@color/White" />
+                            android:textColor="@color/White"
+                            />
+
+
 
                         <ImageView
                             android:id="@+id/start_processA1_gradient"
+                            android:layout_toEndOf="@id/start_processA1_text"
+                            android:layout_marginStart="@dimen/_2ssp"
                             android:layout_width="@dimen/_32ssp"
                             android:layout_height="@dimen/_32ssp"
                             android:layout_centerHorizontal="true"
-                            android:background="@drawable/green_gradient" />
+                            android:background="@drawable/green_gradient"/>
 
-                        <TextView
-                            android:id="@+id/start_process"
-                            android:layout_width="wrap_content"
-                            android:layout_below="@id/start_processA1_button"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/_4ssp"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            android:text="Bật\nQuy trình"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/_5sdp"
-                            android:textStyle="bold" />
+
                     </RelativeLayout>
 
-                    <RelativeLayout
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/stop_processA1_tab"
-                        android:layout_toEndOf="@id/start_processA1_tab">
 
-                        <ToggleButton
-                            android:id="@+id/stop_processA1_button"
-                            android:layout_width="@dimen/_22ssp"
-                            android:layout_height="@dimen/_22ssp"
-                            android:background="@drawable/stop_selector"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/_5ssp"
-                            android:checked="false"
-                            android:textOff="STOP"
-                            android:textOn="STOP"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/_6sdp"
-                            android:textColor="@color/White" />
 
-                        <ImageView
-                            android:id="@+id/stop_processA1_gradient"
-                            android:layout_width="@dimen/_32ssp"
-                            android:layout_height="@dimen/_32ssp"
-                            android:layout_centerHorizontal="true"
-                            android:background="@drawable/red_gradient" />
-
-                        <TextView
-                            android:id="@+id/stop_process"
-                            android:layout_width="wrap_content"
-                            android:layout_below="@id/stop_processA1_button"
-                            android:layout_centerHorizontal="true"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_4ssp"
-                            android:textAlignment="center"
-                            android:text="Dừng\nQuy trình"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/_5sdp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
                 </RelativeLayout>
             </RelativeLayout>
 
@@ -202,136 +263,23 @@
                 android:layout_height="match_parent"
                 android:background="#000000" />
 
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="@dimen/_2sdp"
                 android:layout_below="@id/processA1_tab"
-                android:id="@+id/first_line"
+                android:id="@+id/second_line"
                 android:background="#000000" />
-
-            <RelativeLayout
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_below="@id/first_line"
-                android:layout_gravity="center"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/processA2_tab">
-
-                <TextView
-                    android:id="@+id/processA2_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:text="Quy trình A2: Đẩy dầu qua ngăn trung gian"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/_7sdp"
-                    android:textStyle="bold"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/processA2_title"
-                    android:layout_centerInParent="true">
-
-                    <RelativeLayout
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/start_processA2_tab"
-                        android:layout_marginEnd="@dimen/_10sdp">
-
-
-                        <ToggleButton
-                            android:id="@+id/start_processA2_button"
-                            android:layout_width="@dimen/_22ssp"
-                            android:layout_height="@dimen/_22ssp"
-                            android:layout_marginTop="@dimen/_5ssp"
-                            android:background="@drawable/start_selector"
-                            android:layout_centerHorizontal="true"
-                            android:checked="false"
-                            android:textOff="START"
-                            android:textOn="START"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/_6sdp"
-                            android:textColor="@color/White"
-                            />
-
-                        <ImageView
-                            android:id="@+id/start_processA2_gradient"
-                            android:layout_width="@dimen/_32ssp"
-                            android:layout_height="@dimen/_32ssp"
-                            android:layout_centerHorizontal="true"
-                            android:background="@drawable/green_gradient"/>
-
-                        <TextView
-                            android:id="@+id/start_processA2"
-                            android:layout_width="wrap_content"
-                            android:layout_below="@id/start_processA2_button"
-                            android:layout_centerInParent="true"
-                            android:layout_marginTop="@dimen/_4ssp"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            android:text="Bật\nQuy trình"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/_5sdp"
-                            android:textStyle="bold"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/stop_processA2_tab"
-                        android:layout_toEndOf="@id/start_processA2_tab">
-
-                        <ToggleButton
-                            android:id="@+id/stop_processA2_button"
-                            android:layout_width="@dimen/_22ssp"
-                            android:layout_height="@dimen/_22ssp"
-                            android:background="@drawable/stop_selector"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/_5ssp"
-                            android:checked="false"
-                            android:textOff="STOP"
-                            android:textOn="STOP"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/_6sdp"
-                            android:textColor="@color/White"
-                            />
-
-                        <ImageView
-                            android:id="@+id/stop_processA2_gradient"
-                            android:layout_width="@dimen/_32ssp"
-                            android:layout_height="@dimen/_32ssp"
-                            android:layout_centerHorizontal="true"
-                            android:background="@drawable/red_gradient"/>
-
-                        <TextView
-                            android:id="@+id/stop_processA2"
-                            android:layout_width="wrap_content"
-                            android:layout_below="@id/stop_processA2_button"
-                            android:layout_centerInParent="true"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_4ssp"
-                            android:textAlignment="center"
-                            android:text="Dừng\nQuy trình"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/_5sdp"
-                            android:textStyle="bold"/>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="@dimen/_2sdp"
-                android:layout_below="@id/processA2_tab"
-                android:id="@+id/second_line"
+                android:layout_below="@id/processB1_tab"
+                android:id="@+id/third_line"
                 android:background="#000000" />
+
 
             <RelativeLayout
                 android:layout_height="wrap_content"
@@ -346,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:gravity="center"
-                    android:text="Quy trình B1: Phun nước áp lực"
+                    android:text="Quy trình: Rửa bồn"
                     android:textColor="#000000"
                     android:textSize="@dimen/_7sdp"
                     android:textStyle="bold"/>
@@ -355,22 +303,139 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/processB1_title"
+                    android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_centerInParent="true">
 
                     <RelativeLayout
-                        android:layout_width="@dimen/_40sdp"
                         android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/phun_b_tab">
+
+                        <TextView
+                            android:id="@+id/phun_b_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Phun"
+                            android:textAlignment="center"
+                            android:layout_centerVertical="true"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/phun_b_value"
+                            android:imeOptions="actionDone"
+                            android:layout_toEndOf="@id/phun_b_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_marginStart="@dimen/_2ssp"
+                            android:inputType="number"
+                            android:hint="Nhập số"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="@dimen/_6sdp"
+                            android:background="@drawable/insert_field"
+                            android:layout_marginBottom="@dimen/_2ssp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/phun_b_tab"
+                        android:id="@+id/hut_b_tab">
+
+                        <TextView
+                            android:id="@+id/hut_b_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Hút"
+                            android:layout_centerVertical="true"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/hut_b_value"
+                            android:imeOptions="actionDone"
+                            android:layout_toEndOf="@id/hut_b_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_marginStart="@dimen/_2ssp"
+                            android:inputType="number"
+                            android:hint="Nhập số"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="@dimen/_6sdp"
+                            android:background="@drawable/insert_field"
+                            android:layout_marginBottom="@dimen/_2ssp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/hut_b_tab"
+                        android:id="@+id/so_lan_b_tab">
+
+                        <TextView
+                            android:id="@+id/so_lan_b_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Số lần"
+                            android:layout_centerVertical="true"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/so_lan_b_value"
+                            android:imeOptions="actionDone"
+                            android:layout_toEndOf="@id/so_lan_b_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_marginStart="@dimen/_2ssp"
+                            android:inputType="number"
+                            android:hint="Nhập số"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="@dimen/_6sdp"
+                            android:background="@drawable/insert_field"
+                            android:layout_marginBottom="@dimen/_2ssp"/>
+                    </RelativeLayout>
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_below="@id/so_lan_b_tab"
                         android:id="@+id/start_processB1_tab">
 
+                        <TextView
+                            android:id="@+id/start_processB1_text"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Bật quy trình"
+                            android:layout_centerVertical="true"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"/>
 
                         <ToggleButton
                             android:id="@+id/start_processB1_button"
+                            android:layout_toEndOf="@id/start_processB1_text"
+                            android:layout_marginStart="@dimen/_7ssp"
                             android:layout_width="@dimen/_22ssp"
                             android:layout_height="@dimen/_22ssp"
                             android:layout_marginTop="@dimen/_5ssp"
                             android:background="@drawable/start_selector"
-                            android:layout_centerHorizontal="true"
                             android:checked="false"
                             android:textOff="START"
                             android:textOn="START"
@@ -379,165 +444,41 @@
                             android:textColor="@color/White"
                             />
 
+                        
+
                         <ImageView
                             android:id="@+id/start_processB1_gradient"
+                            android:layout_toEndOf="@id/start_processB1_text"
+                            android:layout_marginStart="@dimen/_2ssp"
                             android:layout_width="@dimen/_32ssp"
                             android:layout_height="@dimen/_32ssp"
                             android:layout_centerHorizontal="true"
                             android:background="@drawable/green_gradient"/>
 
-                        <TextView
-                            android:id="@+id/start_processB1"
-                            android:layout_width="wrap_content"
-                            android:layout_below="@id/start_processB1_button"
-                            android:layout_centerInParent="true"
-                            android:layout_marginTop="@dimen/_4ssp"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            android:text="Bật\nQuy trình"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/_5sdp"
-                            android:textStyle="bold"/>
 
                     </RelativeLayout>
 
-                    <RelativeLayout
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/stop_processB1_tab"
-                        android:layout_toEndOf="@id/start_processB1_tab">
 
-                        <ToggleButton
-                            android:id="@+id/stop_processB1_button"
-                            android:layout_width="@dimen/_22ssp"
-                            android:layout_height="@dimen/_22ssp"
-                            android:background="@drawable/stop_selector"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/_5ssp"
-                            android:checked="false"
-                            android:textOff="STOP"
-                            android:textOn="STOP"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/_6sdp"
-                            android:textColor="@color/White"
-                            />
-
-                        <ImageView
-                            android:id="@+id/stop_processB1_gradient"
-                            android:layout_width="@dimen/_32ssp"
-                            android:layout_height="@dimen/_32ssp"
-                            android:layout_centerHorizontal="true"
-                            android:background="@drawable/red_gradient"/>
-
-                        <TextView
-                            android:id="@+id/stop_processB1"
-                            android:layout_width="wrap_content"
-                            android:layout_below="@id/stop_processB1_button"
-                            android:layout_centerInParent="true"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_4ssp"
-                            android:textAlignment="center"
-                            android:text="Dừng\nQuy trình"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/_5sdp"
-                            android:textStyle="bold"/>
-
-                    </RelativeLayout>
 
                 </RelativeLayout>
 
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="@dimen/_2sdp"
-                android:layout_below="@id/processB1_tab"
-                android:id="@+id/third_line"
-                android:background="#000000" />
 
             <RelativeLayout
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_below="@id/third_line"
+                android:id="@+id/button_tab"
                 android:layout_centerHorizontal="true"
-                android:id="@+id/processB2_tab">
-
-
-                <TextView
-                    android:id="@+id/processB2_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:text="Quy trình B2: Đẩy nước súc rửa vào bồn chứa"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/_7sdp"
-                    android:textStyle="bold"/>
+                android:layout_below="@id/third_line">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_36sdp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/processB2_title"
-                    android:layout_centerInParent="true">
-
-
-                <RelativeLayout
-                    android:layout_width="@dimen/_38sdp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/start_processB2_tab"
-                    android:layout_toEndOf="@id/stop_water_tab"
-                    android:layout_marginBottom="@dimen/_8ssp">
-
-
+                    android:id="@+id/stop_process_tab">
 
                     <ToggleButton
-                        android:id="@+id/start_processB2_button"
-                        android:layout_width="@dimen/_22ssp"
-                        android:layout_height="@dimen/_22ssp"
-                        android:layout_marginTop="@dimen/_5ssp"
-                        android:background="@drawable/start_selector"
-                        android:layout_centerHorizontal="true"
-                        android:checked="false"
-                        android:textOff="START"
-                        android:textOn="START"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_6sdp"
-                        android:textColor="@color/White"
-                        />
-
-                    <ImageView
-                        android:id="@+id/start_processB2_gradient"
-                        android:layout_width="@dimen/_32ssp"
-                        android:layout_height="@dimen/_32ssp"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/green_gradient"/>
-
-                    <TextView
-                        android:id="@+id/start_processB2"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@id/start_processB2_button"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_centerInParent="true"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="Bật\nQuy trình"
-                        android:textColor="#000000"
-                        android:textSize="@dimen/_5sdp"
-                        android:textStyle="bold"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="@dimen/_38sdp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/stop_processB2_tab"
-                    android:layout_toEndOf="@id/start_processB2_tab"
-                    android:layout_marginBottom="@dimen/_8ssp"
-                    android:layout_alignParentEnd="true">
-
-                    <ToggleButton
-                        android:id="@+id/stop_processB2_button"
+                        android:id="@+id/stop_process_button"
                         android:layout_width="@dimen/_22ssp"
                         android:layout_height="@dimen/_22ssp"
                         android:background="@drawable/stop_selector"
@@ -548,28 +489,30 @@
                         android:textOn="STOP"
                         android:textStyle="bold"
                         android:textSize="@dimen/_6sdp"
-                        android:textColor="@color/White"
-                        />
+                        android:textColor="@color/White" />
+
+
+                    <TextView
+                        android:id="@+id/stop_process_text"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@id/stop_process_button"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:text="Dừng khẩn"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_6sdp"
+                        android:textStyle="bold"/>
 
                     <ImageView
-                        android:id="@+id/stop_processB2_gradient"
+                        android:id="@+id/stop_process_gradient"
                         android:layout_width="@dimen/_32ssp"
                         android:layout_height="@dimen/_32ssp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/red_gradient"/>
+                        android:background="@drawable/red_gradient" />
 
-                    <TextView
-                        android:id="@+id/stop_processB2"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@id/stop_processB2_button"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_centerInParent="true"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="Dừng\nQuy trình"
-                        android:textColor="#000000"
-                        android:textSize="@dimen/_5sdp"
-                        android:textStyle="bold"/>
 
                 </RelativeLayout>
 
@@ -577,13 +520,14 @@
                     android:layout_width="@dimen/_45sdp"
                     android:layout_height="wrap_content"
                     android:id="@+id/stop_water_tab"
-                    android:layout_marginBottom="@dimen/_8ssp">
+                    android:layout_toEndOf="@id/arm_tab">
 
 
                     <RelativeLayout
                         android:layout_width="@dimen/_40sdp"
-                        android:layout_height="@dimen/_32ssp"
+                        android:layout_height="@dimen/_22ssp"
                         android:id="@+id/water_button_tab"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_centerHorizontal="true">
 
                         <com.github.angads25.toggle.widget.LabeledSwitch
@@ -611,14 +555,61 @@
                         android:textAlignment="center"
                         android:text="Bật/Tắt\nBơm cao áp"
                         android:textColor="#000000"
-                        android:textSize="@dimen/_5sdp"
+                        android:textSize="@dimen/_6sdp"
                         android:textStyle="bold"/>
 
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/stop_process_tab"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:id="@+id/arm_tab">
+
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_22ssp"
+                        android:id="@+id/arm_button_tab"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_centerHorizontal="true">
+
+                        <com.github.angads25.toggle.widget.LabeledSwitch
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_18sdp"
+                            android:id="@+id/arm_button"
+                            android:layout_centerInParent="true"
+                            app:on="false"
+                            app:colorBorder="#F00000"
+                            app:colorOn="#F00000"
+                            app:colorOff="#FFFFFF"
+                            app:textOff="OFF"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_6sdp"
+                            app:textOn="ON"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/arm_text"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@id/arm_button_tab"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:text="Nâng/Hạ\nCần phun"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_6sdp"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+
+
             </RelativeLayout>
 
-        </RelativeLayout>
 
 
 
@@ -1186,8 +1177,8 @@
                 android:layout_above="@id/pressure_text"
                 android:paddingHorizontal="@dimen/_4sdp"
                 app:sv_unit="MPa"
-                app:sv_minSpeed="-0.1"
-                app:sv_maxSpeed="0"
+                app:sv_minSpeed="-1"
+                app:sv_maxSpeed="5"
                 app:sv_withTremble="false"
                 app:sv_tickNumber="6"
                 app:sv_marksNumber="4"
@@ -1224,7 +1215,7 @@
                 app:sv_tickNumber="6"
                 app:sv_marksNumber="4"
                 app:sv_minSpeed="0"
-                app:sv_maxSpeed="5"
+                app:sv_maxSpeed="25"
                 app:sv_withTremble="false"
                 app:sv_tickRotation="false"
                 app:sv_indicatorColor="#F00000"
